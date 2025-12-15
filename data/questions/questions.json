@@ -1,0 +1,77 @@
+[
+  {
+    "module": "M1",
+    "course": "MAT1610",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 1,
+        "title": "Pregunta N°1",
+        "code": "MAT1610-4-1 (24-2)",
+        "content": "Sea la función\n\n$$f(x) = \\frac{x}{2 + x^2}$$\n\n¿Cuánto vale su derivada evaluada en $\\sqrt{2}$, es decir, $f'(\\sqrt{2})$?",
+        "options": [
+          { "label": "a", "text": "$0$" },
+          { "label": "b", "text": "$\\dfrac{1}{2\\sqrt{2}}$" },
+          { "label": "c", "text": "$\\dfrac{1}{\\sqrt{2}}$" },
+          { "label": "d", "text": "$\\dfrac{1}{4}$" }
+        ],
+        "answer": "a",
+        "solution": "Usando la regla del cociente:\n\n$$f'(x) = \\frac{(2 + x^2) \\cdot 1 - x \\cdot 2x}{(2 + x^2)^2} = \\frac{2 + x^2 - 2x^2}{(2 + x^2)^2} = \\frac{2 - x^2}{(2 + x^2)^2}$$\n\nEvaluando en $x = \\sqrt{2}$:\n\n$$f'(\\sqrt{2}) = \\frac{2 - (\\sqrt{2})^2}{(2 + (\\sqrt{2})^2)^2} = \\frac{2 - 2}{(2 + 2)^2} = \\frac{0}{16} = 0$$"
+      }
+    ]
+  },
+  {
+    "module": "M1",
+    "course": "MAT1620",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 1,
+        "title": "Pregunta N°1",
+        "code": "MAT1620-3-1 (24-2)",
+        "content": "Considere la región dada por:\n\n$$-1 + |x| \u2264 y \u2264 1 - x^2$$\n\n¿Cuál es el área de la región descrita?",
+        "options": [
+          { "label": "a", "text": "$\\dfrac{7}{6}$" },
+          { "label": "b", "text": "$\\dfrac{7}{3}$" },
+          { "label": "c", "text": "$\\dfrac{17}{6}$" },
+          { "label": "d", "text": "$\\dfrac{17}{3}$" }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Pregunta N°3",
+        "code": "MAT1620-5-3 (24-2)",
+        "content": "¿Para qué valores de $p \\in \\mathbb{R}$, la integral impropia\n\n$$\\int_{0}^{\\infty} x^{-p}\\,dx$$\n\n**CONVERGE**?",
+        "options": [
+          { "label": "a", "text": "$p < 1$" },
+          { "label": "b", "text": "$p > 0$" },
+          { "label": "c", "text": "$p > 1$" },
+          { "label": "d", "text": "La integral diverge para todo $p \\in \\mathbb{R}$." }
+        ]
+      }
+    ]
+  },
+  {
+    "module": "M1",
+    "course": "MAT1630",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 4,
+        "title": "Pregunta N°4",
+        "code": "MAT1630-5-2 (24-2)",
+        "content": "Sea la función\n\n$$g(x,y) = x + \\cos y.$$\n\n¿Cuál de los siguientes gráficos representa curvas de nivel de $g$?\n\nConsidere que el eje horizontal corresponde al valor de la variable $x$, y el eje vertical al de la variable $y$.",
+        "image": "/img/MAT1630-5-2 (24-2).png",
+        "options": [
+          { "label": "a", "text": "A" },
+          { "label": "b", "text": "B" },
+          { "label": "c", "text": "C" },
+          { "label": "d", "text": "D" }
+        ]
+      }
+    ]
+  }
+]

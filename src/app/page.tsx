@@ -20,7 +20,7 @@ const features = [
     icon: BookOpen,
     title: "Problemas Tipo",
     description: "Ejercicios representativos de cada materia con soluciones detalladas en formato LaTeX/Markdown.",
-    href: "/problemas",
+    href: "/questions",
     color: "text-blue-600 dark:text-blue-400",
     bgColor: "bg-blue-100 dark:bg-blue-900/30",
   },

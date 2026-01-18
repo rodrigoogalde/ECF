@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 import { MathRenderer } from "@/components/MathRenderer";
-import { getQuestionSets, getAvailableFilters } from "@/lib/questions";
+import { getQuestionSets, getAvailableFilters } from "@/lib/interfaces/questions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -102,7 +102,7 @@ function QuestionCard({
 function QuestionsContent() {
   const searchParams = useSearchParams();
   const filters = {
-    module: searchParams.get("module") || undefined,
+    section: searchParams.get("section") || undefined,
     course: searchParams.get("course") || undefined,
     type: searchParams.get("type") || undefined,
     period: searchParams.get("period") || undefined,
@@ -121,7 +121,7 @@ function QuestionsContent() {
       {hasFilters && (
         <div className="mb-6 flex flex-wrap gap-2 items-center">
           <span className="text-sm text-muted-foreground">Filtros:</span>
-          {filters.module && <Badge>Módulo: {filters.module}</Badge>}
+          {filters.section && <Badge>Módulo: {filters.section}</Badge>}
           {filters.course && <Badge>Curso: {filters.course}</Badge>}
           {filters.type && <Badge>Tipo: {filters.type}</Badge>}
           {filters.period && <Badge>Período: {filters.period}</Badge>}
@@ -143,19 +143,19 @@ function QuestionsContent() {
             </label>
             <select
               className="w-full p-2 rounded border bg-background"
-              value={filters.module || ""}
+              value={filters.section || ""}
               onChange={(e) => {
                 const params = new URLSearchParams(searchParams.toString());
                 if (e.target.value) {
-                  params.set("module", e.target.value);
+                  params.set("section", e.target.value);
                 } else {
-                  params.delete("module");
+                  params.delete("section");
                 }
                 window.location.href = `${ROUTES.ADMIN.QUESTIONS.LIST}?${params.toString()}`;
               }}
             >
               <option value="">Todos</option>
-              {availableFilters.modules.map((m) => (
+              {availableFilters.sections.map((m) => (
                 <option key={m} value={m}>
                   {m}
                 </option>
@@ -247,7 +247,7 @@ function QuestionsContent() {
         </div>
       ) : (
         questionSets.map((set) => (
-          <div key={`${set.module}-${set.course}-${set.type}-${set.period}`}>
+          <div key={`${set.section}-${set.course}-${set.type}-${set.period}`}>
             <h2 className="text-xl font-semibold mb-4">
               {set.course} - {set.type} ({set.period})
             </h2>

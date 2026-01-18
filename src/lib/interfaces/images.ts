@@ -19,7 +19,7 @@ export interface ListImagesProps {
 export type ImageType = 'question' | 'option' | 'solution';
 
 export interface BuildImagePathParams {
-  moduleCode: string;
+  sectionCode: string;
   courseCode: string;
   questionCode: string;
   type: ImageType;

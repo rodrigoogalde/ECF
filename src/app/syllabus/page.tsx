@@ -1,29 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, ChevronRight, Layers3, ListChecks } from "lucide-react";
-import syllabus from "../../../data/syllabus.json";
 import { Navbar } from "@/components/Navbar";
+import { getAllSections } from "../actions/routes/section";
 
-
-interface IndicadorCurso {
-  topic: string;
-  course: string;
-  contents: string[];
-  indicators: string[];
-}
-
-interface Modulo {
-  name: string;
-  courses: IndicadorCurso[];
-}
-
-interface SyllabusData {
-  modules: Modulo[];
-}
-
-const data = syllabus as SyllabusData;
-
-export default function SyllabusPage() {
+export default async function SyllabusPage() {
+  const sections = await getAllSections();
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
       <Navbar />
@@ -54,13 +36,13 @@ export default function SyllabusPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
-                {data.modules.map((modulo) => (
+                {sections.map((section) => (
                   <a
-                    key={modulo.name}
-                    href={`#${encodeURIComponent(modulo.name)}`}
+                    key={section.name}
+                    href={`#${encodeURIComponent(section.name)}`}
                     className="flex items-center justify-between rounded-md px-2 py-1 text-left text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
                   >
-                    <span className="line-clamp-2">{modulo.name}</span>
+                    <span className="line-clamp-2">{section.name}</span>
                     <ChevronRight className="h-3 w-3" />
                   </a>
                 ))}
@@ -70,10 +52,10 @@ export default function SyllabusPage() {
 
           {/* Contenido principal */}
           <section className="space-y-8">
-            {data.modules.map((modulo) => (
+            {sections.map((section) => (
               <Card
-                key={modulo.name}
-                id={encodeURIComponent(modulo.name)}
+                key={section.name}
+                id={encodeURIComponent(section.name)}
                 className="border-slate-200/80 bg-white/80 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/80"
               >
                 <CardHeader className="border-b border-slate-100 pb-4 dark:border-slate-800">
@@ -84,10 +66,10 @@ export default function SyllabusPage() {
                       </div>
                       <div>
                         <CardTitle className="text-base font-semibold leading-tight text-slate-900 dark:text-white">
-                          {modulo.name}
+                          {section.name}
                         </CardTitle>
                         <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                          {modulo.courses.length} courses asociados
+                          {section.courses.length} cursos asociados
                         </p>
                       </div>
                     </div>
@@ -99,15 +81,15 @@ export default function SyllabusPage() {
 
                 <CardContent className="p-0">
                   <div className="px-4 py-4 space-y-4">
-                    {modulo.courses.map((curso) => (
+                    {section.courses.map((curso) => (
                       <div
-                        key={`${curso.course}-${curso.topic}`}
+                        key={`${curso.code}-${curso.topic}`}
                         className="rounded-lg border border-slate-100 bg-slate-50/60 p-4 text-sm dark:border-slate-800 dark:bg-slate-900/80"
                       >
                         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
                           <div>
                             <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                              {curso.course}
+                              {curso.code}
                             </p>
                             <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                               {curso.topic}

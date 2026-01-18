@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { Toaster } from "@components/ui/sonner";
-import { Navbar } from "@/components/Navbar";
+import { AppSidebar } from "@/components/sidebar/app-sidebar";
 
 export default async function ProtectedLayout({
   children,
@@ -16,9 +16,10 @@ export default async function ProtectedLayout({
 
   return (
     <>
-      <Navbar />
-      {children}
-      <Toaster />
+      <AppSidebar user={session.user}>
+        {children}
+        <Toaster />
+      </AppSidebar>
     </>
   );
 }

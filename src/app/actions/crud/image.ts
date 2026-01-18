@@ -6,8 +6,8 @@ class ImageCRUD {
   constructor() {
   }
 
-  buildImagePath({ moduleCode, courseCode, questionCode, type, filename }: BuildImagePathParams): string {
-    return `images/${moduleCode}/${courseCode}/${questionCode}/${type}/${filename}`;
+  buildImagePath({ sectionCode, courseCode, questionCode, type, filename }: BuildImagePathParams): string {
+    return `images/${sectionCode}/${courseCode}/${questionCode}/${type}/${filename}`;
   }
 
   async createImage(filename: string, body: ReadableStream): Promise<{ url: string }> {

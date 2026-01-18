@@ -73,10 +73,16 @@ model VerificationToken {
 
 
 // Representa "M1", "M2", "M3" del Syllabus
-model Module {
+model Section {
   code      String   @id
   name      String   
   courses   Course[]
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  deleted   Boolean  @default(false)
+  deletedAt DateTime?
 }
 
 // Representa cada asignatura (MAT1610, FIS1514, etc.)
@@ -86,10 +92,16 @@ model Course {
   contents   String[] 
   indicators String[] 
 
-  module     Module   @relation(fields: [moduleCode], references: [code])
-  moduleCode String
+  section     Section   @relation(fields: [sectionCode], references: [code])
+  sectionCode String
 
   questions  Question[]
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  deleted      Boolean  @default(false)
+  deletedAt    DateTime?
 }
 
 model Question {
@@ -110,6 +122,10 @@ model Question {
   options      Option[]
 
   createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  deleted      Boolean  @default(false)
+  deletedAt    DateTime?
 }
 
 model Option {
@@ -120,4 +136,10 @@ model Option {
   
   question     Question @relation(fields: [questionCode], references: [uniqueCode])
   questionCode String
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  deleted      Boolean  @default(false)
+  deletedAt    DateTime?
 }

@@ -17,7 +17,7 @@ const pool = new pg.Pool({
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
-interface SyllabusModule {
+interface SyllabusSection {
   name: string;
   courses: {
     topic: string;
@@ -28,7 +28,7 @@ interface SyllabusModule {
 }
 
 interface QuestionData {
-  module: string;
+  section: string;
   course: string;
   type: string;
   period: string;
@@ -50,25 +50,25 @@ interface QuestionData {
 
 interface UploadImageParams {
   localPath: string;
-  moduleCode: string;
+  sectionCode: string;
   courseCode: string;
   questionCode: string;
   type: 'question' | 'option' | 'solution';
 }
 
 function buildImagePath(
-  moduleCode: string,
+  sectionCode: string,
   courseCode: string,
   questionCode: string,
   type: 'question' | 'option' | 'solution',
   filename: string
 ): string {
-  return `images/${moduleCode}/${courseCode}/${questionCode}/${type}/${filename}`;
+  return `images/${sectionCode}/${courseCode}/${questionCode}/${type}/${filename}`;
 }
 
 async function uploadImage({
   localPath,
-  moduleCode,
+  sectionCode,
   courseCode,
   questionCode,
   type,
@@ -83,7 +83,7 @@ async function uploadImage({
 
     const fileBuffer = fs.readFileSync(fullPath);
     const fileName = path.basename(localPath);
-    const remotePath = buildImagePath(moduleCode, courseCode, questionCode, type, fileName);
+    const remotePath = buildImagePath(sectionCode, courseCode, questionCode, type, fileName);
     
     console.log(`    📤 Uploading image: ${fileName} -> ${remotePath}`);
     
@@ -105,7 +105,7 @@ async function main() {
   const syllabusPath = path.join(__dirname, '..', 'data', 'syllabus.json');
   const questionsPath = path.join(__dirname, '..', 'data', 'questions', 'questions.json');
 
-  const syllabusData: { modules: SyllabusModule[] } = JSON.parse(
+  const syllabusData: { sections: SyllabusSection[] } = JSON.parse(
     fs.readFileSync(syllabusPath, 'utf-8')
   );
   const questionsData: QuestionData[] = JSON.parse(
@@ -114,21 +114,21 @@ async function main() {
 
   console.log('📚 Loading syllabus data...');
 
-  for (const [index, moduleData] of syllabusData.modules.entries()) {
-    const moduleCode = `M${index + 1}`;
+  for (const [index, sectionData] of syllabusData.sections.entries()) {
+    const sectionCode = `M${index + 1}`;
     
-    console.log(`  Creating module: ${moduleCode} - ${moduleData.name}`);
+    console.log(`  Creating section: ${sectionCode} - ${sectionData.name}`);
     
-    await prisma.module.upsert({
-      where: { code: moduleCode },
-      update: { name: moduleData.name },
+    await prisma.section.upsert({
+      where: { code: sectionCode },
+      update: { name: sectionData.name },
       create: {
-        code: moduleCode,
-        name: moduleData.name,
+        code: sectionCode,
+        name: sectionData.name,
       },
     });
 
-    for (const courseData of moduleData.courses) {
+    for (const courseData of sectionData.courses) {
       console.log(`    Creating course: ${courseData.course} - ${courseData.topic}`);
       
       await prisma.course.upsert({
@@ -137,14 +137,14 @@ async function main() {
           topic: courseData.topic,
           contents: courseData.contents,
           indicators: courseData.indicators,
-          moduleCode: moduleCode,
+          sectionCode: sectionCode,
         },
         create: {
           code: courseData.course,
           topic: courseData.topic,
           contents: courseData.contents,
           indicators: courseData.indicators,
-          moduleCode: moduleCode,
+          sectionCode: sectionCode,
         },
       });
     }
@@ -157,7 +157,7 @@ async function main() {
     
     const courseExists = await prisma.course.findUnique({
       where: { code: courseCode },
-      include: { module: true },
+      include: { section: true },
     });
 
     if (!courseExists) {
@@ -165,7 +165,7 @@ async function main() {
       continue;
     }
 
-    const moduleCode = courseExists.moduleCode;
+    const sectionCode = courseExists.sectionCode;
     console.log(`  Loading questions for course: ${courseCode}`);
 
     for (const q of questionSet.questions) {
@@ -175,7 +175,7 @@ async function main() {
       if (q.image) {
         const uploadedUrl = await uploadImage({
           localPath: q.image,
-          moduleCode,
+          sectionCode,
           courseCode,
           questionCode: q.code,
           type: 'question',
@@ -220,7 +220,7 @@ async function main() {
           if (opt.image) {
             const uploadedUrl = await uploadImage({
               localPath: opt.image,
-              moduleCode,
+              sectionCode,
               courseCode,
               questionCode: q.code,
               type: 'option',

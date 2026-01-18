@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
+import { Badge } from "@/src/components/ui/badge";
 import { BookOpen, ChevronRight, Layers3, ListChecks } from "lucide-react";
-import syllabus from "@/data/syllabus.json";
+import syllabus from "@/src/data/syllabus.json";
 
 interface IndicadorCurso {
   topico: string;

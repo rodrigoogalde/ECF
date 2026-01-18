@@ -1,7 +1,7 @@
 "use client";
 
-import { useSession, signOut } from "@/src/lib/auth-client";
-import { Button } from "@components/button";
+import { useSession, signOut } from "@/lib/auth-client";
+import { Button } from "@components/ui/button";
 
 export function UserProfile() {
   const { data: session, status } = useSession();

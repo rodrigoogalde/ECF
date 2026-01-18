@@ -3,10 +3,11 @@ import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from './prisma'
 import GoogleProvider from "next-auth/providers/google";
 import MicrosoftEntraID from "@auth/core/providers/microsoft-entra-id";
+import { RoleType } from "./constants/roles";
 
 export const { signIn, signOut, auth, handlers } = NextAuth({
   secret: process.env.AUTH_SECRET,
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma) as any,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -26,7 +27,39 @@ export const { signIn, signOut, auth, handlers } = NextAuth({
       allowDangerousEmailAccountLinking: true,
     }),
   ],
+  pages: {
+    error: "/auth/error",
+  },
   session: {
     strategy: "jwt",
+  },
+  callbacks: {
+    async signIn({ user, account, profile }) {
+      const email = user.email || profile?.email;
+      
+      if (!email) {
+        return false;
+      }
+
+      if (!email.endsWith("@uc.cl")) {
+        return "/auth/error?error=UnauthorizedEmail";
+      }
+
+      return true;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = user.role;
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.role = token.role as RoleType;
+        session.user.id = token.id as string;
+      }
+      return session;
+    },
   },
 })

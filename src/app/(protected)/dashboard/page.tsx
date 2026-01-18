@@ -1,5 +1,5 @@
-import { auth } from "@/src/lib/auth";
-import { UserProfile } from "@/src/components/UserProfile";
+import { auth } from "@/lib/auth";
+import { UserProfile } from "@/components/UserProfile";
 
 export default async function DashboardPage() {
   const session = await auth();

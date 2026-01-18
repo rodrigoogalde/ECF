@@ -1,18 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
-import { Button } from "@components/button";
+import { Button } from "@components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@components/card";
-import { cn } from "@/src/lib/utils";
-import { loginWithGoogle, loginWithMicrosoft } from "../actions/auth";
+} from "@components/ui/card";
+import { cn } from "@/lib/utils";
+import { ROUTES } from "@/lib/config/routes";
+import { loginWithGoogle, loginWithMicrosoft } from "../../app/actions/auth";
 
 export function LoginForm({
   className,
@@ -37,13 +40,21 @@ export function LoginForm({
   return (
     <div
       className={cn(
-        "flex items-center justify-center  px-4",
+        "flex items-center justify-center px-4",
         className
       )}
       {...props}
     >
-      <Card className="w-full max-w-md shadow-md rounded-xl p-6">
-        <CardHeader className="text-center">
+      <Card className="w-full max-w-md shadow-md rounded-xl p-6 relative">
+        <Link
+          href={ROUTES.HOME}
+          className="absolute top-4 left-4 flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors group"
+        >
+          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+          <span className="font-medium">Inicio</span>
+        </Link>
+
+        <CardHeader className="text-center pt-8">
           <CardTitle className="text-3xl font-bold text-gray-900">
             Bienvenido
           </CardTitle>
@@ -84,7 +95,7 @@ export function LoginForm({
               Iniciar sesión con Microsoft
             </Button>
             <p className="text-xs text-gray-500 mt-1 text-center">
-              Solo cuentas personales de Microsoft (no institucionales).
+              Solo cuentas personales de la UC.
             </p>
           </form>
         </CardContent>

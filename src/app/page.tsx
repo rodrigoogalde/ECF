@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@components/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@components/ui/card";
 
 import {
   BookOpen,
@@ -13,8 +13,9 @@ import {
   Lightbulb,
 } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@components/button";
-import { Badge } from "@components/badge";
+import { Button } from "@components/ui/button";
+import { Badge } from "@components/ui/badge";
+import { Navbar } from "@components/Navbar";
 
 const features = [
   {
@@ -68,32 +69,7 @@ const stats = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/80">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <GraduationCap className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-            <span className="text-xl font-bold text-slate-900 dark:text-white">ECF</span>
-          </div>
-          <nav className="hidden items-center gap-6 md:flex">
-            <Link href="/problemas" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
-              Problemas
-            </Link>
-            <Link href="/resumenes" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
-              Resúmenes
-            </Link>
-            <Link href="/syllabus" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
-              Temario
-            </Link>
-            <Link href="/foros" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
-              Foros
-            </Link>
-          </nav>
-          <Button>
-            Comenzar
-          </Button>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-32 lg:px-8">

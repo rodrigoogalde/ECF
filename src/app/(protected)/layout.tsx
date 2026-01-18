@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
-import { auth } from "@/src/lib/auth";
-import { Toaster } from "@components/sonner";
-import { Navbar } from "@/src/components/Navbar";
+import { auth } from "@/lib/auth";
+import { Toaster } from "@components/ui/sonner";
+import { Navbar } from "@/components/Navbar";
 
 export default async function ProtectedLayout({
   children,

@@ -1,65 +1,44 @@
 "use client";
 
 import Link from "next/link";
-import { useSession, signOut } from "@/src/lib/auth-client";
-import { Button } from "@components/button";
+import { useSession } from "@/lib/auth-client";
+import { GraduationCap } from "lucide-react";
+import { ROUTES } from "@/lib/config/routes";
+import { LoginButton } from "@/components/login/loginButton";
 
 export function Navbar() {
-  const { data: session, status } = useSession();
-
-  const handleSignOut = async () => {
-    await signOut({ callbackUrl: "/login" });
-  };
+  const { data: session } = useSession();
 
   return (
-    <nav className="bg-white shadow-sm border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center gap-8">
-            <Link href="/main" className="text-xl font-bold text-gray-900">
-              Mi App
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/80">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href={ROUTES.HOME} className="flex items-center gap-2">
+          <GraduationCap className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+          <span className="text-xl font-bold text-slate-900 dark:text-white">ECF</span>
+        </Link>
+        {session && (
+          <nav className="hidden items-center gap-6 md:flex">
+            <Link href="/problemas" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+              Problemas
             </Link>
-            
-            {session && (
-              <div className="flex gap-4">
-                <Link 
-                  href="/main" 
-                  className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Inicio
-                </Link>
-                <Link 
-                  href="/dashboard" 
-                  className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Dashboard
-                </Link>
-              </div>
-            )}
-          </div>
+            <Link href="/resumenes" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+              Resúmenes
+            </Link>
+            <Link href="/syllabus" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+              Temario
+            </Link>
+            <Link href="/foros" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+              Foros
+            </Link>
+          </nav>
+        )}
+      
 
-          <div className="flex items-center gap-4">
-            {status === "loading" ? (
-              <div className="text-sm text-gray-500">Cargando...</div>
-            ) : session ? (
-              <>
-                <span className="text-sm text-gray-700">
-                  {session.user?.name || session.user?.email}
-                </span>
-                <Button onClick={handleSignOut} variant="outline" size="sm">
-                  Cerrar sesión
-                </Button>
-              </>
-            ) : (
-              <Link href="/login">
-                <Button variant="outline" size="sm">
-                  Iniciar sesión
-                </Button>
-              </Link>
-            )}
-          </div>
+        <div className="flex items-center gap-4">
+          <LoginButton />
         </div>
+
       </div>
-    </nav>
+    </header>
   );
 }

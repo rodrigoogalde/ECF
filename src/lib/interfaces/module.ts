@@ -1,6 +1,6 @@
 import { Prisma } from "@prisma/client";
 
-export type ModuleWithCourses = Prisma.ModuleGetPayload<{ 
+export type SectionWithCourses = Prisma.SectionGetPayload<{ 
   include: { 
     courses: true 
   } 

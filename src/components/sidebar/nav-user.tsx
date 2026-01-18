@@ -9,9 +9,7 @@ import {
   Moon,
 } from "lucide-react"
 
-import {
-  StrAvatar,
-} from "@components/ui/avatar"
+import Image from "next/image"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -55,7 +53,22 @@ export function NavUser({
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <StrAvatar color="gray" name={user.name || ""}/>
+              <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-full">
+                {user?.image ? (
+                  <Image
+                    src={user.image}
+                    alt={user.name || "Usuario"}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-blue-600 text-white">
+                    <span className="text-base font-semibold">
+                      {(user?.name?.[0] || user?.email?.[0] || "U").toUpperCase()}
+                    </span>
+                  </div>
+                )}
+              </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name || ""}</span>
                 <span className="truncate text-xs">{user.email}</span>
@@ -71,7 +84,22 @@ export function NavUser({
           >
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                <StrAvatar color="gray" name={user.name || ""} />
+                <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-full">
+                  {user?.image ? (
+                    <Image
+                      src={user.image}
+                      alt={user.name || "Usuario"}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-blue-600 text-white">
+                      <span className="text-base font-semibold">
+                        {(user?.name?.[0] || user?.email?.[0] || "U").toUpperCase()}
+                      </span>
+                    </div>
+                  )}
+                </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">{user.name || ""}</span>
                   <span className="truncate text-xs">{user.email}</span>
@@ -87,19 +115,6 @@ export function NavUser({
                   <Moon />
                 )}
                 Cambiar Tema
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-                <Link href="/profile" className="w-full">
-                  <DropdownMenuItem>
-                    <BadgeCheck />
-                    Cuenta
-                  </DropdownMenuItem>
-                </Link>
-              <DropdownMenuItem>
-                <Bell />
-                Notificaciones
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />

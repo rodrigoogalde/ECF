@@ -7,6 +7,7 @@ export const ROUTES = {
   STUDENT: "/student",
   // Rutas de administración
   ADMIN: {
+    ADMIN: '/admin',
     QUESTIONS: {
       LIST: '/admin/questions',
       CREATE: '/admin/questions/create',
@@ -14,8 +15,8 @@ export const ROUTES = {
     },
     USERS: {
       LIST: '/admin/users',
-      CREATE: '/users/create',
-      EDIT: (id: string | number) => `/users/${id}/edit`,
+      CREATE: '/admin/users/create',
+      EDIT: (id: string | number) => `/admin/users/${id}/edit`,
     },
   },
 }

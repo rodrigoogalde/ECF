@@ -19,7 +19,6 @@ import {
 } from "@components/ui/sidebar"
 import { Badge } from "@components/ui/badge"
 import { Session } from "next-auth"
-import { ROLE } from "@/lib/constants/roles"
 
 
 export function NavMain({
@@ -92,8 +91,8 @@ export function NavMain({
             >
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
-                  <Link href={item.url}>
-                    <SidebarMenuButton tooltip={item.title}>
+                  <SidebarMenuButton tooltip={item.title} asChild>
+                    <Link href={item.url}>
                       {item.icon && <item.icon />}
                       <span>{item.title}</span>
                       {item.comingSoon && (
@@ -102,9 +101,8 @@ export function NavMain({
                         </Badge>
                       )}
                       { item?.items && <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" /> }
-                    </SidebarMenuButton>
-                  </Link>
-
+                    </Link>
+                  </SidebarMenuButton>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
                 {item.items && (
@@ -112,9 +110,9 @@ export function NavMain({
                     {item.items?.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.title}>
                         <SidebarMenuSubButton asChild>
-                          <a href={subItem.url}>
+                          <Link href={subItem.url}>
                             <span>{subItem.title}</span>
-                          </a>
+                          </Link>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}

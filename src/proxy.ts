@@ -8,7 +8,7 @@ export async function proxy(request: NextRequest) {
   const session = await auth();
   const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith(ROUTES.ADMIN)) {
+  if (pathname.startsWith(ROUTES.ADMIN.ADMIN)) {
     if (!session) {
       return NextResponse.redirect(new URL("/api/auth/signin", request.url));
     }

@@ -7,66 +7,33 @@ import {
   Boxes,
   FolderOpen,
   FileChartColumn,
+  FlaskConicalIcon
 } from "lucide-react"
 
 export const config = {
   navMain: [
     {
         title: "Inicio",
-        url: "/main",
+        url: "/dashboard",
         icon: Home,
         showFor: ['STUDENT', 'ADMIN'],
     },
     {
-        title: "Mis Registros",
+        title: "Mis Pruebas",
         url: "#",
-        icon: Paperclip,
+        icon: FlaskConicalIcon,
         isActive: true,
         showFor: ['STUDENT'],
         items: [
             {
             title: "Todos",
-            url: "/student/records",
+            url: "/student/tests",
             },
             {
-            title: "Nuevo Registro",
-            url: "/student/records/new",
-            },
-            {
-            title: "Analitica",
-            url: "/student/dashboard",
+            title: "Nueva",
+            url: "/student/tests/new",
             },
         ],
-    },
-    {
-        title: "Registros por revisar",
-        url: "#",
-        icon: FolderOpen,
-        isActive: true,
-        showFor: ['ADMIN'],
-        items: [
-            {
-            title: "Todos",
-            url: "/admin/records/review",
-            },
-            {
-            title: "Analitica",
-            url: "/admin/dashboard",
-            },
-        ],
-    },
-    {
-        title: "Mi Área",
-        url: "/area",
-        icon: Boxes,
-        showFor: ['STUDENT', 'ADMIN'],
-    },
-    {
-      title: "Reportes",
-      url: "#",
-      icon: FileChartColumn,
-      showFor: ['STUDENT', 'ADMIN'],
-      comingSoon: true,
     },
     {
         title: "Administrador",
@@ -78,23 +45,13 @@ export const config = {
             title: "Usuarios",
             url: "/admin/users",
             },
-            {
-            title: "Perfiles",
-            url: "/admin/profiles",
-            },
-            {
-            title: "Áreas",
-            url: "/admin/areas",
-            },
-            {
-            title: "Cirugias",
-            url: "/admin/surgeries",
-            },
-            {
-            title: "Registros",
-            url: "/admin/records",
-            },
         ],
+    },
+    {
+      title: "Reportes",
+      url: "#",
+      icon: FileChartColumn,
+      showFor: ['ADMIN'],
     },
   ],
   navFooter: [
@@ -102,11 +59,6 @@ export const config = {
         title: "Ayuda",
         url: "https://docs.google.com/forms/d/e/1FAIpQLSeRyc-6FUkB7KTQLZ8bci1vhTjlTi7Nb--1WlKgdydFwMj7Yw/viewform?usp=dialog",
         icon: LifeBuoy,
-    },
-    {
-        title: "Ayudanos a mejorar!",
-        url: "https://docs.google.com/forms/d/e/1FAIpQLSeRyc-6FUkB7KTQLZ8bci1vhTjlTi7Nb--1WlKgdydFwMj7Yw/viewform?usp=dialog",
-        icon: Send,
     },
   ],
 }

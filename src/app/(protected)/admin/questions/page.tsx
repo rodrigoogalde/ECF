@@ -7,6 +7,7 @@ import { getQuestionSets, getAvailableFilters } from "@/lib/questions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ROUTES } from "@/lib/config/routes";
 
 function QuestionCard({
   question,
@@ -124,7 +125,7 @@ function QuestionsContent() {
           {filters.course && <Badge>Curso: {filters.course}</Badge>}
           {filters.type && <Badge>Tipo: {filters.type}</Badge>}
           {filters.period && <Badge>Período: {filters.period}</Badge>}
-          <a href="/questions">
+          <a href={ROUTES.ADMIN.QUESTIONS.LIST}>
             <Button variant="ghost" size="sm">
               Limpiar filtros
             </Button>
@@ -150,7 +151,7 @@ function QuestionsContent() {
                 } else {
                   params.delete("module");
                 }
-                window.location.href = `/questions?${params.toString()}`;
+                window.location.href = `${ROUTES.ADMIN.QUESTIONS.LIST}?${params.toString()}`;
               }}
             >
               <option value="">Todos</option>
@@ -175,7 +176,7 @@ function QuestionsContent() {
                 } else {
                   params.delete("course");
                 }
-                window.location.href = `/questions?${params.toString()}`;
+                window.location.href = `${ROUTES.ADMIN.QUESTIONS.LIST}?${params.toString()}`;
               }}
             >
               <option value="">Todos</option>
@@ -200,7 +201,7 @@ function QuestionsContent() {
                 } else {
                   params.delete("type");
                 }
-                window.location.href = `/questions?${params.toString()}`;
+                window.location.href = `${ROUTES.ADMIN.QUESTIONS.LIST}?${params.toString()}`;
               }}
             >
               <option value="">Todos</option>
@@ -225,7 +226,7 @@ function QuestionsContent() {
                 } else {
                   params.delete("period");
                 }
-                window.location.href = `/questions?${params.toString()}`;
+                window.location.href = `${ROUTES.ADMIN.QUESTIONS.LIST}?${params.toString()}`;
               }}
             >
               <option value="">Todos</option>

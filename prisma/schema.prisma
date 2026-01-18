@@ -67,3 +67,57 @@ model VerificationToken {
   @@id([identifier, token])
   @@map("verification")
 }
+
+
+
+
+
+// Representa "M1", "M2", "M3" del Syllabus
+model Module {
+  code      String   @id
+  name      String   
+  courses   Course[]
+}
+
+// Representa cada asignatura (MAT1610, FIS1514, etc.)
+model Course {
+  code       String   @id
+  topic      String   
+  contents   String[] 
+  indicators String[] 
+
+  module     Module   @relation(fields: [moduleCode], references: [code])
+  moduleCode String
+
+  questions  Question[]
+}
+
+model Question {
+  id           String   @id @default(uuid())
+  uniqueCode   String   @unique
+  
+  title        String
+  content      String
+  period       String
+  type         String
+  solution     String?
+  imageUrl     String[]
+  correctLabel String?
+
+  course       Course   @relation(fields: [courseCode], references: [code])
+  courseCode   String
+
+  options      Option[]
+
+  createdAt    DateTime @default(now())
+}
+
+model Option {
+  id           Int      @id @default(autoincrement())
+  label        String   
+  text         String
+  imageUrl     String[]
+  
+  question     Question @relation(fields: [questionCode], references: [uniqueCode])
+  questionCode String
+}

@@ -1,22 +1,24 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, ChevronRight, Layers3, ListChecks } from "lucide-react";
-import syllabus from "@/data/syllabus.json";
+import syllabus from "../../../data/syllabus.json";
+import { Navbar } from "@/components/Navbar";
+
 
 interface IndicadorCurso {
-  topico: string;
-  curso: string;
-  contenidos: string[];
-  indicadores: string[];
+  topic: string;
+  course: string;
+  contents: string[];
+  indicators: string[];
 }
 
 interface Modulo {
-  nombre: string;
-  cursos: IndicadorCurso[];
+  name: string;
+  courses: IndicadorCurso[];
 }
 
 interface SyllabusData {
-  modulos: Modulo[];
+  modules: Modulo[];
 }
 
 const data = syllabus as SyllabusData;
@@ -24,6 +26,7 @@ const data = syllabus as SyllabusData;
 export default function SyllabusPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
+      <Navbar />
       <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <header className="mb-10 space-y-4 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900/40 dark:text-blue-200">
@@ -34,9 +37,9 @@ export default function SyllabusPage() {
             Syllabus del Examen Fundamentals
           </h1>
           <p className="max-w-2xl text-sm text-slate-600 dark:text-slate-400">
-            Explora los módulos, cursos y contenidos que forman parte del Examen de Competencias
+            Explora los módulos, courses y contenidos que forman parte del Examen de Competencias
             Fundamentales. Usa esta página como mapa para planificar tu estudio y conectar los
-            recursos de problemas tipo y resúmenes con los indicadores de aprendizaje.
+            recourses de problemas tipo y resúmenes con los indicadores de aprendizaje.
           </p>
         </header>
 
@@ -51,13 +54,13 @@ export default function SyllabusPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
-                {data.modulos.map((modulo) => (
+                {data.modules.map((modulo) => (
                   <a
-                    key={modulo.nombre}
-                    href={`#${encodeURIComponent(modulo.nombre)}`}
+                    key={modulo.name}
+                    href={`#${encodeURIComponent(modulo.name)}`}
                     className="flex items-center justify-between rounded-md px-2 py-1 text-left text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
                   >
-                    <span className="line-clamp-2">{modulo.nombre}</span>
+                    <span className="line-clamp-2">{modulo.name}</span>
                     <ChevronRight className="h-3 w-3" />
                   </a>
                 ))}
@@ -67,10 +70,10 @@ export default function SyllabusPage() {
 
           {/* Contenido principal */}
           <section className="space-y-8">
-            {data.modulos.map((modulo) => (
+            {data.modules.map((modulo) => (
               <Card
-                key={modulo.nombre}
-                id={encodeURIComponent(modulo.nombre)}
+                key={modulo.name}
+                id={encodeURIComponent(modulo.name)}
                 className="border-slate-200/80 bg-white/80 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/80"
               >
                 <CardHeader className="border-b border-slate-100 pb-4 dark:border-slate-800">
@@ -81,10 +84,10 @@ export default function SyllabusPage() {
                       </div>
                       <div>
                         <CardTitle className="text-base font-semibold leading-tight text-slate-900 dark:text-white">
-                          {modulo.nombre}
+                          {modulo.name}
                         </CardTitle>
                         <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                          {modulo.cursos.length} cursos asociados
+                          {modulo.courses.length} courses asociados
                         </p>
                       </div>
                     </div>
@@ -96,18 +99,18 @@ export default function SyllabusPage() {
 
                 <CardContent className="p-0">
                   <div className="px-4 py-4 space-y-4">
-                    {modulo.cursos.map((curso) => (
+                    {modulo.courses.map((curso) => (
                       <div
-                        key={`${curso.curso}-${curso.topico}`}
+                        key={`${curso.course}-${curso.topic}`}
                         className="rounded-lg border border-slate-100 bg-slate-50/60 p-4 text-sm dark:border-slate-800 dark:bg-slate-900/80"
                       >
                         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
                           <div>
                             <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                              {curso.curso}
+                              {curso.course}
                             </p>
                             <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-50">
-                              {curso.topico}
+                              {curso.topic}
                             </h3>
                           </div>
                         </div>
@@ -118,7 +121,7 @@ export default function SyllabusPage() {
                               Contenidos
                             </p>
                             <div className="flex flex-wrap gap-1">
-                              {curso.contenidos.map((contenido) => (
+                              {curso.contents.map((contenido) => (
                                 <Badge
                                   key={contenido}
                                   title={contenido}
@@ -136,7 +139,7 @@ export default function SyllabusPage() {
                               Indicadores de logro
                             </p>
                             <ul className="space-y-1 text-[13px] leading-relaxed text-slate-700 dark:text-slate-300">
-                              {curso.indicadores.map((indicador) => (
+                              {curso.indicators.map((indicador) => (
                                 <li key={indicador} className="flex gap-2">
                                   <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500" />
                                   <span>{indicador}</span>

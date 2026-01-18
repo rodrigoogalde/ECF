@@ -29,7 +29,7 @@ export interface QuestionFilters {
   period?: string;
 }
 
-import questionSetsData from "@/data/questions/questions.json";
+import questionSetsData from "@/src/data/questions/questions.json";
 
 const questionSets = questionSetsData as QuestionSet[];
 

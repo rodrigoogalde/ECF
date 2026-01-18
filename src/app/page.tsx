@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@components/card";
+
 import {
   BookOpen,
   FileText,
@@ -14,13 +13,15 @@ import {
   Lightbulb,
 } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@components/button";
+import { Badge } from "@components/badge";
 
 const features = [
   {
     icon: BookOpen,
     title: "Problemas Tipo",
     description: "Ejercicios representativos de cada materia con soluciones detalladas en formato LaTeX/Markdown.",
-    href: "/problemas",
+    href: "/questions",
     color: "text-blue-600 dark:text-blue-400",
     bgColor: "bg-blue-100 dark:bg-blue-900/30",
   },

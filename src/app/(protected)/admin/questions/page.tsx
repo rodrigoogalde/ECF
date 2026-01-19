@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense, useState } from "react";
 import { MathRenderer } from "@/components/MathRenderer";
 import { getQuestionSets, getAvailableFilters } from "@/lib/interfaces/questions";
@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ROUTES } from "@/lib/config/routes";
+import { Plus, Pencil } from "lucide-react";
 
 function QuestionCard({
   question,
@@ -23,6 +24,7 @@ function QuestionCard({
     image?: string;
   };
 }) {
+  const router = useRouter();
   const [showAnswer, setShowAnswer] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
 
@@ -30,8 +32,17 @@ function QuestionCard({
     <Card className="mb-6">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg">{question.title}</CardTitle>
-          <Badge variant="secondary">{question.code}</Badge>
+          <div className="flex items-center gap-3">
+            <CardTitle className="text-lg">{question.title}</CardTitle>
+            <Badge variant="secondary">{question.code}</Badge>
+          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => router.push(ROUTES.ADMIN.QUESTIONS.EDIT(question.id))}
+          >
+            <Pencil className="h-4 w-4" />
+          </Button>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -100,6 +111,7 @@ function QuestionCard({
 }
 
 function QuestionsContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const filters = {
     section: searchParams.get("section") || undefined,
@@ -115,7 +127,13 @@ function QuestionsContent() {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-6">Banco de Preguntas</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-3xl font-bold">Banco de Preguntas</h1>
+        <Button onClick={() => router.push(ROUTES.ADMIN.QUESTIONS.CREATE)}>
+          <Plus className="mr-2 h-4 w-4" />
+          Nueva Pregunta
+        </Button>
+      </div>
 
       {/* Filtros activos */}
       {hasFilters && (
@@ -246,8 +264,8 @@ function QuestionsContent() {
           No se encontraron preguntas con los filtros seleccionados.
         </div>
       ) : (
-        questionSets.map((set) => (
-          <div key={`${set.section}-${set.course}-${set.type}-${set.period}`}>
+        questionSets.map((set, index) => (
+          <div key={`${set.section}-${set.course}-${set.type}-${set.period}-${index}`}>
             <h2 className="text-xl font-semibold mb-4">
               {set.course} - {set.type} ({set.period})
             </h2>

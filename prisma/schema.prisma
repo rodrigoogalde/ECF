@@ -119,6 +119,9 @@ model Question {
   course       Course   @relation(fields: [courseCode], references: [code])
   courseCode   String
 
+  test         Test?    @relation(fields: [testId], references: [id])
+  testId       String?
+
   options      Option[]
 
   createdAt    DateTime @default(now())
@@ -142,4 +145,12 @@ model Option {
 
   deleted      Boolean  @default(false)
   deletedAt    DateTime?
+}
+
+model Test {
+  id         String   @id @default(uuid())
+  name       String
+  questions  Question[]
+
+  @@unique([name])
 }

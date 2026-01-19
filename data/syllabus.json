@@ -1,0 +1,236 @@
+{
+  "sections": [
+    {
+      "name": "Módulo 1: Matemáticas y Probabilidades",
+      "courses": [
+        {
+          "topic": "Cálculo I",
+          "course": "MAT1610",
+          "contents": ["Geometría Analítica"],
+          "indicators": [
+            "Identificar gráficos de funciones básicas, exponenciales, logarítmicas.",
+            "Calcular derivadas de funciones obtenidas por álgebra de funciones elementales.",
+            "Reconocer gráfica y analíticamente propiedades de los gráficos de funciones, como crecimiento, concavidad, máximos y mínimos locales, asíntotas.",
+            "Conocer el cálculo de primitivas de funciones básicas."
+          ]
+        },
+        {
+          "topic": "Cálculo II",
+          "course": "MAT1620",
+          "contents": ["Cálculo Integral"],
+          "indicators": [
+            "Aplicar el concepto de integral definida para calcular áreas y momentos de regiones del plano.",
+            "Aplicar los criterios básicos de convergencia de series e integrales impropias.",
+            "Conocer las ecuaciones paramétricas, vectoriales y cartesianas de rectas y planos en el espacio."
+          ]
+        },
+        {
+          "topic": "Cálculo III",
+          "course": "MAT1630",
+          "contents": ["Cálculo Diferencial"],
+          "indicators": [
+            "Aplicar el concepto de integral múltiple para evaluar volúmenes y centros de masa.",
+            "Reconocer y explicar el concepto de curvas de nivel y calcularlas.",
+            "Calcular derivadas direccionales."
+          ]
+        },
+        {
+          "topic": "Ecuaciones Diferenciales",
+          "course": "MAT1640",
+          "contents": ["Ecuaciones Diferenciales"],
+          "indicators": [
+            "Modelar situaciones sencillas mediante ecuaciones diferenciales.",
+            "Reconocer el tipo de una ecuación diferencial (lineal o no, grado, orden), identificar y utilizar los distintos métodos disponibles para la solución de acuerdo con el caso.",
+            "Calcular soluciones de ecuaciones lineales y sistemas lineales 2x2 y 3x3 de coeficientes constantes."
+          ]
+        },
+        {
+          "topic": "Álgebra Lineal",
+          "course": "MAT1203",
+          "contents": [
+            "Matrices",
+            "Raíces de ecuaciones",
+            "Análisis vectorial"
+          ],
+          "indicators": [
+            "Determinar la escalonada reducida de una matriz y utilizarla para estudiar la dependencia lineal de vectores, resolver un sistema Ax=b, resolver la ecuación matricial AX=B, calcular inversas de matrices y bases de subespacios de Rn.",
+            "Interpretar geométricamente los conceptos de dependencia-independencia lineal, complemento ortogonal, sistemas de ecuaciones lineales.",
+            "Explicar las propiedades de las operaciones matriciales y utilizarlas para simplificar y evaluar expresiones matriciales.",
+            "Explicar y utilizar las propiedades de las matrices elementales, triangulares, simétricas, simétricas positivas definidas, unitarias, ortogonales.",
+            "Explicar las propiedades de determinante y utilizarlas para calcular determinantes, resolver sistemas y evaluar inversas.",
+            "Determinar la matriz que representa a una Transformación Lineal entre R^n y R^m, y explicar la relación entre cambio de base y la matriz que la representa.",
+            "Explicar las propiedades de valores, vectores propios y ecuación característica de una matriz y aplicar esto a determinar si una matriz es diagonalizable y al cálculo de funciones elementales de matrices. Explicar y utilizar la estructura de valores y vectores propios de matrices simétricas y sus aplicaciones."
+          ]
+        },
+        {
+          "topic": "Probabilidades y Estadística",
+          "course": "EYP1113",
+          "contents": [
+            "Álgebra de eventos, axiomas de probabilidad, probabilidad clásica, probabilidad condicional, independencia, Bayes",
+            "Medidas descriptivas teóricas",
+            "Modelos usuales univariados",
+            "Distribuciones conjuntas, marginales y condicionales",
+            "Estimación y propiedades",
+            "Test de hipótesis e intervalos",
+            "Bondad de ajuste",
+            "Regresión lineal"
+          ],
+          "indicators": [
+            "Ajustar distribuciones de probabilidades para datos que se generen en un fenómeno de incertidumbre.",
+            "Describir fenómenos de incertidumbre sobre la base de variables aleatorias y hacer cálculos asociados a ese fenómeno en base a esas variables aleatorias.",
+            "Realizar estimaciones de parámetros de una distribución en base a datos del fenómeno aleatorio y construir intervalos de confianza para esos estimadores, y entender cabalmente lo que esos intervalos de confianza representan.",
+            "Ajustar modelos de regresión lineal a fenómenos de incertidumbre, y lograr una adecuada comprensión del rango de validez de esos modelos y de los parámetros de los mismos."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Módulo 2: Ciencias Naturales Física y Química",
+      "courses": [
+        {
+          "topic": "Dinámica",
+          "course": "FIS1514",
+          "contents": [
+            "Estática: fuerzas, concurrentes, equilibrio, marcos, centroide, inercia, fricción",
+            "Dinámica: movimiento lineal y angular, momentos de inercia, impulso, trabajo y energía"
+          ],
+          "indicators": [
+            "Establecer ecuaciones de movimiento y equilibrio.",
+            "Resolver problemas de equilibrio estático y dinámico.",
+            "Plantear equilibrio usando energía y trabajo virtual.",
+            "Manejar restricciones cinemáticas y fuerzas de vínculo.",
+            "Transformar fuerzas entre sistemas coordenados.",
+            "Conocer planteamientos numéricos para resolver mecánica clásica."
+          ]
+        },
+        {
+          "topic": "Electricidad y Magnetismo",
+          "course": "FIS1533",
+          "contents": [
+            "Carga, corriente, energía, voltaje",
+            "Fuerzas entre cargas",
+            "Leyes de Kirchhoff y Ohm",
+            "Circuitos equivalentes",
+            "Capacitancia e inductancia",
+            "Circuitos AC, reactancia e impedancia"
+          ],
+          "indicators": [
+            "Describir el campo eléctrico y carga eléctrica.",
+            "Identificar campos vectoriales generados por cargas.",
+            "Calcular potencial electroestático y su relación con capacitores.",
+            "Explicar inducción magnética e inductores.",
+            "Describir circuitos DC y calcular corrientes/voltajes.",
+            "Describir circuitos AC y predecir su comportamiento."
+          ]
+        },
+        {
+          "topic": "Química",
+          "course": "QIM100E",
+          "contents": [
+            "Nomenclatura",
+            "Oxidación-reducción",
+            "Tabla periódica",
+            "Estados de la materia",
+            "Ácidos y bases",
+            "Ecuaciones químicas",
+            "Metales y no metales",
+            "Equilibrio químico"
+          ],
+          "indicators": [
+            "Manejar conversión de unidades.",
+            "Explicar cómo la temperatura afecta estados de la materia.",
+            "Describir tipos de enlaces y estructuras cristalinas.",
+            "Describir equilibrio dinámico y tipos de equilibrio.",
+            "Relacionar Q, K y concentraciones.",
+            "Calcular constantes de equilibrio.",
+            "Diferenciar electrolitos fuertes y débiles.",
+            "Relacionar concentración de iones y pH.",
+            "Calcular pH de soluciones y buffers.",
+            "Formular semirreacciones balanceadas.",
+            "Describir celdas electroquímicas.",
+            "Describir electrodo estándar de hidrógeno.",
+            "Relacionar energía de Gibbs, potencial estándar y K."
+          ]
+        },
+        {
+          "topic": "Termodinámica",
+          "course": "FIS1523",
+          "contents": [
+            "Leyes termodinámicas",
+            "Energía, calor y trabajo",
+            "Ciclos",
+            "Gases ideales",
+            "Cambios de fase",
+            "Transferencia de calor",
+            "Entalpía y entropía"
+          ],
+          "indicators": [
+            "Definir temperatura y temperatura absoluta.",
+            "Explicar equilibrio térmico y expansión térmica.",
+            "Explicar primera ley y aplicarla a gases ideales.",
+            "Describir entropía y dirección de procesos.",
+            "Calcular entropía, potenciales y eficiencia en ciclos.",
+            "Calcular propiedades termodinámicas en sistemas con muchas partículas."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Módulo 3: Ingeniería",
+      "courses": [
+        {
+          "topic": "Economía",
+          "course": "ICS1513",
+          "contents": [
+            "Flujo de caja",
+            "Costos",
+            "Análisis económico",
+            "Incertidumbre"
+          ],
+          "indicators": [
+            "Aplicar conceptos básicos del análisis económico.",
+            "Analizar comportamiento de agentes, mercados, oferta y demanda.",
+            "Aplicar conceptos de flujo de caja, valor presente y TIR."
+          ]
+        },
+        {
+          "topic": "Introducción a la Programación",
+          "course": "IIC1103",
+          "contents": [
+            "Terminología computacional",
+            "Programación",
+            "Algoritmos"
+          ],
+          "indicators": [
+            "Comprender conceptos básicos de programación.",
+            "Aplicar técnicas de resolución de problemas usando el computador.",
+            "Aplicar razonamiento algorítmico para resolver problemas."
+          ]
+        },
+        {
+          "topic": "Hojas de Cálculo",
+          "course": "Hojas de Cálculo: Nivel Básico",
+          "contents": ["Manejo de hojas de cálculo"],
+          "indicators": ["Transversal a la formación."]
+        },
+        {
+          "topic": "Ética",
+          "course": "FIL188",
+          "contents": [
+            "Código de ética",
+            "Contratos",
+            "Legislación y ética",
+            "Responsabilidad profesional",
+            "Protección pública"
+          ],
+          "indicators": [
+            "Conocer fundamentos y corrientes éticas.",
+            "Reflexionar sobre principios para orientar acción científica/tecnológica.",
+            "Aplicar principios éticos a problemas específicos.",
+            "Identificar alcances de legislación nacional aplicada a ingeniería."
+          ]
+        }
+      ]
+    }
+  ]
+}

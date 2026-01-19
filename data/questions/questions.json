@@ -1,0 +1,295 @@
+[
+  {
+    "section": "M1",
+    "course": "MAT1610",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 1,
+        "title": "Pregunta N°1",
+        "code": "MAT1610-4-1 (24-2)",
+        "content": "Sea la función\n\n$$f(x) = \\frac{x}{2 + x^2}$$\n\n¿Cuánto vale su derivada evaluada en $\\sqrt{2}$, es decir, $f'(\\sqrt{2})$?",
+        "options": [
+          { "label": "a", "text": "$0$" },
+          { "label": "b", "text": "$\\dfrac{1}{2\\sqrt{2}}$" },
+          { "label": "c", "text": "$\\dfrac{1}{\\sqrt{2}}$" },
+          { "label": "d", "text": "$\\dfrac{1}{4}$" }
+        ],
+        "answer": "a",
+        "solution": "Usando la regla del cociente:\n\n$$f'(x) = \\frac{(2 + x^2) \\cdot 1 - x \\cdot 2x}{(2 + x^2)^2} = \\frac{2 + x^2 - 2x^2}{(2 + x^2)^2} = \\frac{2 - x^2}{(2 + x^2)^2}$$\n\nEvaluando en $x = \\sqrt{2}$:\n\n$$f'(\\sqrt{2}) = \\frac{2 - (\\sqrt{2})^2}{(2 + (\\sqrt{2})^2)^2} = \\frac{2 - 2}{(2 + 2)^2} = \\frac{0}{16} = 0$$"
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "MAT1620",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 1,
+        "title": "Pregunta N°1",
+        "code": "MAT1620-3-1 (24-2)",
+        "content": "Considere la región dada por:\n\n$$-1 + |x| \u2264 y \u2264 1 - x^2$$\n\n¿Cuál es el área de la región descrita?",
+        "options": [
+          { "label": "a", "text": "$\\dfrac{7}{6}$" },
+          { "label": "b", "text": "$\\dfrac{7}{3}$" },
+          { "label": "c", "text": "$\\dfrac{17}{6}$" },
+          { "label": "d", "text": "$\\dfrac{17}{3}$" }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Pregunta N°3",
+        "code": "MAT1620-5-3 (24-2)",
+        "content": "¿Para qué valores de $p \\in \\mathbb{R}$, la integral impropia\n\n$$\\int_{0}^{\\infty} x^{-p}\\,dx$$\n\n**CONVERGE**?",
+        "options": [
+          { "label": "a", "text": "$p < 1$" },
+          { "label": "b", "text": "$p > 0$" },
+          { "label": "c", "text": "$p > 1$" },
+          { "label": "d", "text": "La integral diverge para todo $p \\in \\mathbb{R}$." }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "MAT1630",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 4,
+        "title": "Pregunta N°4",
+        "code": "MAT1630-5-2 (24-2)",
+        "content": "Sea la función\n\n$$g(x,y) = x + \\cos y.$$\n\n¿Cuál de los siguientes gráficos representa curvas de nivel de $g$?\n\nConsidere que el eje horizontal corresponde al valor de la variable $x$, y el eje vertical al de la variable $y$.",
+        "image": "/img/MAT1630-5-2 (24-2).png",
+        "options": [
+          { "label": "a", "text": "A" },
+          { "label": "b", "text": "B" },
+          { "label": "c", "text": "C" },
+          { "label": "d", "text": "D" }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "MAT1630",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 5,
+        "title": "Pregunta N°5",
+        "code": "MAT1630-6-2 (24-1)",
+        "content": "Considere la función $g: \\mathbb{R}^2 \\to \\mathbb{R}$ dada por:\n\n$$g(x, y) = \\sin x (\\cos y)^2$$\n\nY su derivada direccional en la dirección de un vector unitario arbitrario $\\hat{u}$.\n\n¿En cuál de los siguientes puntos, la derivada direccional de $g$ es **NULA** para todo valor posible de $\\hat{u}$?",
+        "options": [
+          { "label": "a", "text": "$(x, y) = (\\pi/3, \\pi/2)$" },
+          { "label": "b", "text": "$(x, y) = (\\pi/2, \\pi/3)$" },
+          { "label": "c", "text": "$(x, y) = (0, 0)$" },
+          { "label": "d", "text": "$(x, y) = (-\\pi, \\pi)$" }
+        ],
+        "answer": "a"
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "MAT1640",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 6,
+        "title": "Pregunta N°6",
+        "code": "MAT1640-2-2 (24-2)",
+        "content": "El decaimiento de un isótopo radiactivo puede modelarse mediante una ecuación diferencial de primer orden en la que la rapidez de decaimiento es proporcional a la cantidad del isótopo restante.\n\nSuponga que el tiempo de vida media de este isótopo (es decir, la cantidad de tiempo que transcurre hasta que la mitad de los átomos decae) es de 3 años.\n\n¿Cuál de las siguientes alternativas modela **CORRECTAMENTE** la ecuación diferencial para la cantidad $Q(t)$ de isótopo presente, si $t$ está medido en años?",
+        "options": [
+          { "label": "a", "text": "$Q'(t) = \\frac{\\ln 2}{3}Q(t)$" },
+          { "label": "b", "text": "$Q'(t) = -\\frac{\\ln 2}{3}Q(t)$" },
+          { "label": "c", "text": "$Q'(t) = \\frac{\\ln 3}{2}Q(t)$" },
+          { "label": "d", "text": "$Q'(t) = -\\frac{\\ln 3}{2}Q(t)$" }
+        ],
+        "answer": "b"
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "MAT1640",
+    "type": "Exercises",
+    "period": "24-1",
+    "questions": [
+      {
+        "id": 7,
+        "title": "Pregunta N°7",
+        "code": "MAT1640-3-1 (24-1)",
+        "content": "¿Cuál de las siguientes ecuaciones diferenciales es lineal, no homogénea y de segundo orden?",
+        "options": [
+          { "label": "a", "text": "$y'' + \\cos(x) y' + x = 0$" },
+          { "label": "b", "text": "$y'' + 3y' = xy$" },
+          { "label": "c", "text": "$(y')^2 = e^x$" },
+          { "label": "d", "text": "$(y')^2 - x^2y = 0$" }
+        ],
+        "answer": "a",
+        "solution": "Analizando las condiciones:\n\n1. **Segundo orden**: Debe aparecer la segunda derivada $y''$. Esto descarta (c) y (d).\n2. **Lineal**: La variable dependiente $y$ y sus derivadas no deben estar elevadas a potencias ni ser argumentos de funciones no lineales. (a) y (b) cumplen esto.\n3. **No homogénea**: Al escribirla en la forma estándar $L[y] = f(x)$, el término $f(x)$ debe ser distinto de cero.\n   - En (a): $y'' + \\cos(x)y' = -x$, donde $f(x) = -x \\neq 0$ (No homogénea).\n   - En (b): $y'' + 3y' - xy = 0$, que es la forma de una ecuación homogénea.\n\nPor lo tanto, la respuesta correcta es la **a**."
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "MAT1203",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 8,
+        "title": "Pregunta N°8",
+        "code": "MAT1203-4-1 (24-2)",
+        "content": "Sea $A$ una matriz simétrica. $A$ y $B$ son matrices invertibles. La matriz $M$ se define como:\n\n$$M = (B(A^2)^T A^{-1})^{-1}B$$\n\n¿Cuál de las siguientes expresiones es equivalente a la matriz $M$?",
+        "options": [
+          { "label": "a", "text": "$A$" },
+          { "label": "b", "text": "$A^{-1}$" },
+          { "label": "c", "text": "$B^{-1}AB$" },
+          { "label": "d", "text": "$B^{-1}A^{-1}B$" }
+        ],
+        "answer": "b",
+        "solution": "Dado que $A$ es simétrica, $A^T = A$. Entonces:\n\n$$(A^2)^T = (A \\cdot A)^T = A^T \\cdot A^T = A \\cdot A = A^2$$\n\nSustituyendo en la expresión de $M$:\n\n$$M = (B A^2 A^{-1})^{-1}B$$\n\nSimplificando el producto dentro del paréntesis ($A^2 A^{-1} = A$):\n\n$$M = (B A)^{-1} B$$\n\nUsando la propiedad de la inversa de un producto $(BA)^{-1} = A^{-1} B^{-1}$:\n\n$$M = A^{-1} B^{-1} B$$\n\nComo $B^{-1} B = I$:\n\n$$M = A^{-1}$$\n\nPor lo tanto, la respuesta correcta es la **b**."
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "MAT1203",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 9,
+        "title": "Pregunta N°9",
+        "code": "MAT1203-6-1 (24-2)",
+        "content": "Considere las siguientes afirmaciones con respecto a las matrices triangulares (y, por lo tanto, cuadradas):\n\n**I.** Toda matriz triangular es invertible.\n**II.** Toda matriz triangular conmuta con su transpuesta.\n**III.** Si una matriz triangular es simétrica, entonces es diagonalizable.\n\nDe las afirmaciones anteriores, ¿cuál(es) es(son) **CORRECTA(S)**?",
+        "options": [
+          { "label": "a", "text": "Sólo II." },
+          { "label": "b", "text": "Sólo III." },
+          { "label": "c", "text": "I y II." },
+          { "label": "d", "text": "I y III." }
+        ],
+        "answer": "b",
+        "solution": "Analicemos cada afirmación:\n\n1. **Afirmación I (Falsa):** El determinante de una matriz triangular es el producto de sus elementos en la diagonal. Si al menos uno de esos elementos es cero, el determinante es 0 y la matriz no es invertible.\n2. **Afirmación II (Falsa):** Solo las matrices normales cumplen que $AA^T = A^T A$. Una matriz triangular no suele ser normal a menos que sea diagonal. Por ejemplo, $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ no conmuta con su transpuesta.\n3. **Afirmación III (Verdadera):** Si una matriz es triangular (superior o inferior) y además es simétrica, sus elementos fuera de la diagonal deben ser cero para coincidir con su transpuesta. Esto la convierte en una matriz **diagonal**. Toda matriz diagonal es, por definición, diagonalizable.\n\nPor lo tanto, la respuesta correcta es la **b**."
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "EYP1113",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 10,
+        "title": "Pregunta N°10",
+        "code": "EYP1113-3-4 (24-2)",
+        "content": "Se ha estudiado que el porcentaje $C$ (%) de crecimiento (o decrecimiento) en ganancias mensuales de una empresa sigue una distribución con la siguiente función de densidad continua:\n\n$$f_C(x) = \\begin{cases} 0,2 + \\frac{x}{15} , & -3 < x < 0 \\\\ 0,2 - \\frac{x}{35} , & 0 < x < 7 \\\\ 0 & \\text{en otro caso} \\end{cases}$$\n\n¿Cuál de las siguientes alternativas es el valor **MÁS CERCANO** a la esperanza o valor esperado de $C$?",
+        "options": [
+          { "label": "a", "text": "0" },
+          { "label": "b", "text": "1" },
+          { "label": "c", "text": "1,33" },
+          { "label": "d", "text": "2" }
+        ],
+        "answer": "c",
+        "solution": "La esperanza de una variable continua se calcula como $E[C] = \\int_{-\\infty}^{\\infty} x f_C(x) dx$. Aplicamos esto a los dos tramos de la función:\n\n1. **Tramo 1** ($-3$ a $0$):\n$$\\int_{-3}^{0} x \\left(0,2 + \\frac{x}{15}\\right) dx = \\int_{-3}^{0} (0,2x + \\frac{x^2}{15}) dx = \\left[ 0,1x^2 + \\frac{x^3}{45} \\right]_{-3}^{0} = 0 - (0,1(9) - \\frac{27}{45}) = -(0,9 - 0,6) = -0,3$$\n\n2. **Tramo 2** ($0$ a $7$):\n$$\\int_{0}^{7} x \\left(0,2 - \\frac{x}{35}\\right) dx = \\int_{0}^{7} (0,2x - \\frac{x^2}{35}) dx = \\left[ 0,1x^2 - \\frac{x^3}{105} \\right]_{0}^{7} = (0,1(49) - \\frac{343}{105}) - 0 = 4,9 - 3,266... = 1,633...$$\n\nSumando ambos resultados:\n$$E[C] = -0,3 + 1,633... = 1,333...$$\n\nPor lo tanto, el valor más cercano es **1,33**."
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "EYP1113",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 11,
+        "title": "Pregunta N°11",
+        "code": "EYP1113-3-5 (24-2)",
+        "content": "Durante un día de lluvia en invierno, suponga que la cantidad $P$ de lluvia caída (medida en mm) por metro cuadrado sigue una distribución Log-Normal con parámetros $\\lambda = 3$ y $\\zeta = 0,2$.\n\nRecuerde que si $P$ tiene distribución Log-normal($\\lambda, \\zeta$), entonces $\\ln P$ tiene distribución Normal($\\lambda, \\zeta$).\n\nDe acuerdo con esta información, ¿cuál es el valor **MÁS CERCANO** a la probabilidad de que en un día de lluvia caiga menos de 18 mm por metro cuadrado?",
+        "options": [
+          { "label": "a", "text": "4,4 %" },
+          { "label": "b", "text": "29,1 %" },
+          { "label": "c", "text": "70,9 %" },
+          { "label": "d", "text": "95,6 %" }
+        ],
+        "answer": "b",
+        "solution": "Se busca calcular $P(P < 18)$. Dado que $\\ln P \\sim N(3; 0,2^2)$, podemos transformar la desigualdad:\n\n$$P(\\ln P < \\ln 18)$$\n\nEstandarizando para obtener una normal estándar $Z \\sim N(0,1)$:\n\n$$P\\left(Z < \\frac{\\ln 18 - 3}{0,2}\\right)$$\n\nCalculando los valores aproximados:\n$$\\ln 18 \\approx 2,8904$$\n$$\\frac{2,8904 - 3}{0,2} = \\frac{-0,1096}{0,2} = -0,548$$\n\nBuscando en la tabla de la normal estándar:\n$$\\Phi(-0,55) \\approx 0,2912$$\n\nPor lo tanto, la probabilidad es aproximadamente **29,1 %**."
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "EYP1113",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 12,
+        "title": "Pregunta N°12",
+        "code": "EYP1113-3-8 (24-2)",
+        "content": "Suponga que un centro de atención al cliente de una empresa de inversiones recibe llamadas telefónicas siguiendo un proceso de Poisson, con una tasa media de 1,3 llamadas por hora.\n\n¿Cuál es el valor **MÁS CERCANO** de la probabilidad de que en 4 horas lleguen entre 4 a 6 (ambas inclusive) llamadas telefónicas a este centro de atención?",
+        "options": [
+          { "label": "a", "text": "4,3 %" },
+          { "label": "b", "text": "17,5 %" },
+          { "label": "c", "text": "34,3 %" },
+          { "label": "d", "text": "49,4 %" }
+        ],
+        "answer": "d",
+        "solution": "El número de llamadas $X$ en un periodo de $t = 4$ horas sigue una distribución de Poisson con parámetro $\\mu = \\lambda \\cdot t = 1,3 \\cdot 4 = 5,2$.\n\nLa función de probabilidad es $P(X = k) = \\frac{e^{-5,2} \\cdot 5,2^k}{k!}$. Se pide calcular $P(4 \\le X \\le 6)$:\n\n1. $P(X=4) = \\frac{e^{-5,2} \\cdot 5,2^4}{4!} \\approx 0,1681$\n2. $P(X=5) = \\frac{e^{-5,2} \\cdot 5,2^5}{5!} \\approx 0,1748$\n3. $P(X=6) = \\frac{e^{-5,2} \\cdot 5,2^6}{6!} \\approx 0,1515$\n\nSumando las probabilidades:\n$$P(4 \\le X \\le 6) = 0,1681 + 0,1748 + 0,1515 = 0,4944$$\n\nEsto equivale aproximadamente al **49,4 %**."
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "EYP1113",
+    "type": "Exercises",
+    "period": "24-1",
+    "questions": [
+      {
+        "id": 13,
+        "title": "Pregunta N°13",
+        "code": "EYP1113-6-9 (24-1)",
+        "content": "Durante $n = 144$ días se contó la cantidad de accidentes vehiculares diarios en una ciudad, y se obtuvo una media $\\bar{X} = 34,3$ accidentes y una desviación estándar de $S = 4,7$.\n\n¿Cuál de las siguientes alternativas es la **MÁS CERCANA** a un **intervalo de 90% de confianza** aproximado para la cantidad media de accidentes vehiculares de la ciudad?",
+        "options": [
+          { "label": "a", "text": "[33,389 ; 35,211]" },
+          { "label": "b", "text": "[33,532 ; 35,068]" },
+          { "label": "c", "text": "[33,656 ; 34,944]" },
+          { "label": "d", "text": "[33,798 ; 34,802]" }
+        ],
+        "answer": "c",
+        "solution": "Para un intervalo de confianza del 90%, el valor crítico de la distribución normal estándar es $z_{\\alpha/2} \\approx 1,645$. El error estándar de la media se calcula como:\n\n$$SE = \\frac{S}{\\sqrt{n}} = \\frac{4,7}{\\sqrt{144}} = \\frac{4,7}{12} \\approx 0,39167$$\n\nEl margen de error ($E$) es:\n$$E = z_{\\alpha/2} \\cdot SE = 1,645 \\cdot 0,39167 \\approx 0,6443$$\n\nCalculamos los límites del intervalo:\n- Límite inferior: $34,3 - 0,6443 = 33,6557$\n- Límite superior: $34,3 + 0,6443 = 34,9443$\n\nEl intervalo más cercano es **[33,656 ; 34,944]**, que corresponde a la opción **c**."
+      }
+    ]
+  },
+  {
+    "section": "M1",
+    "course": "EYP1113",
+    "type": "Exercises",
+    "period": "24-2",
+    "questions": [
+      {
+        "id": 14,
+        "title": "Pregunta N°14",
+        "code": "EYP1113-7-2 (24-2)",
+        "content": "Un centro de llamados quiere estudiar el tiempo de cada llamada que recibe. Usualmente, son cortas, pero algunas son más prolongadas. Eso motiva a probar con un test de bondad de ajuste si el tiempo de duración de cada llamada tiene distribución Exponencial.\n\nDe $n = 100$ llamadas registradas, la duración promedio de esta muestra es 2,2 minutos.\n\nAdemás, los datos fueron resumidos en la tabla 1 por categorías. Se incluye también la frecuencia esperada estimada bajo esta distribución Exponencial.\n\n**Tabla 1**\n\n| Intervalo | Frecuencia observada ($O_i$) | Frecuencia esperada ($E_i$) | $(O_i - E_i)^2 / E_i$ |\n| :--- | :---: | :---: | :---: |\n| 0 a 0,5 minutos | 18 | 20,33 | 0,2670 |\n| 0,5 a 1,0 minuto | 16 | 16,20 | 0,0024 |\n| 1,0 a 2,0 minutos | 19 | 23,18 | 0,7553 |\n| 2,0 a 3,5 minutos | 29 | 19,92 | 4,1445 |\n| Más de 3,5 minutos | 18 | 20,37 | 0,2766 |\n\nUtilizando un test de bondad de ajuste Chi-cuadrado $\\chi^2$, ¿se puede **SEGUIR ASUMIENDO** una distribución Exponencial con la información dada?",
+        "options": [
+          { "label": "a", "text": "Con un nivel de significancia de 10%, sí." },
+          { "label": "b", "text": "Con un nivel de significancia de 5%, sí, pero con un nivel de significancia de 10%, no." },
+          { "label": "c", "text": "Con un nivel de significancia de 1%, sí, pero con un nivel de significancia de 5%, no." },
+          { "label": "d", "text": "Con un nivel de significancia de 1%, no." }
+        ],
+        "answer": "a",
+        "solution": "Primero calculamos el estadístico de prueba $\\chi^2$ sumando la última columna:\n$$\\chi^2_{calc} = 0,2670 + 0,0024 + 0,7553 + 4,1445 + 0,2766 = 5,4458$$\n\nDeterminamos los grados de libertad ($df$):\n$df = \\text{categorías} - 1 - \\text{parámetros estimados}$. \nComo se estimó la media para la distribución exponencial, tenemos $df = 5 - 1 - 1 = 3$.\n\nBuscamos los valores críticos en la tabla $\\chi^2$ para $df = 3$:\n- Para $\\alpha = 0,10$: $\\chi^2_{0,90; 3} = 6,251$\n- Para $\\alpha = 0,05$: $\\chi^2_{0,95; 3} = 7,815$\n\nComo $\\chi^2_{calc} (5,4458) < 6,251$, no se rechaza la hipótesis nula incluso al 10%. Por lo tanto, se puede seguir asumiendo la distribución exponencial."
+      }
+    ]
+  }
+]

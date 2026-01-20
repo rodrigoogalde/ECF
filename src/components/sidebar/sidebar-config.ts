@@ -14,7 +14,7 @@ export const config = {
   navMain: [
     {
         title: "Inicio",
-        url: "/dashboard",
+        url: "/main",
         icon: Home,
         showFor: ['STUDENT', 'ADMIN'],
     },

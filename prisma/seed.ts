@@ -74,7 +74,7 @@ async function uploadImage({
   type,
 }: UploadImageParams): Promise<string | null> {
   try {
-    const fullPath = path.join(__dirname, '..', 'public', localPath);
+    const fullPath = path.join(__dirname, '..', 'data', localPath);
     
     if (!fs.existsSync(fullPath)) {
       console.warn(`    ⚠️  Image not found: ${fullPath}`);
@@ -89,6 +89,7 @@ async function uploadImage({
     
     const blob = await put(remotePath, fileBuffer, {
       access: 'public',
+      allowOverwrite: true,
     });
     
     console.log(`    ✅ Uploaded: ${blob.url}`);
@@ -185,10 +186,13 @@ async function main() {
         }
       }
 
+      // format id to be 'nn' 1 -> 01, 10 -> 10, 100 -> 100
+      const title = `${questionSet.period.replace('-', '')}${q.id.toString().padStart(2, '0')} - ${q.title}`;
+
       await prisma.question.upsert({
         where: { uniqueCode: q.code },
         update: {
-          title: q.title,
+          title: title,
           content: q.content,
           period: questionSet.period,
           type: questionSet.type,
@@ -199,7 +203,7 @@ async function main() {
         },
         create: {
           uniqueCode: q.code,
-          title: q.title,
+          title: title,
           content: q.content,
           period: questionSet.period,
           type: questionSet.type,

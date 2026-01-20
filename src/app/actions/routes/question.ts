@@ -3,6 +3,7 @@
 import { questionCRUD } from "../crud/question";
 import { questionSchema } from "@/lib/validations/question";
 import { Prisma } from "@prisma/client";
+import { QuestionFilters } from "@/lib/interfaces/questions";
 
 export async function getAllQuestions(filters?: Prisma.QuestionWhereInput) {
   return await questionCRUD.getAll(filters);
@@ -56,4 +57,12 @@ export async function updateQuestion(id: string, data: unknown) {
 
 export async function deleteQuestion(id: string, isSoft: boolean = true) {
   return await questionCRUD.delete(id, isSoft);
+}
+
+export async function getQuestionSetsAction(filters: QuestionFilters) {
+  return await questionCRUD.getQuestionSets(filters);
+}
+
+export async function getAvailableFiltersAction() {
+  return await questionCRUD.getAvailableFilters();
 }

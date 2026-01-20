@@ -18,7 +18,7 @@ export async function proxy(request: NextRequest) {
     }
   }
 
-  if (pathname.startsWith(ROUTES.STUDENT)) {
+  if (pathname.startsWith(ROUTES.STUDENT.HOME)) {
     if (!session) {
       return NextResponse.redirect(new URL("/api/auth/signin", request.url));
     }

@@ -47,3 +47,4 @@ export async function updateOption(id: number, data: unknown) {
 export async function deleteOption(id: number, isSoft: boolean = true) {
   return await optionCRUD.delete(id.toString(), isSoft);
 }
+

@@ -7,6 +7,10 @@ datasource db {
   provider = "postgresql"
 }
 
+// --------------------------------------
+// 1. AUTH & USERS (NextAuth)
+// --------------------------------------
+
 enum UserRole {
   ADMIN
   STUDENT
@@ -18,9 +22,13 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   image         String?
+  
   role          UserRole  @default(STUDENT)
+  
   accounts      Account[]
   sessions      Session[]
+  attempts      TestAttempt[]
+
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
@@ -70,7 +78,9 @@ model VerificationToken {
 
 
 
-
+// --------------------------------------
+// 2. ACADEMIC CONTENT (Banco de Preguntas)
+// --------------------------------------
 
 // Representa "M1", "M2", "M3" del Syllabus
 model Section {
@@ -119,38 +129,98 @@ model Question {
   course       Course   @relation(fields: [courseCode], references: [code])
   courseCode   String
 
-  test         Test?    @relation(fields: [testId], references: [id])
-  testId       String?
-
+  tests        Test[]
   options      Option[]
+
+  responses    QuestionResponse[]
 
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-
   deleted      Boolean  @default(false)
   deletedAt    DateTime?
 }
 
 model Option {
   id           Int      @id @default(autoincrement())
-  label        String   
+  label        String
   text         String
   imageUrl     String[]
-  
+
   question     Question @relation(fields: [questionCode], references: [uniqueCode])
   questionCode String
 
+  // NUEVA RELACIÓN: Para saber cuántas veces eligieron ESTA alternativa específica
+  selections   QuestionResponse[]
+
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-
   deleted      Boolean  @default(false)
   deletedAt    DateTime?
 }
 
 model Test {
-  id         String   @id @default(uuid())
-  name       String
-  questions  Question[]
+  id        String     @id @default(uuid())
+  name      String
+  questions Question[]
+  
+  // NUEVA RELACIÓN: Intentos realizados a esta prueba
+  attempts  TestAttempt[]
 
   @@unique([name])
+}
+
+// --------------------------------------
+// 3. ANALYTICS & EXECUTION (Toma de pruebas)
+// --------------------------------------
+
+model TestAttempt {
+  id        String   @id @default(uuid())
+  
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  
+  test      Test     @relation(fields: [testId], references: [id])
+  testId    String
+
+  startedAt  DateTime @default(now())
+  finishedAt DateTime? 
+  score      Float?   // Nota o puntaje final
+  status     String   @default("IN_PROGRESS") // 'IN_PROGRESS', 'COMPLETED', 'ABANDONED'
+
+  // Respuestas detalladas
+  responses  QuestionResponse[]
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  deleted      Boolean  @default(false)
+  deletedAt    DateTime?
+}
+
+model QuestionResponse {
+  id              String   @id @default(uuid())
+
+  // Vinculo al intento general
+  attempt         TestAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  attemptId       String
+
+  // Vinculo a la pregunta original (Usamos ID interno UUID para FK eficiente)
+  question        Question @relation(fields: [questionId], references: [id])
+  questionId      String
+  
+  // Qué opción marcó el usuario
+  selectedOption   Option? @relation(fields: [selectedOptionId], references: [id])
+  selectedOptionId Int?
+
+  // --- Analítica ---
+  isCorrect       Boolean? // Se guarda true/false al terminar
+  timeSpent       Int      @default(0) // Segundos en la pregunta
+  switchCount     Int      @default(0) // Veces que cambió de pestaña (anti-cheat)
+  flagged         Boolean  @default(false) // Si el usuario la marcó "para revisar"
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  deleted      Boolean  @default(false)
+  deletedAt    DateTime?
+
+  @@unique([attemptId, questionId]) // Un usuario solo responde 1 vez la misma pregunta por intento
 }

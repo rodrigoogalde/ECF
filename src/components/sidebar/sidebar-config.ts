@@ -26,12 +26,12 @@ export const config = {
         showFor: ['STUDENT'],
         items: [
             {
-            title: "Todos",
-            url: "/student/tests",
+            title: "Practicar",
+            url: "/student/practice",
             },
             {
-            title: "Nueva",
-            url: "/student/tests/new",
+            title: "Mis Intentos",
+            url: "/student/practice/attempts",
             },
         ],
     },
@@ -41,6 +41,14 @@ export const config = {
         icon: Settings2,
         showFor: ['ADMIN'],
         items: [
+            {
+            title: "Preguntas",
+            url: "/admin/questions",
+            },
+            {
+            title: "Tests",
+            url: "/admin/tests",
+            },
             {
             title: "Usuarios",
             url: "/admin/users",

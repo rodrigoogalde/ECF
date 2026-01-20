@@ -55,6 +55,67 @@ class QuestionResponseCRUD extends BaseCRUD<QuestionResponse, Prisma.QuestionRes
       flagged?: boolean;
     }
   ) {
+    // Fetch current response to accumulate values
+    const currentResponse = await prisma.questionResponse.findUnique({
+      where: {
+        attemptId_questionId: {
+          attemptId,
+          questionId
+        }
+      },
+      include: {
+        question: {
+          include: {
+            options: { where: { deleted: false } }
+          }
+        }
+      }
+    });
+
+    if (!currentResponse) {
+      throw new Error(`QuestionResponse not found for attemptId: ${attemptId}, questionId: ${questionId}`);
+    }
+
+    // Build update data with accumulation for timeSpent and switchCount
+    const updateData: {
+      selectedOptionId?: number | null;
+      timeSpent?: number;
+      switchCount?: number;
+      flagged?: boolean;
+      isCorrect?: boolean | null;
+    } = {};
+
+    if (data.flagged !== undefined) {
+      updateData.flagged = data.flagged;
+    }
+
+    if (data.timeSpent !== undefined) {
+      updateData.timeSpent = currentResponse.timeSpent + data.timeSpent;
+    }
+
+    if (data.switchCount !== undefined) {
+      updateData.switchCount = currentResponse.switchCount + data.switchCount;
+    }
+
+    if (data.selectedOptionId !== undefined) {
+      updateData.selectedOptionId = data.selectedOptionId;
+
+      // Increment switchCount when selectedOptionId changes
+      if (data.selectedOptionId !== currentResponse.selectedOptionId) {
+        updateData.switchCount = currentResponse.switchCount + 1;
+      }
+
+      // Calculate isCorrect when selectedOptionId is updated
+      if (data.selectedOptionId === null) {
+        updateData.isCorrect = null;
+      } else {
+        const selectedOption = currentResponse.question.options.find(
+          (opt) => opt.id === data.selectedOptionId
+        );
+        updateData.isCorrect = selectedOption?.label === currentResponse.question.correctLabel;
+      }
+    }
+
     return await prisma.questionResponse.update({
       where: {
         attemptId_questionId: {
@@ -62,7 +123,7 @@ class QuestionResponseCRUD extends BaseCRUD<QuestionResponse, Prisma.QuestionRes
           questionId
         }
       },
-      data,
+      data: updateData,
       include: {
         question: {
           include: {

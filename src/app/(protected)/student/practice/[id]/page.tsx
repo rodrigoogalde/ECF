@@ -11,16 +11,11 @@ import { PracticeQuestionCard } from "@/components/question/PracticeQuestionCard
 import { ReviewQuestionCard } from "@/components/question/ReviewQuestionCard";
 import { ROUTES } from "@/lib/config/routes";
 import Link from "next/link";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
+import { FinishModal } from "@/components/practice/finishModal";
+import { NavigationPanel } from "@/components/practice/NavigationPanel";
+import { QuestionNavigation } from "@/components/QuestionNavigation";
+import { AttemptHeader } from "@/components/practice/AttemptHeader";
+import formatTime from "@/lib/utils/question";
 
 interface Option {
   id: number;
@@ -106,6 +101,7 @@ export default function AttemptPage() {
     loadAttempt();
   }, [attemptId, router]);
 
+  // Start timer when attempt is started
   useEffect(() => {
     if (attempt?.status === 'COMPLETED') return;
     
@@ -116,21 +112,12 @@ export default function AttemptPage() {
     return () => clearInterval(timer);
   }, [attempt?.status]);
 
+  // Start timer when question is selected
   useEffect(() => {
     questionStartTime.current = Date.now();
     currentQuestionTime.current = 0;
   }, [currentIndex]);
 
-  const formatTime = (seconds: number) => {
-    const hrs = Math.floor(seconds / 3600);
-    const mins = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-    
-    if (hrs > 0) {
-      return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    }
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
 
   const saveTimeSpent = useCallback(async () => {
     if (!attempt) return;
@@ -139,11 +126,22 @@ export default function AttemptPage() {
     if (!currentResponse) return;
 
     const additionalTime = Math.floor((Date.now() - questionStartTime.current) / 1000);
-    const totalTime = currentResponse.timeSpent + additionalTime;
+
+    if (additionalTime <= 0) return;
 
     try {
       await updateQuestionResponse(attemptId, currentResponse.questionId, {
-        timeSpent: totalTime
+        timeSpent: additionalTime
+      });
+
+      setAttempt(prev => {
+        if (!prev) return prev;
+        const newResponses = [...prev.responses];
+        newResponses[currentIndex] = {
+          ...newResponses[currentIndex],
+          timeSpent: newResponses[currentIndex].timeSpent + additionalTime
+        };
+        return { ...prev, responses: newResponses };
       });
     } catch (error) {
       console.error("Error saving time:", error);
@@ -178,12 +176,18 @@ export default function AttemptPage() {
       setAttempt(prev => {
         if (!prev) return prev;
         const newResponses = [...prev.responses];
+        const selectedOption = optionId 
+          ? currentResponse.question.options.find(o => o.id === optionId) || null 
+          : null;
+        const isCorrect = optionId === null 
+          ? null 
+          : selectedOption?.label === currentResponse.question.correctLabel;
+        
         newResponses[currentIndex] = {
           ...newResponses[currentIndex],
           selectedOptionId: optionId,
-          selectedOption: optionId 
-            ? currentResponse.question.options.find(o => o.id === optionId) || null 
-            : null
+          selectedOption,
+          isCorrect
         };
         return { ...prev, responses: newResponses };
       });
@@ -247,276 +251,87 @@ export default function AttemptPage() {
   const totalQuestions = attempt.responses.length;
   const answeredCount = attempt.responses.filter(r => r.selectedOptionId !== null).length;
   const flaggedCount = attempt.responses.filter(r => r.flagged).length;
+  const isCompleted = attempt.status === 'COMPLETED';
+  const correctCount = isCompleted ? attempt.responses.filter(r => r.isCorrect).length : 0;
 
-  if (attempt.status === 'COMPLETED') {
-    const correctCount = attempt.responses.filter(r => r.isCorrect).length;
-    
-    return (
-      <div className="container mx-auto py-4 px-4 max-w-7xl">
-        <div className="mb-4">
-          <Link href={ROUTES.STUDENT.ATTEMPTS}>
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Volver a Mis Intentos
-            </Button>
-          </Link>
-        </div>
+  return (
+    <div className="container mx-auto py-4 px-4 max-w-7xl">
+      <AttemptHeader
+        testName={attempt.test.name}
+        currentIndex={currentIndex}
+        totalQuestions={totalQuestions}
+        isCompleted={isCompleted}
+        score={isCompleted ? attempt.score : undefined}
+        correctCount={isCompleted ? correctCount : undefined}
+        answeredCount={!isCompleted ? answeredCount : undefined}
+        flaggedCount={!isCompleted ? flaggedCount : undefined}
+      />
 
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-2">
-            <h1 className="text-2xl font-bold">{attempt.test.name}</h1>
-            <Badge variant="default" className="bg-green-500 hover:bg-green-600">
-              <CheckCircle className="h-4 w-4 mr-1" />
-              Completada
-            </Badge>
-          </div>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span>Pregunta {currentIndex + 1} de {totalQuestions}</span>
-            <span>•</span>
-            <span className="font-medium text-foreground">
-              Puntaje: {attempt.score?.toFixed(1)}%
-            </span>
-            <span>•</span>
-            <span className="text-green-600 dark:text-green-400">
-              {correctCount} correctas
-            </span>
-            <span>•</span>
-            <span className="text-red-600 dark:text-red-400">
-              {totalQuestions - correctCount} incorrectas
-            </span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
-          <div>
-            {currentResponse && (
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
+        <div>
+          {currentResponse && (
+            isCompleted ? (
               <ReviewQuestionCard
                 question={currentResponse.question}
                 selectedOptionId={currentResponse.selectedOptionId}
                 isCorrect={currentResponse.isCorrect}
               />
-            )}
-
-            <div className="mt-6 flex items-center justify-between">
-              <Button
-                variant="outline"
-                onClick={() => setCurrentIndex(prev => Math.max(0, prev - 1))}
-                disabled={currentIndex === 0}
-              >
-                <ChevronLeft className="h-4 w-4 mr-1" />
-                Anterior
-              </Button>
-
-              <Button
-                variant="outline"
-                onClick={() => setCurrentIndex(prev => Math.min(totalQuestions - 1, prev + 1))}
-                disabled={currentIndex === totalQuestions - 1}
-              >
-                Siguiente
-                <ChevronRight className="h-4 w-4 ml-1" />
-              </Button>
-            </div>
-          </div>
-
-          <div className="lg:sticky lg:top-4 lg:self-start">
-            <Card>
-              <CardContent className="p-4">
-                <h3 className="font-semibold mb-3">Navegación</h3>
-                
-                <div className="mb-4 flex gap-4 text-xs">
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 bg-green-500 rounded"></div>
-                    <span>Correcta</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 bg-red-500 rounded"></div>
-                    <span>Incorrecta</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-3 bg-yellow-500 rounded"></div>
-                    <span>Sin resp.</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-5 gap-2">
-                  {attempt.responses.map((response, idx) => (
-                    <button
-                      key={response.id}
-                      onClick={() => setCurrentIndex(idx)}
-                      className={`
-                        w-full aspect-square text-xs font-medium rounded border-2 transition-colors
-                        ${idx === currentIndex ? 'ring-2 ring-primary' : ''}
-                        ${response.isCorrect 
-                          ? 'bg-green-500 text-white border-green-600 hover:bg-green-600' 
-                          : response.selectedOptionId !== null
-                            ? 'bg-red-500 text-white border-red-600 hover:bg-red-600'
-                            : 'bg-yellow-500 text-white border-yellow-600 hover:bg-yellow-600'}
-                      `}
-                    >
-                      {idx + 1}
-                    </button>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="container mx-auto py-4 px-4 max-w-7xl">
-      <div className="mb-4 flex items-center justify-between">
-        <div>
-          <h1 className="text-xl font-bold">{attempt.test.name}</h1>
-          <p className="text-sm text-muted-foreground">
-            Pregunta {currentIndex + 1} de {totalQuestions}
-          </p>
-        </div>
-        <div className="flex items-center gap-4">
-          <Badge variant="outline" className="text-base px-3 py-1">
-            <Clock className="h-4 w-4 mr-2" />
-            {formatTime(elapsedTime)}
-          </Badge>
-          <Button 
-            variant="destructive" 
-            size="sm"
-            onClick={() => setShowFinishDialog(true)}
-          >
-            Finalizar
-          </Button>
-        </div>
-      </div>
-
-      <div className="mb-4 flex gap-4 text-sm">
-        <span className="text-muted-foreground">
-          Respondidas: {answeredCount}/{totalQuestions}
-        </span>
-        {flaggedCount > 0 && (
-          <span className="text-orange-500 flex items-center gap-1">
-            <Flag className="h-3 w-3" />
-            {flaggedCount} marcadas
-          </span>
-        )}
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
-        <div>
-          {currentResponse && (
-            <PracticeQuestionCard
-              question={currentResponse.question}
-              selectedOptionId={currentResponse.selectedOptionId}
-              flagged={currentResponse.flagged}
-              onSelectOption={handleSelectOption}
-              onToggleFlag={handleToggleFlag}
-            />
+            ) : (
+              <PracticeQuestionCard
+                question={currentResponse.question}
+                selectedOptionId={currentResponse.selectedOptionId}
+                flagged={currentResponse.flagged}
+                onSelectOption={handleSelectOption}
+                onToggleFlag={handleToggleFlag}
+              />
+            )
           )}
 
-          <div className="mt-6 flex items-center justify-between">
-            <Button
-              variant="outline"
-              onClick={handlePrevious}
-              disabled={currentIndex === 0}
-            >
-              <ChevronLeft className="h-4 w-4 mr-1" />
-              Anterior
-            </Button>
-
-            <div className="flex items-center gap-2">
-              <Button
-                variant={currentResponse?.flagged ? "default" : "outline"}
-                size="icon"
-                onClick={handleToggleFlag}
-                className={currentResponse?.flagged ? "bg-orange-500 hover:bg-orange-600" : ""}
-              >
-                <Flag className="h-4 w-4" />
-              </Button>
-            </div>
-
-            <Button
-              variant="outline"
-              onClick={handleNext}
-              disabled={currentIndex === totalQuestions - 1}
-            >
-              Siguiente
-              <ChevronRight className="h-4 w-4 ml-1" />
-            </Button>
-          </div>
+          <QuestionNavigation
+            currentIndex={currentIndex}
+            totalQuestions={totalQuestions}
+            isFlagged={!isCompleted ? currentResponse?.flagged || false : undefined}
+            onPrevious={isCompleted 
+              ? () => setCurrentIndex(prev => Math.max(0, prev - 1))
+              : handlePrevious
+            }
+            onNext={isCompleted
+              ? () => setCurrentIndex(prev => Math.min(totalQuestions - 1, prev + 1))
+              : handleNext
+            }
+            onToggleFlag={!isCompleted ? handleToggleFlag : undefined}
+          />
         </div>
 
-        <div className="lg:sticky lg:top-4 lg:self-start">
-          <Card>
-            <CardContent className="p-4">
-              <h3 className="font-semibold mb-3">Navegación</h3>
-              
-              <div className="mb-4 flex gap-2 text-xs flex-wrap">
-                <div className="flex items-center gap-1">
-                  <div className="w-3 h-3 bg-primary rounded"></div>
-                  <span>Respondida</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <div className="w-3 h-3 bg-muted rounded border"></div>
-                  <span>Sin resp.</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <div className="w-3 h-3 bg-orange-500 rounded"></div>
-                  <span>Marcada</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-5 gap-2">
-                {attempt.responses.map((response, idx) => (
-                  <button
-                    key={response.id}
-                    onClick={async () => {
-                      await saveTimeSpent();
-                      setCurrentIndex(idx);
-                    }}
-                    className={`
-                      w-full aspect-square text-xs font-medium rounded border-2 transition-colors
-                      ${idx === currentIndex ? 'ring-2 ring-primary' : ''}
-                      ${response.selectedOptionId !== null 
-                        ? 'bg-primary text-primary-foreground border-primary' 
-                        : 'bg-muted hover:bg-muted/80 border-muted'}
-                      ${response.flagged ? 'border-orange-500' : ''}
-                    `}
-                  >
-                    {idx + 1}
-                  </button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <NavigationPanel
+          responses={attempt.responses}
+          currentIndex={currentIndex}
+          onQuestionSelect={isCompleted
+            ? (idx) => setCurrentIndex(idx)
+            : async (idx) => {
+                await saveTimeSpent();
+                setCurrentIndex(idx);
+              }
+          }
+          testName={attempt.test.name}
+          elapsedTime={!isCompleted ? elapsedTime : undefined}
+          formatTime={!isCompleted ? formatTime : undefined}
+          onFinish={!isCompleted ? () => setShowFinishDialog(true) : undefined}
+          isCompleted={isCompleted}
+        />
       </div>
 
-      <AlertDialog open={showFinishDialog} onOpenChange={setShowFinishDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>¿Finalizar prueba?</AlertDialogTitle>
-            <AlertDialogDescription>
-              Has respondido {answeredCount} de {totalQuestions} preguntas.
-              {flaggedCount > 0 && ` Tienes ${flaggedCount} preguntas marcadas para revisar.`}
-              <br /><br />
-              Una vez finalizada, no podrás modificar tus respuestas.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancelar</AlertDialogCancel>
-            <AlertDialogAction onClick={handleFinishTest} disabled={finishing}>
-              {finishing ? (
-                <>
-                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Finalizando...
-                </>
-              ) : (
-                "Finalizar"
-              )}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      {!isCompleted && (
+        <FinishModal
+          open={showFinishDialog}
+          onOpenChange={setShowFinishDialog}
+          onFinish={handleFinishTest}
+          answeredCount={answeredCount}
+          totalQuestions={totalQuestions}
+          flaggedCount={flaggedCount}
+          finishing={finishing}
+        />
+      )}
     </div>
   );
 }

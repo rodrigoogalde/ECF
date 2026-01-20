@@ -117,6 +117,9 @@ class TestAttemptCRUD extends BaseCRUD<TestAttempt, Prisma.TestAttemptCreateInpu
           }
         },
         responses: {
+          orderBy: {
+            question: { title: 'asc' }
+          },
           include: {
             question: {
               include: {
@@ -139,6 +142,7 @@ class TestAttemptCRUD extends BaseCRUD<TestAttempt, Prisma.TestAttemptCreateInpu
         test: {
           include: {
             questions: {
+              orderBy: { title: 'asc' },
               where: { deleted: false },
               include: {
                 options: { where: { deleted: false } },
@@ -148,6 +152,9 @@ class TestAttemptCRUD extends BaseCRUD<TestAttempt, Prisma.TestAttemptCreateInpu
           }
         },
         responses: {
+          orderBy: {
+            question: { title: 'asc' }
+          },
           include: {
             question: {
               include: {
@@ -223,6 +230,9 @@ class TestAttemptCRUD extends BaseCRUD<TestAttempt, Prisma.TestAttemptCreateInpu
       include: {
         test: true,
         responses: {
+          orderBy: {
+            question: { title: 'asc' }
+          },
           include: {
             question: true,
             selectedOption: true

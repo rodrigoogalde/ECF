@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -22,15 +21,15 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   image         String?
-  
-  role          UserRole  @default(STUDENT)
-  
-  accounts      Account[]
-  sessions      Session[]
-  attempts      TestAttempt[]
 
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  role UserRole @default(STUDENT)
+
+  accounts Account[]
+  sessions Session[]
+  attempts TestAttempt[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("users")
 }
@@ -47,6 +46,7 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
+
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
@@ -61,6 +61,7 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
@@ -76,49 +77,48 @@ model VerificationToken {
   @@map("verification")
 }
 
-
-
 // --------------------------------------
 // 2. ACADEMIC CONTENT (Banco de Preguntas)
 // --------------------------------------
 
 // Representa "M1", "M2", "M3" del Syllabus
 model Section {
-  code      String   @id
-  name      String   
-  courses   Course[]
+  code    String   @id
+  name    String
+  courses Course[]
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  deleted   Boolean  @default(false)
+  deleted   Boolean   @default(false)
   deletedAt DateTime?
 }
 
 // Representa cada asignatura (MAT1610, FIS1514, etc.)
 model Course {
   code       String   @id
-  topic      String   
-  contents   String[] 
-  indicators String[] 
+  topic      String
+  contents   String[]
+  indicators String[]
 
-  section     Section   @relation(fields: [sectionCode], references: [code])
+  section     Section @relation(fields: [sectionCode], references: [code])
   sectionCode String
 
-  questions  Question[]
+  questions Question[]
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  deleted      Boolean  @default(false)
-  deletedAt    DateTime?
+  deleted   Boolean   @default(false)
+  deletedAt DateTime?
 }
 
 model Question {
-  id           String   @id @default(uuid())
-  uniqueCode   String   @unique
-  
+  id         String @id @default(uuid())
+  uniqueCode String @unique
+
   title        String
+  tags         String[]
   content      String
   period       String
   type         String
@@ -126,45 +126,53 @@ model Question {
   imageUrl     String[]
   correctLabel String?
 
-  course       Course   @relation(fields: [courseCode], references: [code])
-  courseCode   String
+  course     Course @relation(fields: [courseCode], references: [code])
+  courseCode String
 
-  tests        Test[]
-  options      Option[]
+  tests   Test[]
+  options Option[]
 
-  responses    QuestionResponse[]
+  responses QuestionResponse[]
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  deleted      Boolean  @default(false)
-  deletedAt    DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  deleted   Boolean   @default(false)
+  deletedAt DateTime?
 }
 
 model Option {
-  id           Int      @id @default(autoincrement())
-  label        String
-  text         String
-  imageUrl     String[]
+  id       Int      @id @default(autoincrement())
+  label    String
+  text     String
+  imageUrl String[]
 
   question     Question @relation(fields: [questionCode], references: [uniqueCode])
   questionCode String
 
   // NUEVA RELACIÓN: Para saber cuántas veces eligieron ESTA alternativa específica
-  selections   QuestionResponse[]
+  selections QuestionResponse[]
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  deleted      Boolean  @default(false)
-  deletedAt    DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  deleted   Boolean   @default(false)
+  deletedAt DateTime?
 }
 
 model Test {
   id        String     @id @default(uuid())
   name      String
   questions Question[]
-  
+
   // NUEVA RELACIÓN: Intentos realizados a esta prueba
-  attempts  TestAttempt[]
+  attempts TestAttempt[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  deleted   Boolean   @default(false)
+  deletedAt DateTime?
 
   @@unique([name])
 }
@@ -174,53 +182,55 @@ model Test {
 // --------------------------------------
 
 model TestAttempt {
-  id        String   @id @default(uuid())
-  
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
-  
-  test      Test     @relation(fields: [testId], references: [id], onDelete: Cascade)
-  testId    String
+  id String @id @default(uuid())
 
-  startedAt  DateTime @default(now())
-  finishedAt DateTime? 
-  score      Float?   // Nota o puntaje final
-  status     String   @default("IN_PROGRESS") // 'IN_PROGRESS', 'COMPLETED', 'ABANDONED'
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  test   Test   @relation(fields: [testId], references: [id], onDelete: Cascade)
+  testId String
+
+  startedAt  DateTime  @default(now())
+  finishedAt DateTime?
+  score      Float? // Nota o puntaje final
+  status     String    @default("IN_PROGRESS") // 'IN_PROGRESS', 'COMPLETED', 'ABANDONED'
 
   // Respuestas detalladas
-  responses  QuestionResponse[]
+  responses QuestionResponse[]
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @default(now()) @updatedAt
-  deleted      Boolean  @default(false)
-  deletedAt    DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
+
+  deleted   Boolean   @default(false)
+  deletedAt DateTime?
 }
 
 model QuestionResponse {
-  id              String   @id @default(uuid())
+  id String @id @default(uuid())
 
   // Vinculo al intento general
-  attempt         TestAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
-  attemptId       String
+  attempt   TestAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  attemptId String
 
   // Vinculo a la pregunta original (Usamos ID interno UUID para FK eficiente)
-  question        Question @relation(fields: [questionId], references: [id])
-  questionId      String
-  
+  question   Question @relation(fields: [questionId], references: [id])
+  questionId String
+
   // Qué opción marcó el usuario
   selectedOption   Option? @relation(fields: [selectedOptionId], references: [id])
   selectedOptionId Int?
 
   // --- Analítica ---
-  isCorrect       Boolean? // Se guarda true/false al terminar
-  timeSpent       Int      @default(0) // Segundos en la pregunta
-  switchCount     Int      @default(0) // Veces que cambió de pestaña (anti-cheat)
-  flagged         Boolean  @default(false) // Si el usuario la marcó "para revisar"
+  isCorrect   Boolean? // Se guarda true/false al terminar
+  timeSpent   Int      @default(0) // Segundos en la pregunta
+  switchCount Int      @default(0) // Veces que cambió de pestaña (anti-cheat)
+  flagged     Boolean  @default(false) // Si el usuario la marcó "para revisar"
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @default(now()) @updatedAt
-  deleted      Boolean  @default(false)
-  deletedAt    DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
+  
+  deleted   Boolean   @default(false)
+  deletedAt DateTime?
 
   @@unique([attemptId, questionId]) // Un usuario solo responde 1 vez la misma pregunta por intento
 }

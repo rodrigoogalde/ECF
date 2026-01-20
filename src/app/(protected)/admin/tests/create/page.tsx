@@ -153,84 +153,86 @@ export default function CreateTestPage() {
               <CardDescription>Selecciona los criterios para filtrar preguntas</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="period">Período</Label>
-                <Select
-                  value={filters.period || 'all'}
-                  onValueChange={(value) => handleFilterChange('period', value)}
-                >
-                  <SelectTrigger id="period">
-                    <SelectValue placeholder="Todos los períodos" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">Todos los períodos</SelectItem>
-                    {availableFilters.periods.map((period) => (
-                      <SelectItem key={period} value={period}>
-                        {period}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="period">Período</Label>
+                  <Select
+                    value={filters.period || 'all'}
+                    onValueChange={(value) => handleFilterChange('period', value)}
+                  >
+                    <SelectTrigger id="period" className="w-full">
+                      <SelectValue placeholder="Todos los períodos" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">Todos los períodos</SelectItem>
+                      {availableFilters.periods.map((period) => (
+                        <SelectItem key={period} value={period}>
+                          {period}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="section">Sección</Label>
-                <Select
-                  value={filters.sectionCode || 'all'}
-                  onValueChange={(value) => handleFilterChange('sectionCode', value)}
-                >
-                  <SelectTrigger id="section">
-                    <SelectValue placeholder="Todas las secciones" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">Todas las secciones</SelectItem>
-                    {availableFilters.sections.map((section) => (
-                      <SelectItem key={section} value={section}>
-                        {section}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+                <div className="space-y-2">
+                  <Label htmlFor="section">Sección</Label>
+                  <Select
+                    value={filters.sectionCode || 'all'}
+                    onValueChange={(value) => handleFilterChange('sectionCode', value)}
+                  >
+                    <SelectTrigger id="section" className="w-full">
+                      <SelectValue placeholder="Todas las secciones" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">Todas las secciones</SelectItem>
+                      {availableFilters.sections.map((section) => (
+                        <SelectItem key={section} value={section}>
+                          {section}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="course">Curso</Label>
-                <Select
-                  value={filters.courseCode || 'all'}
-                  onValueChange={(value) => handleFilterChange('courseCode', value)}
-                >
-                  <SelectTrigger id="course">
-                    <SelectValue placeholder="Todos los cursos" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">Todos los cursos</SelectItem>
-                    {availableFilters.courses.map((course) => (
-                      <SelectItem key={course} value={course}>
-                        {course}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+                <div className="space-y-2">
+                  <Label htmlFor="course">Curso</Label>
+                  <Select
+                    value={filters.courseCode || 'all'}
+                    onValueChange={(value) => handleFilterChange('courseCode', value)}
+                  >
+                    <SelectTrigger id="course" className="w-full">
+                      <SelectValue placeholder="Todos los cursos" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">Todos los cursos</SelectItem>
+                      {availableFilters.courses.map((course) => (
+                        <SelectItem key={course} value={course}>
+                          {course}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="type">Tipo</Label>
-                <Select
-                  value={filters.type || 'all'}
-                  onValueChange={(value) => handleFilterChange('type', value)}
-                >
-                  <SelectTrigger id="type">
-                    <SelectValue placeholder="Todos los tipos" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">Todos los tipos</SelectItem>
-                    {availableFilters.types.map((type) => (
-                      <SelectItem key={type} value={type}>
-                        {type}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <div className="space-y-2">
+                  <Label htmlFor="type">Tipo</Label>
+                  <Select
+                    value={filters.type || 'all'}
+                    onValueChange={(value) => handleFilterChange('type', value)}
+                  >
+                    <SelectTrigger id="type" className="w-full">
+                      <SelectValue placeholder="Todos los tipos" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">Todos los tipos</SelectItem>
+                      {availableFilters.types.map((type) => (
+                        <SelectItem key={type} value={type}>
+                          {type}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
 
               <Button
@@ -252,7 +254,7 @@ export default function CreateTestPage() {
         </div>
 
         <div>
-          <Card className="h-full">
+          <Card className="h-[500px]">
             <CardHeader>
               <CardTitle>Preguntas Seleccionadas</CardTitle>
               <CardDescription>
@@ -263,11 +265,11 @@ export default function CreateTestPage() {
             </CardHeader>
             <CardContent>
               {filteredQuestions.length > 0 ? (
-                <div className="space-y-3 max-h-[600px] overflow-y-auto">
+                <div className="space-y-1 max-h-[400px] overflow-y-auto">
                   {filteredQuestions.map((question) => (
                     <div
                       key={question.id}
-                      className="p-3 border rounded-lg hover:bg-accent transition-colors"
+                      className="p-2 border rounded-lg hover:bg-accent transition-colors"
                     >
                       <div className="font-medium text-sm mb-1">{question.uniqueCode}</div>
                       <div className="text-sm text-muted-foreground mb-2">

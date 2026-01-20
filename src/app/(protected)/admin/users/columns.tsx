@@ -23,8 +23,8 @@ export const columns: ColumnDef<User>[] = [
     cell: ({ row }) => {
       const role = row.getValue("role") as string
       const roleMap: Record<string, string> = {
-        ADMIN: "Profesor Urología UC",
-        STUDENT: "Residente Urología UC",
+        ADMIN: "Administrador",
+        STUDENT: "Estudiante",
       }
       return <div>{roleMap[role] || role}</div>
     },

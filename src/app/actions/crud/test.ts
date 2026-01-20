@@ -57,6 +57,7 @@ class TestCRUD extends BaseCRUD<Test, Prisma.TestCreateInput, Prisma.TestUpdateI
       include: {
         questions: {
           where: { deleted: false },
+          orderBy: { title: 'asc' },
           include: {
             options: { where: { deleted: false } },
             course: true

@@ -48,6 +48,7 @@ class TestAttemptCRUD extends BaseCRUD<TestAttempt, Prisma.TestAttemptCreateInpu
             include: {
               questions: {
                 where: { deleted: false },
+                orderBy: { title: 'asc' },
                 include: {
                   options: { where: { deleted: false } },
                   course: true
@@ -76,6 +77,7 @@ class TestAttemptCRUD extends BaseCRUD<TestAttempt, Prisma.TestAttemptCreateInpu
       include: {
         questions: {
           where: { deleted: false },
+          orderBy: { title: 'asc' },
           include: {
             options: { where: { deleted: false } }
           }

@@ -26,7 +26,6 @@ export function ErrorView({
   error,
   className,
 }: ErrorViewProps) {
-  console.log(error); 
   return (
     <Card className={cn("w-full max-w-md shadow-md rounded-xl p-6 relative", className)}>
         <Link

@@ -23,7 +23,7 @@ export const config = {
         url: "#",
         icon: FlaskConicalIcon,
         isActive: true,
-        showFor: ['STUDENT'],
+        showFor: ['STUDENT', 'ADMIN'],
         items: [
             {
             title: "Practicar",

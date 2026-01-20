@@ -366,7 +366,7 @@ export default function AttemptPage() {
   }
 
   return (
-    <div className="container mx-auto py-4 px-4 max-w-4xl">
+    <div className="container mx-auto py-4 px-4 max-w-7xl">
       <div className="mb-4 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold">{attempt.test.name}</h1>
@@ -389,28 +389,6 @@ export default function AttemptPage() {
         </div>
       </div>
 
-      <div className="mb-4 flex gap-1 flex-wrap">
-        {attempt.responses.map((response, idx) => (
-          <button
-            key={response.id}
-            onClick={async () => {
-              await saveTimeSpent();
-              setCurrentIndex(idx);
-            }}
-            className={`
-              w-8 h-8 text-xs font-medium rounded border transition-colors
-              ${idx === currentIndex ? 'ring-2 ring-primary' : ''}
-              ${response.selectedOptionId !== null 
-                ? 'bg-primary text-primary-foreground' 
-                : 'bg-muted hover:bg-muted/80'}
-              ${response.flagged ? 'border-orange-500 border-2' : 'border-transparent'}
-            `}
-          >
-            {idx + 1}
-          </button>
-        ))}
-      </div>
-
       <div className="mb-4 flex gap-4 text-sm">
         <span className="text-muted-foreground">
           Respondidas: {answeredCount}/{totalQuestions}
@@ -423,45 +401,94 @@ export default function AttemptPage() {
         )}
       </div>
 
-      {currentResponse && (
-        <PracticeQuestionCard
-          question={currentResponse.question}
-          selectedOptionId={currentResponse.selectedOptionId}
-          flagged={currentResponse.flagged}
-          onSelectOption={handleSelectOption}
-          onToggleFlag={handleToggleFlag}
-        />
-      )}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
+        <div>
+          {currentResponse && (
+            <PracticeQuestionCard
+              question={currentResponse.question}
+              selectedOptionId={currentResponse.selectedOptionId}
+              flagged={currentResponse.flagged}
+              onSelectOption={handleSelectOption}
+              onToggleFlag={handleToggleFlag}
+            />
+          )}
 
-      <div className="mt-6 flex items-center justify-between">
-        <Button
-          variant="outline"
-          onClick={handlePrevious}
-          disabled={currentIndex === 0}
-        >
-          <ChevronLeft className="h-4 w-4 mr-1" />
-          Anterior
-        </Button>
+          <div className="mt-6 flex items-center justify-between">
+            <Button
+              variant="outline"
+              onClick={handlePrevious}
+              disabled={currentIndex === 0}
+            >
+              <ChevronLeft className="h-4 w-4 mr-1" />
+              Anterior
+            </Button>
 
-        <div className="flex items-center gap-2">
-          <Button
-            variant={currentResponse?.flagged ? "default" : "outline"}
-            size="icon"
-            onClick={handleToggleFlag}
-            className={currentResponse?.flagged ? "bg-orange-500 hover:bg-orange-600" : ""}
-          >
-            <Flag className="h-4 w-4" />
-          </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant={currentResponse?.flagged ? "default" : "outline"}
+                size="icon"
+                onClick={handleToggleFlag}
+                className={currentResponse?.flagged ? "bg-orange-500 hover:bg-orange-600" : ""}
+              >
+                <Flag className="h-4 w-4" />
+              </Button>
+            </div>
+
+            <Button
+              variant="outline"
+              onClick={handleNext}
+              disabled={currentIndex === totalQuestions - 1}
+            >
+              Siguiente
+              <ChevronRight className="h-4 w-4 ml-1" />
+            </Button>
+          </div>
         </div>
 
-        <Button
-          variant="outline"
-          onClick={handleNext}
-          disabled={currentIndex === totalQuestions - 1}
-        >
-          Siguiente
-          <ChevronRight className="h-4 w-4 ml-1" />
-        </Button>
+        <div className="lg:sticky lg:top-4 lg:self-start">
+          <Card>
+            <CardContent className="p-4">
+              <h3 className="font-semibold mb-3">Navegación</h3>
+              
+              <div className="mb-4 flex gap-2 text-xs flex-wrap">
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 bg-primary rounded"></div>
+                  <span>Respondida</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 bg-muted rounded border"></div>
+                  <span>Sin resp.</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <div className="w-3 h-3 bg-orange-500 rounded"></div>
+                  <span>Marcada</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-5 gap-2">
+                {attempt.responses.map((response, idx) => (
+                  <button
+                    key={response.id}
+                    onClick={async () => {
+                      await saveTimeSpent();
+                      setCurrentIndex(idx);
+                    }}
+                    className={`
+                      w-full aspect-square text-xs font-medium rounded border-2 transition-colors
+                      ${idx === currentIndex ? 'ring-2 ring-primary' : ''}
+                      ${response.selectedOptionId !== null 
+                        ? 'bg-primary text-primary-foreground border-primary' 
+                        : 'bg-muted hover:bg-muted/80 border-muted'}
+                      ${response.flagged ? 'border-orange-500' : ''}
+                    `}
+                  >
+                    {idx + 1}
+                  </button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
       <AlertDialog open={showFinishDialog} onOpenChange={setShowFinishDialog}>

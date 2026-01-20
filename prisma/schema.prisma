@@ -179,7 +179,7 @@ model TestAttempt {
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   
-  test      Test     @relation(fields: [testId], references: [id])
+  test      Test     @relation(fields: [testId], references: [id], onDelete: Cascade)
   testId    String
 
   startedAt  DateTime @default(now())
@@ -191,7 +191,7 @@ model TestAttempt {
   responses  QuestionResponse[]
 
   createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  updatedAt    DateTime @default(now()) @updatedAt
   deleted      Boolean  @default(false)
   deletedAt    DateTime?
 }
@@ -218,7 +218,7 @@ model QuestionResponse {
   flagged         Boolean  @default(false) // Si el usuario la marcó "para revisar"
 
   createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  updatedAt    DateTime @default(now()) @updatedAt
   deleted      Boolean  @default(false)
   deletedAt    DateTime?
 

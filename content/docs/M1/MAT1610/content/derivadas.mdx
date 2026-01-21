@@ -67,22 +67,23 @@ $$(f \circ g)'(x) = f'(g(x)) \cdot g'(x)$$
 | **10** | $y = e^{mx} \cos nx$ | $y' = e^{mx}(m \cos nx - n \operatorname{sen} nx)$ | 5, 14, 17 |
 | **11** | $y = \sqrt{x} \cos \sqrt{x}$ | $y' = \frac{\cos \sqrt{x} - \sqrt{x} \operatorname{sen} \sqrt{x}}{2\sqrt{x}}$ | 5, 8, 17 |
 | **12** | $y = (\operatorname{arcsen} 2x)^2$ | $y' = \frac{4 \operatorname{arcsen} 2x}{\sqrt{1 - 4x^2}}$ | 5, 9, 22 |
-| **13** | $y = \frac{e^{1/x}}{x^2}$ | $y' = -\frac{e^{1/x}(1 + 2x)}{x^4}$ |
-| **14** | $y = \ln \sec x$ | $y' = \tan x$ |
-| **15** | $y + x \cos y = x^2 y$ | $y' = \frac{2xy - \cos y}{1 - x \operatorname{sen} y - x^2}$ |
+| **13** | $y = \frac{e^{1/x}}{x^2}$ | $y' = -\frac{e^{1/x}(1 + 2x)}{x^4}$ | 7, 8, 14 |
+| **14** | $y = \ln \sec x$ | $y' = \tan x$ | 9, 12 |
+| **15** | $y + x \cos y = x^2 y$ | $y' = \frac{2xy - \cos y}{1 - x \operatorname{sen} y - x^2}$ | 5, 8, 17 |
 | **16** | $y = \left( \frac{u - 1}{u^2 + u + 1} \right)^4$ | $y' = 4 \left( \frac{u - 1}{u^2 + u + 1} \right)^3 \frac{-u^2 + 2u + 2}{(u^2 + u + 1)^2}$ |
 | **17** | $y = \sqrt{\arctan x}$ | $y' = \frac{1}{2(1 + x^2) \sqrt{\arctan x}}$ |
 | **18** | $y = \cot(\csc x)$ | $y' = \csc^2(\csc x) \csc x \cot x$ |
 | **19** | $y = \tan \left( \frac{t}{1 + t^2} \right)$ | $y' = \sec^2 \left( \frac{t}{1 + t^2} \right) \frac{1 - t^2}{(1 + t^2)^2}$ |
 | **20** | $y = e^{x \sec x}$ | $y' = e^{x \sec x} \sec x (1 + x \tan x)$ |
 
-Recordemos que las derivadas de la 16 a 21 deben utilizar la regla de la cadena cuando haya una variable que dependa de $x$.
+Recordemos que las derivadas 14, 16 a 21 deben utilizar la regla de la cadena cuando haya una variable que dependa de $x$.
 
 Por ejemplo:
 
-$$y = \operatorname{sen} \pi x$$
-
-$$y' = \pi \operatorname{cos} \pi x$$
+| $$y$$ | $$y'$$ |
+| :--- | :--- |
+| $$\operatorname{sen} \pi x$$ | $$\pi \operatorname{cos} \pi x$$ |
+| $$e^{1/x}$$ | $$-\frac{e^{1/x}}{x^2}$$ |
 
 ## Aplicaciones
 

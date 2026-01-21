@@ -18,16 +18,16 @@ export function Navbar() {
         </Link>
         {session && (
           <nav className="hidden items-center gap-6 md:flex">
-            <Link href="/problemas" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+            <Link href={ROUTES.STUDENT.PRACTICE.LIST} className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
               Problemas
             </Link>
-            <Link href="/resumenes" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+            <Link href={ROUTES.SUMMARY.LIST} className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
               Resúmenes
             </Link>
-            <Link href="/syllabus" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+            <Link href={ROUTES.SYLLABUS} className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
               Temario
             </Link>
-            <Link href="/foros" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+            <Link href="#" className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
               Foros
             </Link>
           </nav>

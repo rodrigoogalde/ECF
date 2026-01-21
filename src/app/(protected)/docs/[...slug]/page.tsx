@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkMath from 'remark-math';
+import remarkGfm from 'remark-gfm';
 import rehypeKatex from 'rehype-katex';
-import { Navbar } from '@/components/Navbar';
 import { DocsBreadcrumb } from '@/components/docs/DocsBreadcrumb';
 import { getDocBySlug, getDocsNavigation, getDocsByCourse, getAllDocSlugs } from '@/lib/mdx';
 import Link from 'next/link';
@@ -75,7 +75,6 @@ export default async function DocPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
-      <Navbar />
       
       {/* KaTeX CSS */}
       <link
@@ -157,7 +156,7 @@ export default async function DocPage({ params }: PageProps) {
                 components={mdxComponents}
                 options={{
                   mdxOptions: {
-                    remarkPlugins: [remarkMath],
+                    remarkPlugins: [remarkGfm, remarkMath],
                     rehypePlugins: [rehypeKatex],
                   },
                 }}

@@ -1,3 +1,4 @@
+import { ROUTES } from "@/lib/config/routes"
 import {
   LifeBuoy,
   Send,
@@ -14,24 +15,30 @@ export const config = {
   navMain: [
     {
         title: "Inicio",
-        url: "/main",
+        url: ROUTES.MAIN,
         icon: Home,
         showFor: ['STUDENT', 'ADMIN'],
     },
     {
+      title: "Resumenes",
+      url: ROUTES.SUMMARY.LIST,
+      icon: Paperclip,
+      showFor: ['STUDENT', 'ADMIN'],
+    },
+    {
         title: "Mis Pruebas",
-        url: "#",
+        url: '#',
         icon: FlaskConicalIcon,
         isActive: true,
         showFor: ['STUDENT', 'ADMIN'],
         items: [
             {
             title: "Practicar",
-            url: "/student/practice",
+            url: ROUTES.STUDENT.PRACTICE.LIST,
             },
             {
             title: "Mis Intentos",
-            url: "/student/practice/attempts",
+            url: ROUTES.STUDENT.PRACTICE.ATTEMPTS,
             },
         ],
     },
@@ -43,15 +50,15 @@ export const config = {
         items: [
             {
             title: "Preguntas",
-            url: "/admin/questions",
+            url: ROUTES.ADMIN.QUESTIONS.LIST,
             },
             {
             title: "Tests",
-            url: "/admin/tests",
+            url: ROUTES.ADMIN.TESTS.LIST,
             },
             {
             title: "Usuarios",
-            url: "/admin/users",
+            url: ROUTES.ADMIN.USERS.LIST,
             },
         ],
     },

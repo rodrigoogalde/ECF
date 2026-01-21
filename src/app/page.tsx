@@ -31,7 +31,7 @@ const features = [
     icon: FileText,
     title: "Resúmenes y Compilados",
     description: "Material de estudio condensado y organizado por materia para optimizar tu preparación.",
-    href: ROUTES.DOCS.LIST,
+    href: ROUTES.SUMMARY.LIST,
     color: "text-emerald-600 dark:text-emerald-400",
     bgColor: "bg-emerald-100 dark:bg-emerald-900/30",
   },
@@ -98,7 +98,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button size="lg" className="gap-2">
-              <Link href={ROUTES.DOCS.LIST}>
+              <Link href={ROUTES.SUMMARY.LIST}>
                 Explorar Materias
               </Link>
               <ArrowRight className="h-4 w-4" />

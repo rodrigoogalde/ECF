@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
+import { preprocessLatex } from "@/lib/utils/latex";
 
 interface MathRendererProps {
   content: string;
@@ -11,12 +12,15 @@ interface MathRendererProps {
   inline?: boolean;
 }
 
+
+
 export function MathRenderer({
   content,
   className = "",
   inline = false,
 }: MathRendererProps) {
   const Wrapper = inline ? "span" : "div";
+  const processedContent = preprocessLatex(content);
 
   return (
     <Wrapper className={className}>
@@ -31,7 +35,7 @@ export function MathRenderer({
             : undefined
         }
       >
-        {content}
+        {processedContent}
       </ReactMarkdown>
     </Wrapper>
   );

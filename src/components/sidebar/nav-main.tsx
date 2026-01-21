@@ -39,10 +39,12 @@ export function NavMain({
     }[]
   }[]
 }) {
+  const [isMounted, setIsMounted] = useState(false)
   const [openItems, setOpenItems] = useState<string[]>([])
 
   // Load state from localStorage on mount
   useEffect(() => {
+    setIsMounted(true)
     const savedOpenItems = localStorage.getItem("nav-main-open-items")
     if (savedOpenItems) {
       setOpenItems(JSON.parse(savedOpenItems))
@@ -85,7 +87,7 @@ export function NavMain({
             <Collapsible
               key={item.title}
               asChild
-              open={openItems.includes(item.title)}
+              open={isMounted ? openItems.includes(item.title) : false}
               onOpenChange={(isOpen) => handleOpenChange(item.title, isOpen)}
               className="group/collapsible"
             >

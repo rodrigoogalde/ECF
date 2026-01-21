@@ -4,7 +4,7 @@ export const ROUTES = {
   QUESTIONS: "/questions",
   SYLLABUS: "/syllabus",
   LOGIN: "/login",
-  DOCS: {
+  SUMMARY: {
     LIST: "/docs",
     DETAIL: (id: string) => `/docs/${id}`,
   },

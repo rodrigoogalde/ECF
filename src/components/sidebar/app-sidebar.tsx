@@ -24,6 +24,7 @@ import { config } from "./sidebar-config"
 import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { Session } from "next-auth"
+import { ROUTES } from "@/lib/config/routes"
 
 
 export function AppSidebar({
@@ -40,7 +41,7 @@ export function AppSidebar({
                     <NavHead />
                 </SidebarHeader>
                 <SidebarContent>
-                    { !user && <Button asChild><Link href="/login">Iniciar sesión</Link></Button> }
+                    { !user && <Button asChild><Link href={ROUTES.LOGIN}>Iniciar sesión</Link></Button> }
                     { user && <NavMain items={config.navMain} user={user} /> }
                     <NavFooter items={config.navFooter} className="mt-auto" />
                 </SidebarContent>
@@ -56,7 +57,7 @@ export function AppSidebar({
                             <Button variant="link" onClick={() => router.back()} className="text-foreground gap-1">
                                 <ChevronLeft />Volver
                             </Button>
-                        ) : <span className="text-lg font-semibold tracking-tighter mx-2">SurgiSkills</span>}
+                        ) : <span className="text-lg font-semibold tracking-tighter mx-2">ECF</span>}
                     </div>
                 </header>
                 {children}

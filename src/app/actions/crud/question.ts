@@ -12,6 +12,7 @@ class QuestionCRUD extends BaseCRUD<Question, Prisma.QuestionCreateInput, Prisma
     return await super.getAll(
       whereConditions,
       {
+        orderBy: { title: 'asc' },
         ...options,
         include: {
           options: true,
@@ -57,6 +58,7 @@ class QuestionCRUD extends BaseCRUD<Question, Prisma.QuestionCreateInput, Prisma
     }
 
     const questions = await prisma.question.findMany({
+      orderBy: { title: 'asc' },
       where: whereConditions,
       include: {
         options: {
@@ -108,6 +110,7 @@ class QuestionCRUD extends BaseCRUD<Question, Prisma.QuestionCreateInput, Prisma
 
   async getAvailableFilters() {
     const questions = await prisma.question.findMany({
+      orderBy: { title: 'asc' },
       where: { deleted: false },
       select: {
         period: true,

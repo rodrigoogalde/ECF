@@ -28,8 +28,8 @@
       "courses": [
         { "code": "ICS1513", "name": "Economía", "slug": "ICS1513" },
         { "code": "IIC1103", "name": "Introducción a la Programación", "slug": "IIC1103" },
-        { "code": "HOJAS", "name": "Hojas de Cálculo", "slug": "hojas-calculo" },
-        { "code": "FIL188", "name": "Ética", "slug": "FIL188" }
+        { "code": "EXCEL__", "name": "Hojas de Cálculo", "slug": "EXCEL" },
+        { "code": "FIL188_", "name": "Ética", "slug": "FIL188" }
       ]
     }
   ]

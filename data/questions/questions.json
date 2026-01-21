@@ -17,7 +17,7 @@
           { "label": "d", "text": "$\\dfrac{1}{4}$" }
         ],
         "answer": "a",
-        "solution": "Usando la regla del cociente:\n\n$$f'(x) = \\frac{(2 + x^2) \\cdot 1 - x \\cdot 2x}{(2 + x^2)^2} = \\frac{2 + x^2 - 2x^2}{(2 + x^2)^2} = \\frac{2 - x^2}{(2 + x^2)^2}$$\n\nEvaluando en $x = \\sqrt{2}$:\n\n$$f'(\\sqrt{2}) = \\frac{2 - (\\sqrt{2})^2}{(2 + (\\sqrt{2})^2)^2} = \\frac{2 - 2}{(2 + 2)^2} = \\frac{0}{16} = 0$$"
+        "solution": "Para derivar esta función, utilizamos la **regla del cociente**. Podemos encontrarla en la página 48 del handbook, fórmula 7.\n\n$$f'(x) = \\frac{(1)(2 + x^2) - (x)(2x)}{(2 + x^2)^2}$$\n$$f'(x) = \\frac{2 + x^2 - 2x^2}{(2 + x^2)^2}$$\n$$f'(x) = \\frac{2 - x^2}{(2 + x^2)^2}$$\n\nReemplazamos $x$ por $\\sqrt{2}$:\n\n$$f'(\\sqrt{2}) = \\frac{2 - (\\sqrt{2})^2}{(2 + (\\sqrt{2})^2)^2}$$\n$$f'(\\sqrt{2}) = \\frac{0}{16}$$\n$$f'(\\sqrt{2}) = 0$$"
       }
     ]
   },

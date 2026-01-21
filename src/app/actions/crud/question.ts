@@ -84,17 +84,20 @@ class QuestionCRUD extends BaseCRUD<Question, Prisma.QuestionCreateInput, Prisma
       }
 
       acc[key].questions.push({
-        id: parseInt(question.id) || 0,
+        id: question.id,
+        uniqueCode: question.uniqueCode,
         title: question.title,
-        code: question.uniqueCode,
         content: question.content,
+        imageUrl: question.imageUrl,
+        solution: question.solution,
         options: question.options.map((opt) => ({
+          id: opt.id,
           label: opt.label,
           text: opt.text,
+          imageUrl: opt.imageUrl,
         })),
+        correctLabel: question.correctLabel,
         answer: question.correctLabel || undefined,
-        solution: question.solution || undefined,
-        image: question.imageUrl?.[0] || undefined,
       });
 
       return acc;

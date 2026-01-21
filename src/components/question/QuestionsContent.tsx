@@ -175,7 +175,7 @@ export function QuestionsContent({
               {set.course} - {set.type} ({set.period})
             </h2>
             {set.questions.map((question) => (
-              <QuestionCard key={`${question.id}-${question.code}`} question={question} />
+              <QuestionCard key={`${question.id}-${question.uniqueCode}`} question={question} />
             ))}
           </div>
         ))

@@ -1,17 +1,20 @@
-export interface QuestionOption {
+export interface Option {
+  id: number;
   label: string;
   text: string;
+  imageUrl: string[];
 }
 
 export interface Question {
-  id: number;
+  id: string;
+  uniqueCode: string;
   title: string;
-  code: string;
   content: string;
-  options: QuestionOption[];
+  imageUrl: string[];
+  solution: string | null;
+  options: Option[];
+  correctLabel: string | null;
   answer?: string;
-  solution?: string;
-  image?: string;
 }
 
 export interface QuestionSet {
@@ -39,4 +42,16 @@ export interface QuestionsContentProps {
     periods: string[];
   };
   initialFilters: QuestionFilters;
+}
+
+export interface QuestionResponse {
+  id: string;
+  questionId: string;
+  selectedOptionId: number | null;
+  timeSpent: number;
+  switchCount: number;
+  flagged: boolean;
+  isCorrect: boolean | null;
+  question: Question;
+  selectedOption: Option | null;
 }

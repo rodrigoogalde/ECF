@@ -66,7 +66,7 @@ export function QuestionCard({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <CardTitle className="text-lg">{question.title}</CardTitle>
-            <Badge variant="secondary">{question.code}</Badge>
+            <Badge variant="secondary">{question.uniqueCode}</Badge>
             {isPracticeMode && flagged && (
               <Badge variant="outline" className="border-orange-500 text-orange-500">
                 <Flag className="h-3 w-3 mr-1" />
@@ -96,11 +96,11 @@ export function QuestionCard({
           <MathRenderer content={question.content} />
         </div>
 
-        {question.image && (
-          <div className="my-4 flex justify-center">
+        {question.imageUrl.length > 0 && question.imageUrl.map((url, index) => (
+          <div key={index} className="my-4 flex justify-center">
             <div className="relative w-full max-w-3xl">
               <Image
-                src={question.image}
+                src={url}
                 alt={`Imagen para ${question.title}`}
                 width={800}
                 height={600}
@@ -109,8 +109,7 @@ export function QuestionCard({
               />
             </div>
           </div>
-        )}
-
+        ))} 
         <div className="space-y-2">
           {question.options.map((option) => {
             const isSelected = isPracticeMode && selectedOptionLabel === option.label;

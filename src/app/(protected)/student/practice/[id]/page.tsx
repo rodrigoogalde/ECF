@@ -2,65 +2,17 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Loader2, ChevronLeft, ChevronRight, Flag, Clock, CheckCircle, ArrowLeft } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { getAttemptWithDetails, updateQuestionResponse, finishTestAttempt } from "@/app/actions/routes/testAttempt";
 import { PracticeQuestionCard } from "@/components/question/PracticeQuestionCard";
 import { ReviewQuestionCard } from "@/components/question/ReviewQuestionCard";
 import { ROUTES } from "@/lib/config/routes";
-import Link from "next/link";
 import { FinishModal } from "@/components/practice/finishModal";
 import { NavigationPanel } from "@/components/practice/NavigationPanel";
 import { QuestionNavigation } from "@/components/QuestionNavigation";
 import { AttemptHeader } from "@/components/practice/AttemptHeader";
 import formatTime from "@/lib/utils/question";
-
-interface Option {
-  id: number;
-  label: string;
-  text: string;
-  imageUrl: string[];
-}
-
-interface Question {
-  id: string;
-  uniqueCode: string;
-  title: string;
-  content: string;
-  imageUrl: string[];
-  solution: string | null;
-  options: Option[];
-  correctLabel: string | null;
-}
-
-interface QuestionResponse {
-  id: string;
-  questionId: string;
-  selectedOptionId: number | null;
-  timeSpent: number;
-  switchCount: number;
-  flagged: boolean;
-  isCorrect: boolean | null;
-  question: Question;
-  selectedOption: Option | null;
-}
-
-interface TestAttempt {
-  id: string;
-  testId: string;
-  status: string;
-  startedAt: string;
-  finishedAt: string | null;
-  score: number | null;
-  test: {
-    id: string;
-    name: string;
-    questions: Question[];
-  };
-  responses: QuestionResponse[];
-}
+import { TestAttempt } from "@/lib/interfaces/test";
 
 export default function AttemptPage() {
   const params = useParams();

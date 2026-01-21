@@ -1,0 +1,36 @@
+{
+  "sections": [
+    {
+      "code": "M1",
+      "name": "Módulo 1: Matemáticas y Probabilidades",
+      "courses": [
+        { "code": "MAT1610", "name": "Cálculo I", "slug": "MAT1610" },
+        { "code": "MAT1620", "name": "Cálculo II", "slug": "MAT1620" },
+        { "code": "MAT1630", "name": "Cálculo III", "slug": "MAT1630" },
+        { "code": "MAT1640", "name": "Ecuaciones Diferenciales", "slug": "MAT1640" },
+        { "code": "MAT1203", "name": "Álgebra Lineal", "slug": "MAT1203" },
+        { "code": "EYP1113", "name": "Probabilidades y Estadística", "slug": "EYP1113" }
+      ]
+    },
+    {
+      "code": "M2",
+      "name": "Módulo 2: Ciencias Naturales Física y Química",
+      "courses": [
+        { "code": "FIS1514", "name": "Dinámica", "slug": "FIS1514" },
+        { "code": "FIS1533", "name": "Electricidad y Magnetismo", "slug": "FIS1533" },
+        { "code": "QIM100E", "name": "Química", "slug": "QIM100E" },
+        { "code": "FIS1523", "name": "Termodinámica", "slug": "FIS1523" }
+      ]
+    },
+    {
+      "code": "M3",
+      "name": "Módulo 3: Ingeniería",
+      "courses": [
+        { "code": "ICS1513", "name": "Economía", "slug": "ICS1513" },
+        { "code": "IIC1103", "name": "Introducción a la Programación", "slug": "IIC1103" },
+        { "code": "HOJAS", "name": "Hojas de Cálculo", "slug": "hojas-calculo" },
+        { "code": "FIL188", "name": "Ética", "slug": "FIL188" }
+      ]
+    }
+  ]
+}

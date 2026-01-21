@@ -28,7 +28,7 @@ export function AttemptHeader({
   return (
     <>
       <div className="mb-4">
-        <Link href={isCompleted ? ROUTES.STUDENT.ATTEMPTS : ROUTES.STUDENT.PRACTICE}>
+        <Link href={isCompleted ? ROUTES.STUDENT.PRACTICE.ATTEMPTS : ROUTES.STUDENT.PRACTICE.LIST}>
           <Button variant="ghost" size="sm">
             <ArrowLeft className="h-4 w-4 mr-2" />
             {isCompleted ? 'Volver a Mis Intentos' : 'Volver al Menú'}

@@ -2,6 +2,7 @@
 
 import { signIn, signOut } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 interface LoginWithGoogleProps {
     redirectTo: string | null
@@ -20,6 +21,7 @@ export async function loginWithMicrosoft({ redirectTo }: LoginWithMicrosoftProps
 }
 
 export async function logout() {
-    await signOut({ redirectTo: "/" });
-    return redirect("/");
+    await signOut({ redirect: false });
+    revalidatePath("/", "layout");
+    redirect("/");
 }

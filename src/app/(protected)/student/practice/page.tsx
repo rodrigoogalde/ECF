@@ -48,7 +48,7 @@ export default function PracticePage() {
     setStartingTest(testId);
     try {
       const attempt = await startTestAttempt(session.user.id, testId);
-      router.push(ROUTES.STUDENT.ATTEMPT(attempt.id));
+      router.push(ROUTES.STUDENT.PRACTICE.DETAIL(attempt.id));
     } catch (error) {
       console.error("Error starting test:", error);
       setStartingTest(null);
@@ -72,7 +72,7 @@ export default function PracticePage() {
             Selecciona una prueba para comenzar a practicar
           </p>
         </div>
-        <Link href={ROUTES.STUDENT.ATTEMPTS}>
+        <Link href={ROUTES.STUDENT.PRACTICE.ATTEMPTS}>
           <Button variant="outline">
             <History className="h-4 w-4 mr-2" />
             Ver Mis Intentos

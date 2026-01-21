@@ -105,13 +105,13 @@ export const columns: ColumnDef<TestAttemptWithDetails>[] = [
       return (
         <div className="flex gap-2">
           {attempt.status === "IN_PROGRESS" ? (
-            <Link href={ROUTES.STUDENT.ATTEMPT(attempt.id)}>
+            <Link href={ROUTES.STUDENT.PRACTICE.DETAIL(attempt.id)}>
               <Button variant="outline" size="sm">
                 Continuar
               </Button>
             </Link>
           ) : (
-            <Link href={ROUTES.STUDENT.ATTEMPT(attempt.id)}>
+            <Link href={ROUTES.STUDENT.PRACTICE.DETAIL(attempt.id)}>
               <Button variant="ghost" size="sm">
                 <Eye className="h-4 w-4 mr-2" />
                 Ver Detalles

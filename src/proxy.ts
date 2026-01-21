@@ -10,7 +10,7 @@ export async function proxy(request: NextRequest) {
 
   if (pathname.startsWith(ROUTES.ADMIN.ADMIN)) {
     if (!session) {
-      return NextResponse.redirect(new URL("/api/auth/signin", request.url));
+      return NextResponse.redirect(new URL(ROUTES.LOGIN, request.url));
     }
     
     if (session.user.role !== ROLE.ADMIN) {
@@ -20,7 +20,7 @@ export async function proxy(request: NextRequest) {
 
   if (pathname.startsWith(ROUTES.STUDENT.HOME)) {
     if (!session) {
-      return NextResponse.redirect(new URL("/api/auth/signin", request.url));
+      return NextResponse.redirect(new URL(ROUTES.LOGIN, request.url));
     }
     
     if (session.user.role !== ROLE.STUDENT && session.user.role !== ROLE.ADMIN) {

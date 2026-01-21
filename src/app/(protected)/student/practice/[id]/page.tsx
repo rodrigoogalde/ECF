@@ -34,7 +34,7 @@ export default function AttemptPage() {
       try {
         const data = await getAttemptWithDetails(attemptId);
         if (!data) {
-          router.push(ROUTES.STUDENT.PRACTICE);
+          router.push(ROUTES.STUDENT.PRACTICE.LIST);
           return;
         }
         setAttempt(data as unknown as TestAttempt);
@@ -45,7 +45,7 @@ export default function AttemptPage() {
         }
       } catch (error) {
         console.error("Error loading attempt:", error);
-        router.push(ROUTES.STUDENT.PRACTICE);
+        router.push(ROUTES.STUDENT.PRACTICE.LIST);
       } finally {
         setLoading(false);
       }
@@ -180,7 +180,7 @@ export default function AttemptPage() {
     try {
       await saveTimeSpent();
       await finishTestAttempt(attemptId);
-      router.push(ROUTES.STUDENT.PRACTICE);
+      router.push(ROUTES.STUDENT.PRACTICE.LIST);
     } catch (error) {
       console.error("Error finishing test:", error);
       setFinishing(false);

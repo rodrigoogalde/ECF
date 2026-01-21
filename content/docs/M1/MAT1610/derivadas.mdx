@@ -1,0 +1,93 @@
+---
+title: "Derivadas"
+description: "Cálculo de derivadas de funciones elementales"
+section: "M1"
+course: "MAT1610"
+order: 2
+---
+
+# Derivadas
+
+La derivada de una función mide la tasa de cambio instantánea de la función respecto a su variable independiente.
+
+## Definición formal
+
+$$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+
+## Reglas de derivación
+
+### Derivadas básicas
+
+| Función | Derivada |
+|---------|----------|
+| $c$ (constante) | $0$ |
+| $x^n$ | $nx^{n-1}$ |
+| $e^x$ | $e^x$ |
+| $a^x$ | $a^x \ln(a)$ |
+| $\ln(x)$ | $\frac{1}{x}$ |
+| $\log_a(x)$ | $\frac{1}{x \ln(a)}$ |
+
+### Derivadas trigonométricas
+
+| Función | Derivada |
+|---------|----------|
+| $\sin(x)$ | $\cos(x)$ |
+| $\cos(x)$ | $-\sin(x)$ |
+| $\tan(x)$ | $\sec^2(x)$ |
+
+## Reglas de operaciones
+
+### Regla de la suma
+$$(f + g)' = f' + g'$$
+
+### Regla del producto
+$$(f \cdot g)' = f' \cdot g + f \cdot g'$$
+
+### Regla del cociente
+$$\left(\frac{f}{g}\right)' = \frac{f' \cdot g - f \cdot g'}{g^2}$$
+
+### Regla de la cadena
+$$(f \circ g)'(x) = f'(g(x)) \cdot g'(x)$$
+
+## Ejemplos
+
+### Ejemplo 1: Derivada de un polinomio
+
+$$f(x) = 3x^4 - 2x^2 + 5x - 7$$
+
+$$f'(x) = 12x^3 - 4x + 5$$
+
+### Ejemplo 2: Regla del producto
+
+$$f(x) = x^2 \cdot e^x$$
+
+Usando la regla del producto:
+$$f'(x) = 2x \cdot e^x + x^2 \cdot e^x = e^x(2x + x^2) = e^x \cdot x(2 + x)$$
+
+### Ejemplo 3: Regla de la cadena
+
+$$f(x) = \sin(x^2)$$
+
+Sea $u = x^2$, entonces:
+$$f'(x) = \cos(x^2) \cdot 2x = 2x\cos(x^2)$$
+
+### Ejemplo 4: Combinación de reglas
+
+$$f(x) = \frac{e^{2x}}{x^2 + 1}$$
+
+Usando regla del cociente y de la cadena:
+$$f'(x) = \frac{2e^{2x}(x^2 + 1) - e^{2x}(2x)}{(x^2 + 1)^2}$$
+
+$$f'(x) = \frac{e^{2x}(2x^2 + 2 - 2x)}{(x^2 + 1)^2} = \frac{2e^{2x}(x^2 - x + 1)}{(x^2 + 1)^2}$$
+
+## Aplicaciones
+
+### Recta tangente
+
+La ecuación de la recta tangente a $f(x)$ en el punto $(a, f(a))$ es:
+
+$$y - f(a) = f'(a)(x - a)$$
+
+### Puntos críticos
+
+Los puntos donde $f'(x) = 0$ o $f'(x)$ no existe son candidatos a máximos o mínimos locales.

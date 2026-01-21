@@ -23,7 +23,7 @@ export default function UnauthorizedPage() {
         
         <Link
           href={ROUTES.HOME}
-          className="inline-block rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700"
+          className="inline-block rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90"
         >
           Volver al inicio
         </Link>

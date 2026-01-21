@@ -1,0 +1,88 @@
+---
+title: "Primitivas"
+description: "Cálculo de primitivas de funciones básicas"
+section: "M1"
+course: "MAT1610"
+order: 3
+---
+
+# Primitivas (Antiderivadas)
+
+Una primitiva o antiderivada de $f(x)$ es una función $F(x)$ tal que $F'(x) = f(x)$.
+
+## Notación
+
+$$\int f(x) \, dx = F(x) + C$$
+
+Donde $C$ es la constante de integración.
+
+## Primitivas básicas
+
+| Función $f(x)$ | Primitiva $\int f(x) \, dx$ |
+|----------------|----------------------------|
+| $x^n$ ($n \neq -1$) | $\frac{x^{n+1}}{n+1} + C$ |
+| $\frac{1}{x}$ | $\ln|x| + C$ |
+| $e^x$ | $e^x + C$ |
+| $a^x$ | $\frac{a^x}{\ln(a)} + C$ |
+| $\sin(x)$ | $-\cos(x) + C$ |
+| $\cos(x)$ | $\sin(x) + C$ |
+| $\sec^2(x)$ | $\tan(x) + C$ |
+
+## Propiedades de la integral indefinida
+
+### Linealidad
+
+$$\int [f(x) + g(x)] \, dx = \int f(x) \, dx + \int g(x) \, dx$$
+
+$$\int k \cdot f(x) \, dx = k \int f(x) \, dx$$
+
+## Técnicas de integración
+
+### Sustitución
+
+Si $u = g(x)$, entonces:
+
+$$\int f(g(x)) \cdot g'(x) \, dx = \int f(u) \, du$$
+
+**Ejemplo:**
+$$\int 2x \cdot e^{x^2} \, dx$$
+
+Sea $u = x^2$, entonces $du = 2x \, dx$:
+$$\int e^u \, du = e^u + C = e^{x^2} + C$$
+
+### Integración por partes
+
+$$\int u \, dv = uv - \int v \, du$$
+
+**Ejemplo:**
+$$\int x \cdot e^x \, dx$$
+
+Sea $u = x$ y $dv = e^x \, dx$, entonces $du = dx$ y $v = e^x$:
+$$\int x \cdot e^x \, dx = x \cdot e^x - \int e^x \, dx = x \cdot e^x - e^x + C = e^x(x - 1) + C$$
+
+## Ejemplos resueltos
+
+### Ejemplo 1: Polinomio
+
+$$\int (3x^2 - 4x + 5) \, dx = x^3 - 2x^2 + 5x + C$$
+
+### Ejemplo 2: Función racional simple
+
+$$\int \frac{2x + 3}{x^2 + 3x + 1} \, dx$$
+
+Notamos que el numerador es la derivada del denominador:
+$$= \ln|x^2 + 3x + 1| + C$$
+
+### Ejemplo 3: Trigonométrica
+
+$$\int \sin^2(x) \, dx$$
+
+Usando la identidad $\sin^2(x) = \frac{1 - \cos(2x)}{2}$:
+
+$$= \int \frac{1 - \cos(2x)}{2} \, dx = \frac{x}{2} - \frac{\sin(2x)}{4} + C$$
+
+## Verificación
+
+Siempre puedes verificar tu resultado derivando la primitiva:
+
+$$\frac{d}{dx}\left[\frac{x}{2} - \frac{\sin(2x)}{4}\right] = \frac{1}{2} - \frac{2\cos(2x)}{4} = \frac{1}{2} - \frac{\cos(2x)}{2} = \frac{1 - \cos(2x)}{2} = \sin^2(x) \checkmark$$

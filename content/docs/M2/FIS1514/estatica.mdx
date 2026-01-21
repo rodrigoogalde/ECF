@@ -1,0 +1,102 @@
+---
+title: "Estática"
+description: "Fuerzas, equilibrio y fricción"
+section: "M2"
+course: "FIS1514"
+order: 1
+---
+
+# Estática
+
+La estática estudia los cuerpos en equilibrio, es decir, cuando la suma de fuerzas y momentos es cero.
+
+## Condiciones de equilibrio
+
+Para que un cuerpo esté en equilibrio estático:
+
+### Primera condición (Traslación)
+$$\sum \vec{F} = \vec{0}$$
+
+En componentes:
+$$\sum F_x = 0, \quad \sum F_y = 0, \quad \sum F_z = 0$$
+
+### Segunda condición (Rotación)
+$$\sum \vec{\tau} = \vec{0}$$
+
+Donde el torque se calcula como:
+$$\vec{\tau} = \vec{r} \times \vec{F}$$
+
+## Diagrama de cuerpo libre (DCL)
+
+Pasos para construir un DCL:
+1. Aislar el cuerpo de interés
+2. Identificar todas las fuerzas externas
+3. Representar cada fuerza con su punto de aplicación
+4. Establecer un sistema de coordenadas
+
+## Tipos de fuerzas comunes
+
+### Peso
+$$\vec{W} = m\vec{g}$$
+
+Donde $g \approx 9.8 \, \text{m/s}^2$ en la superficie terrestre.
+
+### Normal
+Fuerza perpendicular a la superficie de contacto. Siempre empuja, nunca jala.
+
+### Fricción
+$$f \leq \mu_s N \quad \text{(estática)}$$
+$$f = \mu_k N \quad \text{(cinética)}$$
+
+Donde:
+- $\mu_s$: coeficiente de fricción estática
+- $\mu_k$: coeficiente de fricción cinética
+- $N$: fuerza normal
+
+### Tensión
+Fuerza transmitida a través de cuerdas, cables o cadenas. Siempre jala.
+
+## Ejemplo: Bloque en plano inclinado
+
+Un bloque de masa $m$ está en reposo sobre un plano inclinado con ángulo $\theta$.
+
+**Diagrama de fuerzas:**
+- Peso: $W = mg$ (vertical hacia abajo)
+- Normal: $N$ (perpendicular al plano)
+- Fricción: $f$ (paralela al plano, hacia arriba)
+
+**Ecuaciones de equilibrio:**
+
+Eje paralelo al plano:
+$$f - mg\sin\theta = 0$$
+
+Eje perpendicular al plano:
+$$N - mg\cos\theta = 0$$
+
+**Condición de no deslizamiento:**
+$$f \leq \mu_s N$$
+$$mg\sin\theta \leq \mu_s \cdot mg\cos\theta$$
+$$\tan\theta \leq \mu_s$$
+
+Por lo tanto, el ángulo máximo antes de deslizar es:
+$$\theta_{\max} = \arctan(\mu_s)$$
+
+## Momento de una fuerza
+
+El momento (torque) respecto a un punto $O$:
+
+$$\tau = r \cdot F \cdot \sin\phi = F \cdot d$$
+
+Donde:
+- $r$: distancia del punto $O$ al punto de aplicación
+- $\phi$: ángulo entre $\vec{r}$ y $\vec{F}$
+- $d = r\sin\phi$: brazo de palanca
+
+## Centroide
+
+El centroide de una figura plana es el punto donde se puede considerar concentrada toda el área:
+
+$$\bar{x} = \frac{\int x \, dA}{\int dA}, \quad \bar{y} = \frac{\int y \, dA}{\int dA}$$
+
+Para figuras compuestas:
+$$\bar{x} = \frac{\sum A_i \bar{x}_i}{\sum A_i}$$

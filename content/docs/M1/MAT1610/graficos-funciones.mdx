@@ -1,0 +1,91 @@
+---
+title: "Gráficos de funciones"
+description: "Funciones básicas, exponenciales y logarítmicas"
+section: "M1"
+course: "MAT1610"
+order: 1
+---
+
+# Gráficos de funciones
+
+Los gráficos de funciones básicas, exponenciales y logarítmicas son fundamentales para el análisis matemático.
+
+## Funciones básicas
+
+### Función lineal
+
+$$f(x) = mx + b$$
+
+Donde $m$ es la pendiente y $b$ es el intercepto con el eje $y$.
+
+### Función cuadrática
+
+$$f(x) = ax^2 + bx + c$$
+
+El vértice se encuentra en $x = -\frac{b}{2a}$.
+
+### Función potencia
+
+$$f(x) = x^n, \quad n \in \mathbb{N}$$
+
+**Propiedades:**
+- Si $n$ es par: la función es simétrica respecto al eje $y$
+- Si $n$ es impar: la función es simétrica respecto al origen
+
+## Funciones exponenciales
+
+$$f(x) = a^x, \quad a > 0, a \neq 1$$
+
+**Características:**
+- **Dominio:** $\mathbb{R}$
+- **Recorrido:** $(0, +\infty)$
+- **Asíntota horizontal:** $y = 0$
+
+### Función exponencial natural
+
+$$f(x) = e^x$$
+
+Donde $e \approx 2.71828$ es el número de Euler.
+
+**Propiedad fundamental:**
+$$\frac{d}{dx}e^x = e^x$$
+
+## Funciones logarítmicas
+
+$$f(x) = \log_a(x), \quad a > 0, a \neq 1$$
+
+**Características:**
+- **Dominio:** $(0, +\infty)$
+- **Recorrido:** $\mathbb{R}$
+- **Asíntota vertical:** $x = 0$
+
+### Logaritmo natural
+
+$$f(x) = \ln(x) = \log_e(x)$$
+
+**Propiedades importantes:**
+- $\ln(ab) = \ln(a) + \ln(b)$
+- $\ln\left(\frac{a}{b}\right) = \ln(a) - \ln(b)$
+- $\ln(a^n) = n \cdot \ln(a)$
+
+## Relación exponencial-logaritmo
+
+Las funciones exponencial y logarítmica son inversas:
+
+$$y = a^x \iff x = \log_a(y)$$
+
+Por lo tanto:
+$$a^{\log_a(x)} = x \quad \text{y} \quad \log_a(a^x) = x$$
+
+## Ejercicio de ejemplo
+
+**Problema:** Determina el dominio de $f(x) = \ln(x^2 - 4)$.
+
+**Solución:**
+
+Para que el logaritmo esté definido, necesitamos:
+$$x^2 - 4 > 0$$
+$$x^2 > 4$$
+$$|x| > 2$$
+
+Por lo tanto, el dominio es: $(-\infty, -2) \cup (2, +\infty)$

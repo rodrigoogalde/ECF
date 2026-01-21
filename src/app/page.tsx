@@ -16,13 +16,14 @@ import Link from "next/link";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { Navbar } from "@components/Navbar";
+import { ROUTES } from "@/lib/config/routes";
 
 const features = [
   {
     icon: BookOpen,
     title: "Problemas Tipo",
     description: "Ejercicios representativos de cada materia con soluciones detalladas en formato LaTeX/Markdown.",
-    href: "/questions",
+    href: ROUTES.STUDENT.PRACTICE.LIST,
     color: "text-blue-600 dark:text-blue-400",
     bgColor: "bg-blue-100 dark:bg-blue-900/30",
   },
@@ -30,7 +31,7 @@ const features = [
     icon: FileText,
     title: "Resúmenes y Compilados",
     description: "Material de estudio condensado y organizado por materia para optimizar tu preparación.",
-    href: "/resumenes",
+    href: ROUTES.DOCS.LIST,
     color: "text-emerald-600 dark:text-emerald-400",
     bgColor: "bg-emerald-100 dark:bg-emerald-900/30",
   },
@@ -38,7 +39,7 @@ const features = [
     icon: ClipboardList,
     title: "Syllabus",
     description: "Mapa completo de módulos, cursos, contenidos e indicadores del examen Fundamentals.",
-    href: "/syllabus",
+    href: ROUTES.SYLLABUS,
     color: "text-purple-600 dark:text-purple-400",
     bgColor: "bg-purple-100 dark:bg-purple-900/30",
   },
@@ -46,7 +47,7 @@ const features = [
     icon: MessageSquare,
     title: "Foros de Discusión",
     description: "Espacio colaborativo para resolver dudas y compartir conocimiento con otros estudiantes.",
-    href: "/foros",
+    href: ROUTES.MAIN,
     color: "text-orange-600 dark:text-orange-400",
     bgColor: "bg-orange-100 dark:bg-orange-900/30",
   },
@@ -54,15 +55,15 @@ const features = [
     icon: Tags,
     title: "Tópicos por Pregunta",
     description: "Clasificación detallada de preguntas por tema para un estudio más enfocado.",
-    href: "/topicos",
+    href: ROUTES.MAIN,
     color: "text-rose-600 dark:text-rose-400",
     bgColor: "bg-rose-100 dark:bg-rose-900/30",
   },
 ];
 
 const stats = [
-  { value: "5", label: "Materias", icon: BookOpen },
-  { value: "100+", label: "Problemas", icon: Target },
+  { value: "12", label: "Materias", icon: BookOpen },
+  { value: "500+", label: "Problemas", icon: Target },
   { value: "50+", label: "Resúmenes", icon: FileText },
 ];
 
@@ -97,11 +98,13 @@ export default function Home() {
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button size="lg" className="gap-2">
-              Explorar Materias
+              <Link href={ROUTES.DOCS.LIST}>
+                Explorar Materias
+              </Link>
               <ArrowRight className="h-4 w-4" />
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link href="/syllabus">
+              <Link href={ROUTES.SYLLABUS}>
                   Ver Temario
               </Link>
             </Button>
@@ -176,10 +179,12 @@ export default function Home() {
                 Colabora con otros estudiantes, comparte recursos y resuelve dudas juntos. 
                 El aprendizaje colaborativo es la clave del éxito.
               </p>
-              <Button size="lg" variant="secondary" className="gap-2">
-                Acceder a los Foros
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+              <Link href={ROUTES.MAIN}>
+                <Button size="lg" variant="secondary" className="gap-2">
+                  Acceder a los Foros
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </div>

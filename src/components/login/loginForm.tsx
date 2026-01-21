@@ -48,56 +48,58 @@ export function LoginForm({
       <Card className="w-full max-w-md shadow-md rounded-xl p-6 relative">
         <Link
           href={ROUTES.HOME}
-          className="absolute top-4 left-4 flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors group"
+          className="absolute top-4 left-4 flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors group"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
           <span className="font-medium">Inicio</span>
         </Link>
 
         <CardHeader className="text-center pt-8">
-          <CardTitle className="text-3xl font-bold text-gray-900">
+          <CardTitle className="text-3xl font-bold">
             Bienvenido
           </CardTitle>
-          <CardDescription className="text-sm text-gray-600 mt-2">
+          <CardDescription className="text-sm mt-2">
             Inicia sesión para acceder a tu cuenta
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="flex flex-col gap-4 py-4">
-          <form action={handleLoginWithGoogle}>
-            <Button
-              type="submit"
-              variant="outline"
-              className="w-full flex items-center justify-center gap-3 rounded-md border border-gray-300 bg-background hover:bg-gray-50 text-sm"
-            >
-              <Image
-                src={GOOGLE_LOGO}
-                alt="Google logo"
-                width={20}
-                height={20}
-              />
-              Iniciar sesión con Google
-            </Button>
-          </form>
+        <CardContent className="flex flex-col items-center gap-4 py-4">
+          <div className="grid grid-cols-2 gap-6">
+            <form action={handleLoginWithGoogle}>
+              <Button
+                type="submit"
+                variant="outline"
+                size="icon"
+                className="h-16 w-16 rounded-full border-2 hover:scale-110 transition-transform"
+              >
+                <Image
+                  src={GOOGLE_LOGO}
+                  alt="Iniciar sesión con Google"
+                  width={32}
+                  height={32}
+                />
+              </Button>
+            </form>
 
-          <form action={handleLoginWithMicrosoft}>
-            <Button
-              type="submit"
-              variant="outline"
-              className="w-full flex items-center justify-center gap-3 rounded-md border border-gray-300 bg-background hover:bg-gray-50 text-sm"
-            >
-              <Image
-                src={MICROSOFT_LOGO}
-                alt="Microsoft logo"
-                width={20}
-                height={20}
-              />
-              Iniciar sesión con Microsoft
-            </Button>
-            <p className="text-xs text-gray-500 mt-1 text-center">
-              Solo cuentas personales de la UC.
-            </p>
-          </form>
+            <form action={handleLoginWithMicrosoft}>
+              <Button
+                type="submit"
+                variant="outline"
+                size="icon"
+                className="h-16 w-16 rounded-full border-2 hover:scale-110 transition-transform"
+              >
+                <Image
+                  src={MICROSOFT_LOGO}
+                  alt="Iniciar sesión con Microsoft"
+                  width={32}
+                  height={32}
+                />
+              </Button>
+            </form>
+          </div>
+          <p className="text-xs text-muted-foreground text-center">
+            Solo cuentas personales de la UC.
+          </p>
         </CardContent>
       </Card>
     </div>

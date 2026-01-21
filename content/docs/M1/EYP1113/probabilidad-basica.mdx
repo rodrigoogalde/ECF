@@ -1,0 +1,83 @@
+---
+title: "Probabilidad básica"
+description: "Axiomas, probabilidad condicional y Bayes"
+section: "M1"
+course: "EYP1113"
+order: 1
+---
+
+# Probabilidad básica
+
+## Conceptos fundamentales
+
+### Espacio muestral
+El conjunto de todos los resultados posibles de un experimento aleatorio se denota $\Omega$.
+
+### Evento
+Un subconjunto del espacio muestral. Se denota con letras mayúsculas: $A, B, C, \ldots$
+
+## Axiomas de probabilidad
+
+Sea $P$ una función de probabilidad. Debe cumplir:
+
+1. **No negatividad:** $P(A) \geq 0$ para todo evento $A$
+2. **Normalización:** $P(\Omega) = 1$
+3. **Aditividad:** Si $A \cap B = \emptyset$, entonces $P(A \cup B) = P(A) + P(B)$
+
+## Propiedades derivadas
+
+$$P(\emptyset) = 0$$
+
+$$P(A^c) = 1 - P(A)$$
+
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+
+## Probabilidad condicional
+
+La probabilidad de $A$ dado que ocurrió $B$:
+
+$$P(A|B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) > 0$$
+
+### Regla del producto
+$$P(A \cap B) = P(A|B) \cdot P(B) = P(B|A) \cdot P(A)$$
+
+## Independencia
+
+Dos eventos son independientes si:
+$$P(A \cap B) = P(A) \cdot P(B)$$
+
+Equivalentemente:
+$$P(A|B) = P(A) \quad \text{y} \quad P(B|A) = P(B)$$
+
+## Teorema de Bayes
+
+$$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
+
+### Forma extendida
+
+Si $\{A_1, A_2, \ldots, A_n\}$ es una partición de $\Omega$:
+
+$$P(A_i|B) = \frac{P(B|A_i) \cdot P(A_i)}{\sum_{j=1}^{n} P(B|A_j) \cdot P(A_j)}$$
+
+## Ejemplo: Diagnóstico médico
+
+Una enfermedad afecta al 1% de la población. Un test tiene:
+- Sensibilidad: $P(\text{positivo}|\text{enfermo}) = 0.95$
+- Especificidad: $P(\text{negativo}|\text{sano}) = 0.90$
+
+**Pregunta:** Si el test da positivo, ¿cuál es la probabilidad de estar enfermo?
+
+**Solución usando Bayes:**
+
+Sea $E$ = enfermo, $+$ = test positivo.
+
+$$P(E|+) = \frac{P(+|E) \cdot P(E)}{P(+)}$$
+
+Calculamos $P(+)$ usando probabilidad total:
+$$P(+) = P(+|E)P(E) + P(+|E^c)P(E^c)$$
+$$P(+) = 0.95 \times 0.01 + 0.10 \times 0.99 = 0.0095 + 0.099 = 0.1085$$
+
+Por lo tanto:
+$$P(E|+) = \frac{0.95 \times 0.01}{0.1085} = \frac{0.0095}{0.1085} \approx 0.0876$$
+
+**Interpretación:** Aunque el test sea positivo, solo hay un 8.76% de probabilidad de estar realmente enfermo. Esto se debe a la baja prevalencia de la enfermedad.

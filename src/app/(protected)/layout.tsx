@@ -2,8 +2,9 @@ import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { Toaster } from "@components/ui/sonner";
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
+import { ROUTES } from "@/lib/config/routes";
 
-export default async function ProtectedLayout({
+export default async function RootProtectedLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -11,7 +12,7 @@ export default async function ProtectedLayout({
   const session = await auth();
 
   if (!session) {
-    redirect("/login");
+    redirect(ROUTES.LOGIN);
   }
 
   return (

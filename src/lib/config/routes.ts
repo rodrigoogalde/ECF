@@ -1,16 +1,29 @@
 export const ROUTES = {
   HOME: "/",
+  MAIN: "/main",
   QUESTIONS: "/questions",
   SYLLABUS: "/syllabus",
   LOGIN: "/login",
+  DOCS: {
+    LIST: "/docs",
+    DETAIL: (id: string) => `/docs/${id}`,
+  },
 
   STUDENT: {
     HOME: "/student",
-    PRACTICE: "/student/practice",
-    ATTEMPTS: "/student/practice/attempts",
-    ATTEMPT: (id: string) => `/student/practice/${id}`,
+    PRACTICE: {
+      LIST: "/student/practice",
+      ATTEMPTS: "/student/practice/attempts",
+      DETAIL: (id: string) => `/student/practice/${id}`,
+    },
+    MATERIAL: {
+      LIST: "/student/material",
+      DETAIL: (id: string) => `/student/material/${id}`,
+    },
+
+    PROGRESS: "/student/practice",
   },
-  // Rutas de administración
+
   ADMIN: {
     ADMIN: '/admin',
     QUESTIONS: {
@@ -28,5 +41,6 @@ export const ROUTES = {
       CREATE: '/admin/users/create',
       EDIT: (id: string | number) => `/admin/users/${id}/edit`,
     },
+    STATS: '/admin/stats',
   },
 }

@@ -18,6 +18,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Session } from "next-auth";
 import { ROLE } from "@/lib/constants/roles";
+import { ROUTES } from "@/lib/config/routes";
 
 interface MainDashboardProps {
   user: Session["user"];
@@ -105,21 +106,21 @@ export function MainDashboard({ user }: MainDashboardProps) {
                 title="Practicar"
                 description="Resolver preguntas del ECF"
                 icon={<PlusCircle className="w-6 h-6" />}
-                href="/student/practice"
+                href={ROUTES.STUDENT.PRACTICE.LIST}
                 color="blue"
               />
               <QuickActionCard
                 title="Mis Resultados"
                 description="Ver mi historial de práctica"
                 icon={<FileText className="w-6 h-6" />}
-                href="/student/results"
+                href={ROUTES.STUDENT.PRACTICE.ATTEMPTS}
                 color="green"
               />
               <QuickActionCard
                 title="Progreso"
                 description="Ver mi progreso y estadísticas"
                 icon={<TrendingUp className="w-6 h-6" />}
-                href="/student/progress"
+                href={ROUTES.STUDENT.PROGRESS}
                 color="purple"
               />
             </>
@@ -131,21 +132,21 @@ export function MainDashboard({ user }: MainDashboardProps) {
                 title="Gestionar Preguntas"
                 description="Administrar banco de preguntas"
                 icon={<FileText className="w-6 h-6" />}
-                href="/admin/questions"
+                href={ROUTES.ADMIN.QUESTIONS.LIST}
                 color="orange"
               />
               <QuickActionCard
                 title="Usuarios"
                 description="Gestionar usuarios del sistema"
                 icon={<Users className="w-6 h-6" />}
-                href="/admin/users"
+                href={ROUTES.ADMIN.USERS.LIST}
                 color="red"
               />
               <QuickActionCard
                 title="Estadísticas"
                 description="Ver estadísticas generales"
                 icon={<Activity className="w-6 h-6" />}
-                href="/admin/stats"
+                href={ROUTES.ADMIN.STATS}
                 color="indigo"
               />
             </>

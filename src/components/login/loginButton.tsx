@@ -1,19 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useSession, signOut } from "@/lib/auth-client";
+import { useSession } from "@/lib/auth-client";
 import { CircleUser, LogOut } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import { ROUTES } from "@/lib/config/routes";
+import { logout } from "@/app/actions/auth";
 
 export function LoginButton() {
   const { data: session, status } = useSession();
   const [isHovered, setIsHovered] = useState(false);
 
   const handleSignOut = async () => {
-    await signOut({ callbackUrl: ROUTES.LOGIN });
+    await logout();
   };
 
   if (status === "loading") {

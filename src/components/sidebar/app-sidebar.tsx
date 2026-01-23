@@ -30,12 +30,16 @@ import { ROUTES } from "@/lib/config/routes"
 export function AppSidebar({
     user,
     children,
+    defaultOpen = true,
     ...props
-}: React.ComponentProps<typeof Sidebar> & { user: Session["user"] }) {
+}: React.ComponentProps<typeof Sidebar> & { 
+    user: Session["user"]
+    defaultOpen?: boolean
+}) {
     const router = useRouter();
     const isMobile = useIsMobile();
     return (
-        <SidebarProvider>
+        <SidebarProvider defaultOpen={defaultOpen}>
             <Sidebar collapsible="icon" variant="inset" {...props}>
                 <SidebarHeader>
                     <NavHead />

@@ -48,7 +48,7 @@ export default async function DocPage({ params }: PageProps) {
     if (section) {
       breadcrumbItems.push({
         label: section.code,
-        href: `/docs/${section.code}`,
+        href: `/docs`,
       });
     }
   }

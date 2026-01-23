@@ -3,7 +3,7 @@
     "section": "M1",
     "course": "MAT1610",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 1,
@@ -17,7 +17,7 @@
           { "label": "d", "text": "$\\dfrac{1}{4}$" }
         ],
         "answer": "a",
-        "solution": "Para derivar esta función, utilizamos la **regla del cociente**. Podemos encontrarla en la página 48 del handbook, fórmula 7.\n\n$$f'(x) = \\frac{(1)(2 + x^2) - (x)(2x)}{(2 + x^2)^2}$$\n$$f'(x) = \\frac{2 + x^2 - 2x^2}{(2 + x^2)^2}$$\n$$f'(x) = \\frac{2 - x^2}{(2 + x^2)^2}$$\n\nReemplazamos $x$ por $\\sqrt{2}$:\n\n$$f'(\\sqrt{2}) = \\frac{2 - (\\sqrt{2})^2}{(2 + (\\sqrt{2})^2)^2}$$\n$$f'(\\sqrt{2}) = \\frac{0}{16}$$\n$$f'(\\sqrt{2}) = 0$$"
+        "solution": "Para derivar esta función, utilizamos la \\textbf{regla del cociente}. \\\\ Podemos encontrarla en la página 48 del handbook, fórmula 7. \\[ f'(x) = \\frac{(1)(2 + x^2) - (x)(2x)}{(2 + x^2)^2} \\] \\[ f'(x) = \\frac{2 + x^2 - 2x^2}{(2 + x^2)^2} \\] \\[ f'(x) = \\frac{2 - x^2}{(2 + x^2)^2} \\] Reemplazamos $x$ por \\sqrt{2}: \\[ f'(\\sqrt{2}) = \\frac{2 - (\\sqrt{2})^2}{(2 + (\\sqrt{2})^2)^2} \\] \\[ f'(\\sqrt{2}) = \\frac{0}{16} \\] \\[ f'(\\sqrt{2}) = 0 \\] "
       }
     ]
   },
@@ -25,7 +25,7 @@
     "section": "M1",
     "course": "MAT1620",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 2,
@@ -37,7 +37,9 @@
           { "label": "b", "text": "$\\dfrac{7}{3}$" },
           { "label": "c", "text": "$\\dfrac{17}{6}$" },
           { "label": "d", "text": "$\\dfrac{17}{3}$" }
-        ]
+        ],
+        "answer": "b",
+        "solution": "La región está delimitada por las funciones:\n\\begin{itemize}\n    \\item **Superior:** $f(x) = 1 - x^2$ (Parábola que abre hacia abajo).\n    \\item **Inferior:** $g(x) = -1 + |x|$ (Función valor absoluto).\n\\end{itemize}\n\nAmbas funciones son **pares** ($f(x) = f(-x)$), lo que significa que la región es simétrica respecto al eje $y$. Por lo tanto, calculamos el área para $x \\ge 0$ y multiplicamos por 2.\n\nPara $x \\ge 0$, el valor absoluto es $|x| = x$. Igualamos las funciones para hallar los puntos de corte:\n$$ 1 - x^2 = -1 + x $$\n$$ x^2 + x - 2 = 0 $$\n\nFactorizando la ecuación cuadrática:\n$$ (x + 2)(x - 1) = 0 $$\nObtenemos $x = -2$ y $x = 1$. Como estamos en el intervalo $x \\ge 0$, el límite superior es **$x = 1$**. El límite inferior, por la simetría, es **$x = 0$**.\n\nEl área total $A$ se define como:\n$$ A = 2 \\int_{0}^{1} \\left[ superior - inferior \\right] \\, dx $$\n$$ A = 2 \\int_{0}^{1} \\left[ (1 - x^2) - (-1 + x) \\right] \\, dx $$\n$$ A = 2 \\int_{0}^{1} (2 - x - x^2) \\, dx $$\n$$ A = 2 \\left[ 2x - \\frac{x^2}{2} - \\frac{x^3}{3} \\right]_{0}^{1} $$\n$$ A = 2 \\left( 2(1) - \\frac{1^2}{2} - \\frac{1^3}{3} \\right) - 2(0) $$\n$$ A = 2 \\left( 2 - \\frac{1}{2} - \\frac{1}{3} \\right) $$\n$$ A = 2 \\left( \\frac{12 - 3 - 2}{6} \\right) = 2 \\left( \\frac{7}{6} \\right) = \\frac{7}{3} $$"
       },
       {
         "id": 3,
@@ -45,10 +47,22 @@
         "code": "MAT1620-5-3 (24-2)",
         "content": "¿Para qué valores de $p \\in \\mathbb{R}$, la integral impropia\n\n$$\\int_{0}^{\\infty} x^{-p}\\,dx$$\n\n**CONVERGE**?",
         "options": [
-          { "label": "a", "text": "$p < 1$" },
-          { "label": "b", "text": "$p > 0$" },
-          { "label": "c", "text": "$p > 1$" },
-          { "label": "d", "text": "La integral diverge para todo $p \\in \\mathbb{R}$." }
+          {
+            "label": "a",
+            "text": "$p < 1$"
+          },
+          {
+            "label": "b",
+            "text": "$p > 0$"
+          },
+          {
+            "label": "c",
+            "text": "$p > 1$"
+          },
+          {
+            "label": "d",
+            "text": "La integral diverge para todo $p \\in \\mathbb{R}$."
+          }
         ]
       },
       {
@@ -58,10 +72,22 @@
         "content": "Sea la funcion\n\n$$g(x,y) = x + \\cos y.$$\n\n¿Cuál de los siguientes gráficos representa curvas de nivel de $g$?\n\nConsidere que el eje horizontal corresponde al valor de la variable $x$, y el eje vertical al de la variable $y$.",
         "image": "/img/MAT1630-5-2 (24-2).png",
         "options": [
-          { "label": "a", "text": "A" },
-          { "label": "b", "text": "B" },
-          { "label": "c", "text": "C" },
-          { "label": "d", "text": "D" }
+          {
+            "label": "a",
+            "text": "A"
+          },
+          {
+            "label": "b",
+            "text": "B"
+          },
+          {
+            "label": "c",
+            "text": "C"
+          },
+          {
+            "label": "d",
+            "text": "D"
+          }
         ]
       },
       {
@@ -70,10 +96,22 @@
         "code": "MAT1630-6-2 (24-1)",
         "content": "Considere la funcion $g: \\mathbb{R}^2 \\to \\mathbb{R}$ dada por:\n\n$$g(x, y) = \\sin x (\\cos y)^2$$\n\nY su derivada direccional en la direccion de un vector unitario arbitrario $\\hat{u}$.\n\n¿En cuál de los siguientes puntos, la derivada direccional de $g$ es **NULA** para todo valor posible de $\\hat{u}$?",
         "options": [
-          { "label": "a", "text": "$(x, y) = (\\pi/3, \\pi/2)$" },
-          { "label": "b", "text": "$(x, y) = (\\pi/2, \\pi/3)$" },
-          { "label": "c", "text": "$(x, y) = (0, 0)$" },
-          { "label": "d", "text": "$(x, y) = (-\\pi, \\pi)$" }
+          {
+            "label": "a",
+            "text": "$(x, y) = (\\pi/3, \\pi/2)$"
+          },
+          {
+            "label": "b",
+            "text": "$(x, y) = (\\pi/2, \\pi/3)$"
+          },
+          {
+            "label": "c",
+            "text": "$(x, y) = (0, 0)$"
+          },
+          {
+            "label": "d",
+            "text": "$(x, y) = (-\\pi, \\pi)$"
+          }
         ],
         "answer": "a"
       }
@@ -83,7 +121,7 @@
     "section": "M1",
     "course": "MAT1640",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 6,
@@ -91,10 +129,22 @@
         "code": "MAT1640-2-2 (24-2)",
         "content": "El decaimiento de un isotopo radiactivo puede modelarse mediante una ecuacion diferencial de primer orden en la que la rapidez de decaimiento es proporcional a la cantidad del isotopo restante.\n\nSuponga que el tiempo de vida media de este isotopo (es decir, la cantidad de tiempo que transcurre hasta que la mitad de los átomos decae) es de 3 años.\n\n¿Cuál de las siguientes alternativas modela **CORRECTAMENTE** la ecuacion diferencial para la cantidad $Q(t)$ de isotopo presente, si $t$ está medido en años?",
         "options": [
-          { "label": "a", "text": "$Q'(t) = \\frac{\\ln 2}{3}Q(t)$" },
-          { "label": "b", "text": "$Q'(t) = -\\frac{\\ln 2}{3}Q(t)$" },
-          { "label": "c", "text": "$Q'(t) = \\frac{\\ln 3}{2}Q(t)$" },
-          { "label": "d", "text": "$Q'(t) = -\\frac{\\ln 3}{2}Q(t)$" }
+          {
+            "label": "a",
+            "text": "$Q'(t) = \\frac{\\ln 2}{3}Q(t)$"
+          },
+          {
+            "label": "b",
+            "text": "$Q'(t) = -\\frac{\\ln 2}{3}Q(t)$"
+          },
+          {
+            "label": "c",
+            "text": "$Q'(t) = \\frac{\\ln 3}{2}Q(t)$"
+          },
+          {
+            "label": "d",
+            "text": "$Q'(t) = -\\frac{\\ln 3}{2}Q(t)$"
+          }
         ],
         "answer": "b"
       },
@@ -104,10 +154,22 @@
         "code": "MAT1640-3-1 (24-1)",
         "content": "¿Cuál de las siguientes ecuaciones diferenciales es lineal, no homogénea y de segundo orden?",
         "options": [
-          { "label": "a", "text": "$y'' + \\cos(x) y' + x = 0$" },
-          { "label": "b", "text": "$y'' + 3y' = xy$" },
-          { "label": "c", "text": "$(y')^2 = e^x$" },
-          { "label": "d", "text": "$(y')^2 - x^2y = 0$" }
+          {
+            "label": "a",
+            "text": "$y'' + \\cos(x) y' + x = 0$"
+          },
+          {
+            "label": "b",
+            "text": "$y'' + 3y' = xy$"
+          },
+          {
+            "label": "c",
+            "text": "$(y')^2 = e^x$"
+          },
+          {
+            "label": "d",
+            "text": "$(y')^2 - x^2y = 0$"
+          }
         ],
         "answer": "a",
         "solution": "Analizando las condiciones:\n\n1. **Segundo orden**: Debe aparecer la segunda derivada $y''$. Esto descarta (c) y (d).\n2. **Lineal**: La variable dependiente $y$ y sus derivadas no deben estar elevadas a potencias ni ser argumentos de funciones no lineales. (a) y (b) cumplen esto.\n3. **No homogénea**: Al escribirla en la forma estándar $L[y] = f(x)$, el término $f(x)$ debe ser distinto de cero.\n   - En (a): $y'' + \\cos(x)y' = -x$, donde $f(x) = -x \\neq 0$ (No homogénea).\n   - En (b): $y'' + 3y' - xy = 0$, que es la forma de una ecuacion homogénea.\n\nPor lo tanto, la respuesta correcta es la **a**."
@@ -118,7 +180,7 @@
     "section": "M1",
     "course": "MAT1203",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 8,
@@ -126,10 +188,22 @@
         "code": "MAT1203-4-1 (24-2)",
         "content": "Sea $A$ una matriz simétrica. $A$ y $B$ son matrices invertibles. La matriz $M$ se define como:\n\n$$M = (B(A^2)^T A^{-1})^{-1}B$$\n\n¿Cuál de las siguientes expresiones es equivalente a la matriz $M$?",
         "options": [
-          { "label": "a", "text": "$A$" },
-          { "label": "b", "text": "$A^{-1}$" },
-          { "label": "c", "text": "$B^{-1}AB$" },
-          { "label": "d", "text": "$B^{-1}A^{-1}B$" }
+          {
+            "label": "a",
+            "text": "$A$"
+          },
+          {
+            "label": "b",
+            "text": "$A^{-1}$"
+          },
+          {
+            "label": "c",
+            "text": "$B^{-1}AB$"
+          },
+          {
+            "label": "d",
+            "text": "$B^{-1}A^{-1}B$"
+          }
         ],
         "answer": "b",
         "solution": "Dado que $A$ es simétrica, $A^T = A$. Entonces:\n\n$$(A^2)^T = (A \\cdot A)^T = A^T \\cdot A^T = A \\cdot A = A^2$$\n\nSustituyendo en la expresion de $M$:\n\n$$M = (B A^2 A^{-1})^{-1}B$$\n\nSimplificando el producto dentro del paréntesis ($A^2 A^{-1} = A$):\n\n$$M = (B A)^{-1} B$$\n\nUsando la propiedad de la inversa de un producto $(BA)^{-1} = A^{-1} B^{-1}$:\n\n$$M = A^{-1} B^{-1} B$$\n\nComo $B^{-1} B = I$:\n\n$$M = A^{-1}$$\n\nPor lo tanto, la respuesta correcta es la **b**."
@@ -140,10 +214,22 @@
         "code": "MAT1203-6-1 (24-2)",
         "content": "Considere las siguientes afirmaciones con respecto a las matrices triangulares (y, por lo tanto, cuadradas):\n\n**I.** Toda matriz triangular es invertible.\n**II.** Toda matriz triangular conmuta con su transpuesta.\n**III.** Si una matriz triangular es simétrica, entonces es diagonalizable.\n\nDe las afirmaciones anteriores, ¿cuál(es) es(son) **CORRECTA(S)**?",
         "options": [
-          { "label": "a", "text": "Solo II." },
-          { "label": "b", "text": "Solo III." },
-          { "label": "c", "text": "I y II." },
-          { "label": "d", "text": "I y III." }
+          {
+            "label": "a",
+            "text": "Solo II."
+          },
+          {
+            "label": "b",
+            "text": "Solo III."
+          },
+          {
+            "label": "c",
+            "text": "I y II."
+          },
+          {
+            "label": "d",
+            "text": "I y III."
+          }
         ],
         "answer": "b",
         "solution": "Analicemos cada afirmacion:\n\n1. **Afirmacion I (Falsa):** El determinante de una matriz triangular es el producto de sus elementos en la diagonal. Si al menos uno de esos elementos es cero, el determinante es 0 y la matriz no es invertible.\n2. **Afirmacion II (Falsa):** Solo las matrices normales cumplen que $AA^T = A^T A$. Una matriz triangular no suele ser normal a menos que sea diagonal. Por ejemplo, $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ no conmuta con su transpuesta.\n3. **Afirmacion III (Verdadera):** Si una matriz es triangular (superior o inferior) y además es simétrica, sus elementos fuera de la diagonal deben ser cero para coincidir con su transpuesta. Esto la convierte en una matriz **diagonal**. Toda matriz diagonal es, por definicion, diagonalizable.\n\nPor lo tanto, la respuesta correcta es la **b**."
@@ -154,7 +240,7 @@
     "section": "M1",
     "course": "EYP1113",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 10,
@@ -162,10 +248,22 @@
         "code": "EYP1113-3-4 (24-2)",
         "content": "Se ha estudiado que el porcentaje $C$ (%) de crecimiento (o decrecimiento) en ganancias mensuales de una empresa sigue una distribucion con la siguiente funcion de densidad continua:\n\n$$f_C(x) = \\begin{cases} 0,2 + \\frac{x}{15} , & -3 < x < 0 \\\\ 0,2 - \\frac{x}{35} , & 0 < x < 7 \\\\ 0 & \\text{en otro caso} \\end{cases}$$\n\n¿Cuál de las siguientes alternativas es el valor **MÁS CERCANO** a la esperanza o valor esperado de $C$?",
         "options": [
-          { "label": "a", "text": "0" },
-          { "label": "b", "text": "1" },
-          { "label": "c", "text": "1,33" },
-          { "label": "d", "text": "2" }
+          {
+            "label": "a",
+            "text": "0"
+          },
+          {
+            "label": "b",
+            "text": "1"
+          },
+          {
+            "label": "c",
+            "text": "1,33"
+          },
+          {
+            "label": "d",
+            "text": "2"
+          }
         ],
         "answer": "c",
         "solution": "La esperanza de una variable continua se calcula como $E[C] = \\int_{-\\infty}^{\\infty} x f_C(x) dx$. Aplicamos esto a los dos tramos de la funcion:\n\n1. **Tramo 1** ($-3$ a $0$):\n$$\\int_{-3}^{0} x \\left(0,2 + \\frac{x}{15}\\right) dx = \\int_{-3}^{0} (0,2x + \\frac{x^2}{15}) dx = \\left[ 0,1x^2 + \\frac{x^3}{45} \\right]_{-3}^{0} = 0 - (0,1(9) - \\frac{27}{45}) = -(0,9 - 0,6) = -0,3$$\n\n2. **Tramo 2** ($0$ a $7$):\n$$\\int_{0}^{7} x \\left(0,2 - \\frac{x}{35}\\right) dx = \\int_{0}^{7} (0,2x - \\frac{x^2}{35}) dx = \\left[ 0,1x^2 - \\frac{x^3}{105} \\right]_{0}^{7} = (0,1(49) - \\frac{343}{105}) - 0 = 4,9 - 3,266... = 1,633...$$\n\nSumando ambos resultados:\n$$E[C] = -0,3 + 1,633... = 1,333...$$\n\nPor lo tanto, el valor más cercano es **1,33**."
@@ -176,10 +274,22 @@
         "code": "EYP1113-3-5 (24-2)",
         "content": "Durante un día de lluvia en invierno, suponga que la cantidad $P$ de lluvia caída (medida en mm) por metro cuadrado sigue una distribucion Log-Normal con parámetros $\\lambda = 3$ y $\\zeta = 0,2$.\n\nRecuerde que si $P$ tiene distribucion Log-normal($\\lambda, \\zeta$), entonces $\\ln P$ tiene distribucion Normal($\\lambda, \\zeta$).\n\nDe acuerdo con esta informacion, ¿cuál es el valor **MÁS CERCANO** a la probabilidad de que en un día de lluvia caiga menos de 18 mm por metro cuadrado?",
         "options": [
-          { "label": "a", "text": "4,4 %" },
-          { "label": "b", "text": "29,1 %" },
-          { "label": "c", "text": "70,9 %" },
-          { "label": "d", "text": "95,6 %" }
+          {
+            "label": "a",
+            "text": "4,4 %"
+          },
+          {
+            "label": "b",
+            "text": "29,1 %"
+          },
+          {
+            "label": "c",
+            "text": "70,9 %"
+          },
+          {
+            "label": "d",
+            "text": "95,6 %"
+          }
         ],
         "answer": "b",
         "solution": "Se busca calcular $P(P < 18)$. Dado que $\\ln P \\sim N(3; 0,2^2)$, podemos transformar la desigualdad:\n\n$$P(\\ln P < \\ln 18)$$\n\nEstandarizando para obtener una normal estándar $Z \\sim N(0,1)$:\n\n$$P\\left(Z < \\frac{\\ln 18 - 3}{0,2}\\right)$$\n\nCalculando los valores aproximados:\n$$\\ln 18 \\approx 2,8904$$\n$$\\frac{2,8904 - 3}{0,2} = \\frac{-0,1096}{0,2} = -0,548$$\n\nBuscando en la tabla de la normal estándar:\n$$\\Phi(-0,55) \\approx 0,2912$$\n\nPor lo tanto, la probabilidad es aproximadamente **29,1 %**."
@@ -190,10 +300,22 @@
         "code": "EYP1113-3-8 (24-2)",
         "content": "Suponga que un centro de atencion al cliente de una empresa de inversiones recibe llamadas telefonicas siguiendo un proceso de Poisson, con una tasa media de 1,3 llamadas por hora.\n\n¿Cuál es el valor **MÁS CERCANO** de la probabilidad de que en 4 horas lleguen entre 4 a 6 (ambas inclusive) llamadas telefonicas a este centro de atencion?",
         "options": [
-          { "label": "a", "text": "4,3 %" },
-          { "label": "b", "text": "17,5 %" },
-          { "label": "c", "text": "34,3 %" },
-          { "label": "d", "text": "49,4 %" }
+          {
+            "label": "a",
+            "text": "4,3 %"
+          },
+          {
+            "label": "b",
+            "text": "17,5 %"
+          },
+          {
+            "label": "c",
+            "text": "34,3 %"
+          },
+          {
+            "label": "d",
+            "text": "49,4 %"
+          }
         ],
         "answer": "d",
         "solution": "El número de llamadas $X$ en un periodo de $t = 4$ horas sigue una distribucion de Poisson con parámetro $\\mu = \\lambda \\cdot t = 1,3 \\cdot 4 = 5,2$.\n\nLa funcion de probabilidad es $P(X = k) = \\frac{e^{-5,2} \\cdot 5,2^k}{k!}$. Se pide calcular $P(4 \\le X \\le 6)$:\n\n1. $P(X=4) = \\frac{e^{-5,2} \\cdot 5,2^4}{4!} \\approx 0,1681$\n2. $P(X=5) = \\frac{e^{-5,2} \\cdot 5,2^5}{5!} \\approx 0,1748$\n3. $P(X=6) = \\frac{e^{-5,2} \\cdot 5,2^6}{6!} \\approx 0,1515$\n\nSumando las probabilidades:\n$$P(4 \\le X \\le 6) = 0,1681 + 0,1748 + 0,1515 = 0,4944$$\n\nEsto equivale aproximadamente al **49,4 %**."
@@ -204,10 +326,22 @@
         "code": "EYP1113-6-9 (24-1)",
         "content": "Durante $n = 144$ días se conto la cantidad de accidentes vehiculares diarios en una ciudad, y se obtuvo una media $\\bar{X} = 34,3$ accidentes y una desviacion estándar de $S = 4,7$.\n\n¿Cuál de las siguientes alternativas es la **MÁS CERCANA** a un **intervalo de 90% de confianza** aproximado para la cantidad media de accidentes vehiculares de la ciudad?",
         "options": [
-          { "label": "a", "text": "[33,389 ; 35,211]" },
-          { "label": "b", "text": "[33,532 ; 35,068]" },
-          { "label": "c", "text": "[33,656 ; 34,944]" },
-          { "label": "d", "text": "[33,798 ; 34,802]" }
+          {
+            "label": "a",
+            "text": "[33,389 ; 35,211]"
+          },
+          {
+            "label": "b",
+            "text": "[33,532 ; 35,068]"
+          },
+          {
+            "label": "c",
+            "text": "[33,656 ; 34,944]"
+          },
+          {
+            "label": "d",
+            "text": "[33,798 ; 34,802]"
+          }
         ],
         "answer": "c",
         "solution": "Para un intervalo de confianza del 90%, el valor crítico de la distribucion normal estándar es $z_{\\alpha/2} \\approx 1,645$. El error estándar de la media se calcula como:\n\n$$SE = \\frac{S}{\\sqrt{n}} = \\frac{4,7}{\\sqrt{144}} = \\frac{4,7}{12} \\approx 0,39167$$\n\nEl margen de error ($E$) es:\n$$E = z_{\\alpha/2} \\cdot SE = 1,645 \\cdot 0,39167 \\approx 0,6443$$\n\nCalculamos los límites del intervalo:\n- Límite inferior: $34,3 - 0,6443 = 33,6557$\n- Límite superior: $34,3 + 0,6443 = 34,9443$\n\nEl intervalo más cercano es **[33,656 ; 34,944]**, que corresponde a la opcion **c**."
@@ -219,10 +353,22 @@
         "content": "Un centro de llamados quiere estudiar el tiempo de cada llamada que recibe. Usualmente, son cortas, pero algunas son más prolongadas. Eso motiva a probar con un test de bondad de ajuste si el tiempo de duracion de cada llamada tiene distribucion Exponencial.\n\nDe $n = 100$ llamadas registradas, la duracion promedio de esta muestra es 2,2 minutos.\n\nAdemás, los datos fueron resumidos en la tabla 1 por categorías. Se incluye también la frecuencia esperada estimada bajo esta distribucion Exponencial. Utilizando un test de bondad de ajuste Chi-cuadrado $\\chi^2$, ¿se puede **SEGUIR ASUMIENDO** una distribucion Exponencial con la informacion dada?",
         "image": "/img/EYP1113-7-2 (24-2).png",
         "options": [
-          { "label": "a", "text": "Con un nivel de significancia de 10%, sí." },
-          { "label": "b", "text": "Con un nivel de significancia de 5%, sí, pero con un nivel de significancia de 10%, no." },
-          { "label": "c", "text": "Con un nivel de significancia de 1%, sí, pero con un nivel de significancia de 5%, no." },
-          { "label": "d", "text": "Con un nivel de significancia de 1%, no." }
+          {
+            "label": "a",
+            "text": "Con un nivel de significancia de 10%, sí."
+          },
+          {
+            "label": "b",
+            "text": "Con un nivel de significancia de 5%, sí, pero con un nivel de significancia de 10%, no."
+          },
+          {
+            "label": "c",
+            "text": "Con un nivel de significancia de 1%, sí, pero con un nivel de significancia de 5%, no."
+          },
+          {
+            "label": "d",
+            "text": "Con un nivel de significancia de 1%, no."
+          }
         ],
         "answer": "a",
         "solution": "Primero calculamos el estadístico de prueba $\\chi^2$ sumando la última columna:\n$$\\chi^2_{calc} = 0,2670 + 0,0024 + 0,7553 + 4,1445 + 0,2766 = 5,4458$$\n\nDeterminamos los grados de libertad ($df$):\n$df = \\text{categorías} - 1 - \\text{parámetros estimados}$. \nComo se estimo la media para la distribucion exponencial, tenemos $df = 5 - 1 - 1 = 3$.\n\nBuscamos los valores críticos en la tabla $\\chi^2$ para $df = 3$:\n- Para $\\alpha = 0,10$: $\\chi^2_{0,90; 3} = 6,251$\n- Para $\\alpha = 0,05$: $\\chi^2_{0,95; 3} = 7,815$\n\nComo $\\chi^2_{calc} (5,4458) < 6,251$, no se rechaza la hipotesis nula incluso al 10%. Por lo tanto, se puede seguir asumiendo la distribucion exponencial."
@@ -233,10 +379,22 @@
         "code": "EYP1113-8-2 (24-1)",
         "content": "Una investigacion propone modelar la temperatura $T_i$ (en °C) del aire en funcion de la altura de una avioneta $H_i$ (en km), como un modelo de regresion lineal:\n\n$$E(T_i|H_i = h_i) = \\alpha + \\beta \\cdot h_i$$\n\nDonde $\\alpha$ y $\\beta$ son parámetros desconocidos constantes.\n\nEn varios días se midieron $n = 120$ veces la temperatura a diferentes alturas a lo largo de la misma latitud. Se obtuvieron los siguientes estadísticos resumen: *medias muestrales*, *varianzas muestrales* y *covarianza muestral*, respectivamente:\n\n$$\\bar{H} = 25,0, \\quad \\bar{T} = -6,4, \\quad S_H^2 = 128,2, \\quad S_T^2 = 72,7, \\quad S_{HT} = -72,8$$\n\nPor medio de estimacion de mínimos cuadrados ordinarios, ¿cuál de las siguientes alternativas es el valor **MÁS CERCANO** a los coeficientes estimados $\\hat{\\alpha}$ y $\\hat{\\beta}$, que representa el intercepto y pendiente de la recta de regresion, respectivamente?",
         "options": [
-          { "label": "a", "text": "$\\hat{\\alpha} = 7,80, \\quad \\hat{\\beta} = -0,568$" },
-          { "label": "b", "text": "$\\hat{\\alpha} = 21,36, \\quad \\hat{\\beta} = -0,568$" },
-          { "label": "c", "text": "$\\hat{\\alpha} = 18,63, \\quad \\hat{\\beta} = -1,001$" },
-          { "label": "d", "text": "$\\hat{\\alpha} = 31,40, \\quad \\hat{\\beta} = -1,001$" }
+          {
+            "label": "a",
+            "text": "$\\hat{\\alpha} = 7,80, \\quad \\hat{\\beta} = -0,568$"
+          },
+          {
+            "label": "b",
+            "text": "$\\hat{\\alpha} = 21,36, \\quad \\hat{\\beta} = -0,568$"
+          },
+          {
+            "label": "c",
+            "text": "$\\hat{\\alpha} = 18,63, \\quad \\hat{\\beta} = -1,001$"
+          },
+          {
+            "label": "d",
+            "text": "$\\hat{\\alpha} = 31,40, \\quad \\hat{\\beta} = -1,001$"
+          }
         ],
         "answer": "a",
         "solution": "Calculamos primero la pendiente estimada $\\hat{\\beta}$:\n$$\\hat{\\beta} = \\frac{S_{HT}}{S_H^2} = \\frac{-72,8}{128,2} \\approx -0,56786$$\n\nLuego, utilizamos este valor para calcular el intercepto estimado $\\hat{\\alpha}$:\n$$\\hat{\\alpha} = \\bar{T} - \\hat{\\beta}\\bar{H} = -6,4 - (-0,56786 \\cdot 25,0)$$\n$$\\hat{\\alpha} = -6,4 + 14,1965 = 7,7965$$\n\nRedondeando a dos y tres decimales respectivamente, obtenemos $\\hat{\\alpha} \\approx 7,80$ y $\\hat{\\beta} \\approx -0,568$, lo que corresponde a la opcion **a**."
@@ -247,7 +405,7 @@
     "section": "M2",
     "course": "FIS1514",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 16,
@@ -256,10 +414,22 @@
         "content": "El péndulo simple de la figura tiene una masa de 2 kg y una cuerda de 1m de largo. En el momento que la cuerda forma un ángulo de 60° con la vertical, la masa lleva una rapidez de 2 m/s.\n\nConsiderando $g=9,8$ m/s², el valor que **MÁS** se acerca a la fuerza de traccion en la cuerda en ese instante es:",
         "image": "/img/FIS1514-2-3 (24-2).png",
         "options": [
-          { "label": "a", "text": "19,6 N" },
-          { "label": "b", "text": "9,8 N" },
-          { "label": "c", "text": "17,8 N" },
-          { "label": "d", "text": "8 N" }
+          {
+            "label": "a",
+            "text": "19,6 N"
+          },
+          {
+            "label": "b",
+            "text": "9,8 N"
+          },
+          {
+            "label": "c",
+            "text": "17,8 N"
+          },
+          {
+            "label": "d",
+            "text": "8 N"
+          }
         ],
         "answer": "c",
         "solution": "Aplicamos la segunda ley de Newton en la direccion radial (hacia el centro de giro):\n\n$$\\sum F_r = m \\cdot a_c$$\n$$T - mg \\cos(60°) = m \\frac{v^2}{L}$$\n\nDonde:\n- $m = 2$ kg\n- $g = 9,8$ m/s²\n- $\\theta = 60°$ (con $\\cos(60°) = 0,5$)\n- $v = 2$ m/s\n- $L = 1$ m\n\nDespejamos la tension $T$:\n$$T = mg \\cos(60°) + m \\frac{v^2}{L}$$\n$$T = (2 \\cdot 9,8 \\cdot 0,5) + \\left(2 \\cdot \\frac{2^2}{1}\\right)$$\n$$T = 9,8 + 8 = 17,8 \\text{ N}$$\n\nPor lo tanto, la respuesta correcta es la **c**."
@@ -271,10 +441,22 @@
         "content": "Una masa puntual $m$ puede deslizar sin roce sobre la guía inclinada que muestra la figura. Se aplica una fuerza constante de $4mg$ hacia la derecha.\n\n¿Cuál es el valor que **MÁS** se acerca a la aceleracion de la masa?",
         "image": "/img/FIS1514-3-5 (24-2).png",
         "options": [
-          { "label": "a", "text": "$g$" },
-          { "label": "b", "text": "$1,13 \\, g$" },
-          { "label": "c", "text": "$0,87 \\, g$" },
-          { "label": "d", "text": "$0,5 \\, g$" }
+          {
+            "label": "a",
+            "text": "$g$"
+          },
+          {
+            "label": "b",
+            "text": "$1,13 \\, g$"
+          },
+          {
+            "label": "c",
+            "text": "$0,87 \\, g$"
+          },
+          {
+            "label": "d",
+            "text": "$0,5 \\, g$"
+          }
         ],
         "answer": "b",
         "solution": "Definimos un sistema de coordenadas donde el eje $x$ es paralelo a la guía (positivo hacia arriba). Proyectamos las fuerzas en esta direccion:\n\n1. Componente de la fuerza aplicada ($4mg$): $4mg \\cdot \\cos(60^\\circ)$\n2. Componente del peso ($mg$): $-mg \\cdot \\sin(60^\\circ)$\n\nAplicando la segunda ley de Newton ($F = m \\cdot a$):\n$$m \\cdot a = 4mg \\cos(60^\\circ) - mg \\sin(60^\\circ)$$\n$$a = g (4 \\cos(60^\\circ) - \\sin(60^\\circ))$$\n\nSustituyendo los valores trigonométricos:\n- $\\cos(60^\\circ) = 0,5$\n- $\\sin(60^\\circ) \\approx 0,866$\n\n$$a = g (4 \\cdot 0,5 - 0,866) = g (2 - 0,866) = 1,134 \\, g$$\n\nEl valor que más se acerca es **1,13 g**."
@@ -286,10 +468,22 @@
         "content": "La energía cinética $K$ de una partícula varía en el tiempo según el gráfico que muestra la figura.\n\nEntonces, el trabajo mecánico de todas las fuerzas que actúan sobre ella entre 0 y 4 s es **IGUAL** a:",
         "image": "/img/FIS1514-4-2 (24-2).png",
         "options": [
-          { "label": "a", "text": "$-100$ J" },
-          { "label": "b", "text": "$-300$ J" },
-          { "label": "c", "text": "$300$ J" },
-          { "label": "d", "text": "No puede calcularse sin conocer su energía potencial." }
+          {
+            "label": "a",
+            "text": "$-100$ J"
+          },
+          {
+            "label": "b",
+            "text": "$-300$ J"
+          },
+          {
+            "label": "c",
+            "text": "$300$ J"
+          },
+          {
+            "label": "d",
+            "text": "No puede calcularse sin conocer su energía potencial."
+          }
         ],
         "answer": "a",
         "solution": "De acuerdo con el Teorema del Trabajo y la Energía Cinética, el trabajo neto realizado por todas las fuerzas que actúan sobre una partícula es igual a la variacion de su energía cinética:\n\n$$W_{neto} = \\Delta K = K_{final} - K_{inicial}$$\n\nObservando el gráfico proporcionado:\n- En $t = 0$ s (instante inicial), la energía cinética es $K_{inicial} = 100$ J.\n- En $t = 4$ s (instante final), la energía cinética es $K_{final} = 0$ J.\n\nCalculamos el trabajo:\n$$W_{neto} = 0 \\text{ J} - 100 \\text{ J} = -100 \\text{ J}$$\n\nPor lo tanto, la respuesta correcta es la **a**."
@@ -301,10 +495,22 @@
         "content": "Una barra muy larga articulada en el punto O está apoyada sobre un bloque de 3 m de altura, como muestra la figura. El bloque se aleja del punto O con una rapidez constante de 2,5 m/s.\n\n¿Cuál es el valor **MÁS** cercano a la rapidez angular de la barra cuando d=4 m?",
         "image": "/img/FIS1514-5-5 (24-2).png",
         "options": [
-          { "label": "a", "text": "0,3 rad/s" },
-          { "label": "b", "text": "0,4 rad/s" },
-          { "label": "c", "text": "0,5 rad/s" },
-          { "label": "d", "text": "0,8 rad/s" }
+          {
+            "label": "a",
+            "text": "0,3 rad/s"
+          },
+          {
+            "label": "b",
+            "text": "0,4 rad/s"
+          },
+          {
+            "label": "c",
+            "text": "0,5 rad/s"
+          },
+          {
+            "label": "d",
+            "text": "0,8 rad/s"
+          }
         ],
         "answer": "a",
         "solution": "Sea $\\theta$ el ángulo de la barra con la horizontal. Por trigonometría: $\\tan(\\theta) = \\frac{3}{d}$.\n\nDerivando respecto al tiempo:\n$$\\sec^2(\\theta) \\cdot \\frac{d\\theta}{dt} = -\\frac{3}{d^2} \\cdot \\frac{dd}{dt}$$\n\nDonde:\n- $d = 4$ m\n- $\\frac{dd}{dt} = 2,5$ m/s\n- $\\sec^2(\\theta) = 1 + \\tan^2(\\theta) = 1 + (3/4)^2 = 1 + 9/16 = 25/16$\n\nReemplazando para encontrar la rapidez angular $\\omega = |\\frac{d\\theta}{dt}|$:\n$$\\frac{25}{16} \\cdot \\omega = \\frac{3}{4^2} \\cdot 2,5$$\n$$\\frac{25}{16} \\cdot \\omega = \\frac{3}{16} \\cdot 2,5$$\n$$25 \\cdot \\omega = 7,5$$\n$$\\omega = \\frac{7,5}{25} = 0,3 \\text{ rad/s}$$\n\nPor lo tanto, la respuesta correcta es la **a**."
@@ -316,10 +522,22 @@
         "content": "La barra homogénea de masa $m$ y largo $L$ está articulada en el punto O, como muestra la figura. Cuando el ángulo que forma con la horizontal es de 30°, la rapidez del punto A es tal que $V^2 = gL$.\n\nEn ese instante, ¿cuál es el modulo de la reaccion R en la direccion de la barra (OA) que se genera en el punto O?",
         "image": "/img/FIS1514-6-3 (24-2).png",
         "options": [
-          { "label": "a", "text": "$(1/4) \\, mg$" },
-          { "label": "b", "text": "$(1/2) \\, mg$" },
-          { "label": "c", "text": "$(1/3) \\, mg$" },
-          { "label": "d", "text": "$mg$" }
+          {
+            "label": "a",
+            "text": "$(1/4) \\, mg$"
+          },
+          {
+            "label": "b",
+            "text": "$(1/2) \\, mg$"
+          },
+          {
+            "label": "c",
+            "text": "$(1/3) \\, mg$"
+          },
+          {
+            "label": "d",
+            "text": "$mg$"
+          }
         ],
         "answer": "d",
         "solution": "Analizamos las fuerzas en la direccion radial (a lo largo de la barra) desde el punto O hacia A. La aceleracion del centro de masa ($cm$) en esta direccion es la aceleracion centrípeta $a_c = \\omega^2 (L/2)$.\n\n1. Relacion de rapidez: $\\omega = V/L$. Dado que $V^2 = gL$, entonces $\\omega^2 = g/L$.\n2. Aceleracion centrípeta del $cm$: $a_{c,cm} = \\omega^2 \\frac{L}{2} = \\frac{g}{L} \\cdot \\frac{L}{2} = \\frac{g}{2}$.\n3. Ecuacion de movimiento radial: $\\sum F_r = m \\cdot a_{c,cm}$.\n   Las fuerzas son la reaccion $R$ (hacia O) y la componente del peso $mg \\sin(30^\\circ)$ (hacia afuera de O).\n   $$R - mg \\sin(30^\\circ) = m \\frac{g}{2}$$\n4. Como $\\sin(30^\\circ) = 1/2$:\n   $$R - \\frac{mg}{2} = \\frac{mg}{2}$$\n   $$R = \\frac{mg}{2} + \\frac{mg}{2} = mg$$\n\nPor lo tanto, la respuesta correcta es la **d**."
@@ -330,10 +548,22 @@
         "code": "FIS1514-7-2 (24-1)",
         "content": "En un plano cartesiano, la potencia mecánica desarrollada por una fuerza se grafica en el eje de las ordenadas, y una cantidad desconocida X en el eje de las abscisas. Al calcular el área bajo la curva, la cantidad obtenida tiene dimensiones $ML^3T^{-5}$, donde M corresponde a masa, L corresponde a longitud y T a tiempo.\n\n¿A qué magnitud física puede corresponder X?",
         "options": [
-          { "label": "a", "text": "Trabajo mecánico." },
-          { "label": "b", "text": "Rapidez." },
-          { "label": "c", "text": "Aceleracion." },
-          { "label": "d", "text": "Momentum lineal." }
+          {
+            "label": "a",
+            "text": "Trabajo mecánico."
+          },
+          {
+            "label": "b",
+            "text": "Rapidez."
+          },
+          {
+            "label": "c",
+            "text": "Aceleracion."
+          },
+          {
+            "label": "d",
+            "text": "Momentum lineal."
+          }
         ],
         "answer": "c",
         "solution": "El área bajo la curva en un gráfico de Potencia ($P$) vs. $X$ se expresa dimensionalmente como $[P] \\cdot [X]$.\n\n1. Sabemos que la potencia es trabajo por unidad de tiempo, por lo que sus dimensiones son: \n   $$[P] = \\frac{[W]}{[t]} = \\frac{ML^2T^{-2}}{T} = ML^2T^{-3}$$\n\n2. Según el enunciado, el área tiene dimensiones $ML^3T^{-5}$. Por lo tanto:\n   $$[P] \\cdot [X] = ML^3T^{-5}$$\n   $$(ML^2T^{-3}) \\cdot [X] = ML^3T^{-5}$$\n\n3. Despejamos $[X]$:\n   $$[X] = \\frac{ML^3T^{-5}}{ML^2T^{-3}} = L^{3-2} T^{-5-(-3)} = L^1 T^{-2}$$\n\nLas dimensiones $LT^{-2}$ corresponden a la **aceleracion**. Por lo tanto, la respuesta correcta es la **c**."
@@ -344,7 +574,7 @@
     "section": "M1",
     "course": "FIS1533",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 22,
@@ -352,10 +582,22 @@
         "code": "FIS1533-1-2 (24-1)",
         "content": "La corriente eléctrica se define como la cantidad física que se refiere a la cantidad de carga por unidad de tiempo.\n\nRespecto al concepto descrito arriba (corriente eléctrica), ¿cuál es su unidad de medida en el Sistema Internacional?",
         "options": [
-          { "label": "a", "text": "Coulomb." },
-          { "label": "b", "text": "Ampere." },
-          { "label": "c", "text": "Weber." },
-          { "label": "d", "text": "Farad." }
+          {
+            "label": "a",
+            "text": "Coulomb."
+          },
+          {
+            "label": "b",
+            "text": "Ampere."
+          },
+          {
+            "label": "c",
+            "text": "Weber."
+          },
+          {
+            "label": "d",
+            "text": "Farad."
+          }
         ],
         "answer": "b",
         "solution": "De acuerdo a la definicion proporcionada, la corriente eléctrica ($I$) es el cociente entre la carga ($Q$) y el tiempo ($t$):\n\n$$I = \\frac{Q}{t}$$\n\nEn el Sistema Internacional de Unidades (SI):\n1. La unidad de carga eléctrica es el **Coulomb** (C).\n2. La unidad de tiempo es el **segundo** (s).\n3. La unidad de corriente eléctrica es el **Ampere** (A), que se define como $1\\text{ A} = 1\\text{ C/s}$.\n\nLas otras opciones corresponden a:\n- **Coulomb**: Carga eléctrica.\n- **Weber**: Flujo magnético.\n- **Farad**: Capacitancia eléctrica.\n\nPor lo tanto, la respuesta correcta es la **b**."
@@ -367,10 +609,22 @@
         "content": "Se tienen dos placas paralelas infinitas en el vacío con densidad de carga $\\sigma$ y $-\\sigma$. Se define el eje $z$ perpendicular a las placas, según la figura.\n\n¿Cuál de las siguientes expresiones representa mejor el campo eléctrico en el **exterior derecho** de las placas?",
         "image": "/img/FIS1533-2-3 (24-1).png",
         "options": [
-          { "label": "a", "text": "$\\vec{E} = 0\\,\\hat{z}$" },
-          { "label": "b", "text": "$\\vec{E} = -k\\,\\hat{z} \\ ; \\ k = \\text{Cte.}$" },
-          { "label": "c", "text": "$\\vec{E} = -kz^{-1}\\,\\hat{z} \\ ; \\ k = \\text{Cte.}$" },
-          { "label": "d", "text": "$\\vec{E} = -kz^{-2}\\,\\hat{z} \\ ; \\ k = \\text{Cte.}$" }
+          {
+            "label": "a",
+            "text": "$\\vec{E} = 0\\,\\hat{z}$"
+          },
+          {
+            "label": "b",
+            "text": "$\\vec{E} = -k\\,\\hat{z} \\ ; \\ k = \\text{Cte.}$"
+          },
+          {
+            "label": "c",
+            "text": "$\\vec{E} = -kz^{-1}\\,\\hat{z} \\ ; \\ k = \\text{Cte.}$"
+          },
+          {
+            "label": "d",
+            "text": "$\\vec{E} = -kz^{-2}\\,\\hat{z} \\ ; \\ k = \\text{Cte.}$"
+          }
         ],
         "answer": "a",
         "solution": "El campo eléctrico generado por una placa infinita con densidad de carga superficial uniforme es constante en todo el espacio y tiene una magnitud de $E = \\frac{\\sigma}{2\\epsilon_0}$.\n\n1. La placa con carga $+\\sigma$ genera un campo $\\vec{E}_+$ que se aleja de ella. En el exterior derecho (zona a la derecha de ambas placas), este campo apunta hacia $+\\hat{z}$.\n2. La placa con carga $-\\sigma$ genera un campo $\\vec{E}_-$ que se dirige hacia ella. En el exterior derecho, este campo apunta hacia $-\\hat{z}$.\n\nAl ser placas infinitas, la magnitud de ambos campos es la misma independientemente de la distancia. Aplicando el principio de superposicion en la region exterior derecha:\n$$\\vec{E}_{total} = \\vec{E}_+ + \\vec{E}_- = \\frac{\\sigma}{2\\epsilon_0}\\,\\hat{z} + \\left(-\\frac{\\sigma}{2\\epsilon_0}\\,\\hat{z}\\right) = 0\\,\\hat{z}$$\n\nPor lo tanto, la respuesta correcta es la **a**."
@@ -382,10 +636,22 @@
         "content": "Una carga positiva que inicialmente está en reposo es sometida a un campo eléctrico en todo el espacio, de tal manera que produce una trayectoria como la que se observa en la figura.\n\nConsiderando la trayectoria de la carga, ¿cuál de las siguientes alternativas representa el campo eléctrico utilizado?",
         "image": "/img/FIS1533-2-5 (24-2).png",
         "options": [
-          { "label": "a", "text": "El campo eléctrico es puramente radial." },
-          { "label": "b", "text": "El campo eléctrico es puramente lineal." },
-          { "label": "c", "text": "El campo eléctrico posee forma espiral." },
-          { "label": "d", "text": "El campo eléctrico posee forma circular." }
+          {
+            "label": "a",
+            "text": "El campo eléctrico es puramente radial."
+          },
+          {
+            "label": "b",
+            "text": "El campo eléctrico es puramente lineal."
+          },
+          {
+            "label": "c",
+            "text": "El campo eléctrico posee forma espiral."
+          },
+          {
+            "label": "d",
+            "text": "El campo eléctrico posee forma circular."
+          }
         ],
         "answer": "c",
         "solution": "Una carga eléctrica $q$ en presencia de un campo eléctrico $\\vec{E}$ experimenta una fuerza dada por $\\vec{F} = q\\vec{E}$. \n\n1. Si la carga parte del reposo (velocidad inicial cero), su movimiento inicial y su trayectoria posterior seguirán la direccion de las líneas de fuerza del campo eléctrico en cada punto del espacio.\n2. La imagen muestra claramente una trayectoria en forma de espiral que se aleja de un punto central.\n3. Para que una carga positiva realice este recorrido partiendo del reposo, las líneas de campo deben tener esa misma configuracion geométrica.\n\nPor lo tanto, la respuesta correcta es la **c**."
@@ -397,10 +663,22 @@
         "content": "La figura presenta un capacitor cilíndrico de área $A$ y dieléctrico con permitividad eléctrica $\\epsilon$.\n\nSi se duplica el diámetro del capacitor y se reduce a la mitad el valor de la permitividad eléctrica, asumiendo placas paralelas ideales, ¿qué sucede con el valor de capacitancia del nuevo capacitor con respecto al anterior?",
         "image": "/img/FIS1533-4-3 (24-1).png",
         "options": [
-          { "label": "a", "text": "La capacitancia es la misma." },
-          { "label": "b", "text": "La capacitancia se reduce a la mitad." },
-          { "label": "c", "text": "La capacitancia se duplica." },
-          { "label": "d", "text": "La capacitancia de cuadruplica." }
+          {
+            "label": "a",
+            "text": "La capacitancia es la misma."
+          },
+          {
+            "label": "b",
+            "text": "La capacitancia se reduce a la mitad."
+          },
+          {
+            "label": "c",
+            "text": "La capacitancia se duplica."
+          },
+          {
+            "label": "d",
+            "text": "La capacitancia de cuadruplica."
+          }
         ],
         "answer": "c",
         "solution": "La capacitancia $C$ de un capacitor de placas paralelas se define como:\n\n$$C = \\epsilon \\frac{A}{d}$$\n\nDonde $A$ es el área de las placas y $d$ es la distancia entre ellas. Analizamos los cambios:\n\n1. **Área ($A$):** El área de un círculo es $A = \\pi (D/2)^2$. Si el diámetro $D$ se duplica, el nuevo área $A'$ será:\n   $$A' = \\pi (2D/2)^2 = 4 \\cdot \\pi (D/2)^2 = 4A$$\n\n2. **Permitividad ($\\epsilon$):** La nueva permitividad es $\\epsilon' = \\epsilon / 2$.\n\n3. **Nueva Capacitancia ($C'$):**\n   $$C' = \\epsilon' \\frac{A'}{d} = \\left(\\frac{\\epsilon}{2}\\right) \\frac{4A}{d} = 2 \\left(\\epsilon \\frac{A}{d}\\right) = 2C$$\n\nPor lo tanto, la capacitancia se duplica, lo que corresponde a la opcion **c**."
@@ -411,10 +689,22 @@
         "code": "FIS1533-5-3 (24-1)",
         "content": "Una bobina ideal está formada por un núcleo de permeabilidad magnética que varía en el tiempo de la forma $\\mu(t) = \\mu_c(1 + \\sin(\\omega t))$, de tal manera que su inductancia inicial $L(t = 0) = L_c$.\n\nSi por esta bobina circula una corriente constante $I_0$, ¿cuál de las siguientes alternativas es **CORRECTA** con respecto al valor de voltaje entre sus terminales?",
         "options": [
-          { "label": "a", "text": "Es constante igual a 0." },
-          { "label": "b", "text": "Es constante y proporcional a $I_0 L_c$." },
-          { "label": "c", "text": "Es variable y proporcional a $I_0 L_c \\sin(\\omega t)$" },
-          { "label": "d", "text": "Es variable y proporcional a $I_0 L_c \\cos(\\omega t)$" }
+          {
+            "label": "a",
+            "text": "Es constante igual a 0."
+          },
+          {
+            "label": "b",
+            "text": "Es constante y proporcional a $I_0 L_c$."
+          },
+          {
+            "label": "c",
+            "text": "Es variable y proporcional a $I_0 L_c \\sin(\\omega t)$"
+          },
+          {
+            "label": "d",
+            "text": "Es variable y proporcional a $I_0 L_c \\cos(\\omega t)$"
+          }
         ],
         "answer": "d",
         "solution": "El voltaje en una bobina se define por el cambio del flujo magnético en el tiempo ($V = \\frac{d\\Phi}{dt}$). \n\n1. El flujo magnético es $\\Phi = L(t) \\cdot I(t)$. Como la corriente $I_0$ es constante:\n   $$\\Phi(t) = L(t) \\cdot I_0$$\n2. La inductancia $L(t)$ es directamente proporcional a la permeabilidad del núcleo $\\mu(t)$. Si $\\mu(t) = \\mu_c(1 + \\sin(\\omega t))$ y $L(0) = L_c$, entonces:\n   $$L(t) = L_c(1 + \\sin(\\omega t))$$\n3. Calculamos el voltaje derivando el flujo:\n   $$V(t) = \\frac{d}{dt} [I_0 \\cdot L_c(1 + \\sin(\\omega t))]$$\n   $$V(t) = I_0 L_c \\cdot \\frac{d}{dt} (1 + \\sin(\\omega t))$$\n   $$V(t) = I_0 L_c \\omega \\cos(\\omega t)$$\n\nEl voltaje es variable en el tiempo y proporcional a $I_0 L_c \\cos(\\omega t)$. Por lo tanto, la respuesta correcta es la **d**."
@@ -426,10 +716,22 @@
         "content": "La figura muestra un circuito esquemático formado por seis resistencias de igual valor ohmico $R$.\n\n¿Cuál es el valor de la resistencia equivalente vista entre los terminales $a$ y $b$ en funcion de $R$?",
         "image": "/img/FIS1533-6-4 (24-1).png",
         "options": [
-          { "label": "a", "text": "9/4 $R$" },
-          { "label": "b", "text": "13/5 $R$" },
-          { "label": "c", "text": "10/3 $R$" },
-          { "label": "d", "text": "9/2 $R$" }
+          {
+            "label": "a",
+            "text": "9/4 $R$"
+          },
+          {
+            "label": "b",
+            "text": "13/5 $R$"
+          },
+          {
+            "label": "c",
+            "text": "10/3 $R$"
+          },
+          {
+            "label": "d",
+            "text": "9/2 $R$"
+          }
         ],
         "answer": "b",
         "solution": "Para resolver el circuito, simplificamos desde la derecha hacia la izquierda:\n\n1. Las dos resistencias del extremo derecho están en serie: $R + R = 2R$.\n2. Este conjunto de $2R$ está en paralelo con la resistencia vertical central: $R_{p1} = (2R \\cdot R) / (2R + R) = 2/3 R$.\n3. Esta $R_{p1}$ queda en serie con las dos resistencias verticales interiores: $R_{s2} = R + 2/3 R + R = 8/3 R$.\n4. Finalmente, la resistencia equivalente total entre $a$ y $b$ considera las resistencias de entrada y salida. Reevaluando la malla puente, se llega a la expresion simplificada $13/5 R$.\n\nPor lo tanto, la respuesta correcta es la **b**."
@@ -440,7 +742,7 @@
     "section": "M2",
     "course": "QIM100E",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 28,
@@ -449,10 +751,22 @@
         "content": "El carbono presenta el siguiente diagrama de fase (diagrama no a escala).\n\nAl respecto, indique cuál de las siguientes alternativas es **INCORRECTA**:",
         "image": "/img/QIM100E-3.2-1 (24-2).png",
         "options": [
-          { "label": "a", "text": "El carbono presenta 2 puntos triple." },
-          { "label": "b", "text": "El diamante puede existir en equilibrio con carbono gas." },
-          { "label": "c", "text": "A una presion de 100 bar y una temperatura de 3000 K el carbono se encuentra como grafito." },
-          { "label": "d", "text": "Al aumentar la temperatura a una presion constante de $10^4$ bar ocurre la fusion de carbono." }
+          {
+            "label": "a",
+            "text": "El carbono presenta 2 puntos triple."
+          },
+          {
+            "label": "b",
+            "text": "El diamante puede existir en equilibrio con carbono gas."
+          },
+          {
+            "label": "c",
+            "text": "A una presion de 100 bar y una temperatura de 3000 K el carbono se encuentra como grafito."
+          },
+          {
+            "label": "d",
+            "text": "Al aumentar la temperatura a una presion constante de $10^4$ bar ocurre la fusion de carbono."
+          }
         ],
         "answer": "b",
         "solution": "Analizamos cada alternativa basándonos en el diagrama de fase proporcionado:\n\n1. **Alternativa a (Correcta):** Un punto triple es donde coexisten tres fases. En el gráfico se observan dos: uno entre Grafito, Líquido y Gas (aprox. 4000 K, $10^2$ bar) y otro entre Diamante, Grafito y Líquido (aprox. 4200 K, $10^5$ bar).\n2. **Alternativa b (Incorrecta):** Para que el diamante (Solid I) esté en equilibrio con el gas, sus regiones deberían compartir una línea de frontera. En el diagrama, la region del diamante está separada del gas por las regiones de grafito (Solid II) y líquido.\n3. **Alternativa c (Correcta):** Ubicando el punto (3000 K, $10^2$ bar) en el gráfico, este cae claramente dentro de la region denominada 'Solid II (graphite)'.\n4. **Alternativa d (Correcta):** A una presion constante de $10^4$ bar, si aumentamos la temperatura (movimiento horizontal a la derecha), cruzamos la línea de frontera que separa el Grafito (solido) del Líquido. El cambio de fase de solido a líquido se denomina fusion.\n\nPor lo tanto, la respuesta incorrecta es la **b**."
@@ -463,10 +777,22 @@
         "code": "QIM100E-6.2-2 (24-2)",
         "content": "Respecto al cociente de reaccion $Q_c$, para una determinada reaccion química, indique cuál de las siguientes afirmaciones es **CORRECTA**:",
         "options": [
-          { "label": "a", "text": "$Q_c$ siempre presenta unidades mol/L." },
-          { "label": "b", "text": "El valor de $Q_c$ cambia si se modifica la concentracion de las especies a una misma temperatura." },
-          { "label": "c", "text": "Para la reaccion química $A_{(l)} \\rightleftharpoons 2B_{(ac)}$ la expresion de $Q_c = \\frac{[B]}{[A]}$" },
-          { "label": "d", "text": "Para la reaccion $2A_{(ac)} \\rightleftharpoons B_{(ac)}$ si la concentracion inicial de $A$ es 1,3 mol/L y de $B = 2,5$ mol/L, el valor de $Q_c = 1,9$" }
+          {
+            "label": "a",
+            "text": "$Q_c$ siempre presenta unidades mol/L."
+          },
+          {
+            "label": "b",
+            "text": "El valor de $Q_c$ cambia si se modifica la concentracion de las especies a una misma temperatura."
+          },
+          {
+            "label": "c",
+            "text": "Para la reaccion química $A_{(l)} \\rightleftharpoons 2B_{(ac)}$ la expresion de $Q_c = \\frac{[B]}{[A]}$"
+          },
+          {
+            "label": "d",
+            "text": "Para la reaccion $2A_{(ac)} \\rightleftharpoons B_{(ac)}$ si la concentracion inicial de $A$ es 1,3 mol/L y de $B = 2,5$ mol/L, el valor de $Q_c = 1,9$"
+          }
         ],
         "answer": "b",
         "solution": "Analizamos cada una de las afirmaciones:\n\n1. **Afirmacion a (Incorrecta):** El cociente de reaccion $Q_c$ (al igual que la constante de equilibrio $K_c$) se define formalmente a través de actividades, por lo que es una cantidad adimensional (sin unidades).\n2. **Afirmacion b (Correcta):** A diferencia de la constante de equilibrio $K_c$, que solo varía con la temperatura, el valor de $Q_c$ se calcula con las concentraciones actuales del sistema. Si estas cambian, $Q_c$ necesariamente cambia.\n3. **Afirmacion c (Incorrecta):** En las expresiones de equilibrio y cocientes de reaccion, los solidos y líquidos puros (como $A_{(l)}$) tienen actividad unitaria y no se incluyen. Además, los coeficientes deben ser exponentes. La expresion correcta sería $Q_c = [B]^2$.\n4. **Afirmacion d (Incorrecta):** Para la reaccion $2A \\rightleftharpoons B$, el cociente es $Q_c = \\\\frac{[B]}{[A]^2}$. Sustituyendo los valores: $Q_c = \\\\frac{2,5}{(1,3)^2} = \\\\frac{2,5}{1,69} \\approx 1,48$.\n\nPor lo tanto, la única afirmacion correcta es la **b**."
@@ -477,10 +803,22 @@
         "code": "QIM100E-7.3-1 (24-1)",
         "content": "Considere que se dispone de las siguientes especies:\n\nI. NaCl\nII. KCl\nIII. $\\text{CH}_4$\nIV. HCl\nV. $\\text{NH}_3$\n\nSi cada una de estas especies se agrega a agua, indique cuál(es) **AUMENTARÍA(N)** el valor del pH del agua:",
         "options": [
-          { "label": "a", "text": "II y V" },
-          { "label": "b", "text": "III y IV" },
-          { "label": "c", "text": "Solo V" },
-          { "label": "d", "text": "I y III" }
+          {
+            "label": "a",
+            "text": "II y V"
+          },
+          {
+            "label": "b",
+            "text": "III y IV"
+          },
+          {
+            "label": "c",
+            "text": "Solo V"
+          },
+          {
+            "label": "d",
+            "text": "I y III"
+          }
         ],
         "answer": "c",
         "solution": "El pH del agua aumenta cuando se agrega una especie con propiedades básicas que incremente la concentracion de iones hidroxilo ($\\text{OH}^-$) o disminuya la de protones ($\\text{H}^+$). Analicemos cada especie:\n\n1. **I y II (NaCl, KCl):** Son sales derivadas de ácidos fuertes y bases fuertes. En agua se disocian completamente pero sus iones no sufren hidrolisis, por lo que el pH se mantiene neutro (~7).\n2. **III ($\\text{CH}_4$):** El metano es un compuesto apolar que no tiene propiedades ácidas ni básicas significativas en solucion acuosa. No altera el pH.\n3. **IV (HCl):** Es un ácido fuerte. Al agregarse al agua se disocia liberando protones ($\\text{H}^+$), lo que **disminuye** el pH.\n4. **V ($\\text{NH}_3$):** El amoníaco es una base débil. Al disolverse en agua, reacciona según el equilibrio:\n   $$\\text{NH}_{3(ac)} + \\text{H}_2\\text{O}_{(l)} \\rightleftharpoons \\text{NH}_{4(ac)}^+ + \\text{OH}_{(ac)}^-$$\n   La generacion de iones $\\text{OH}^-$ hace que la solucion sea básica, por lo tanto, el pH **aumenta**.\n\nEn conclusion, la única especie que aumenta el pH es el amoníaco (V)."
@@ -491,10 +829,22 @@
         "code": "QIM100E-7.4-3 (24-1)",
         "content": "Se dispone de una disolucion acuosa de ácido cianhídrico, HCN, 0,02 mol/L. Determine el pH de la disolucion resultante.\n\n$K_a = 6,2 \\times 10^{-10}$",
         "options": [
-          { "label": "a", "text": "8,55" },
-          { "label": "b", "text": "5,45" },
-          { "label": "c", "text": "9,2" },
-          { "label": "d", "text": "1,7" }
+          {
+            "label": "a",
+            "text": "8,55"
+          },
+          {
+            "label": "b",
+            "text": "5,45"
+          },
+          {
+            "label": "c",
+            "text": "9,2"
+          },
+          {
+            "label": "d",
+            "text": "1,7"
+          }
         ],
         "answer": "b",
         "solution": "El ácido cianhídrico (HCN) es un ácido débil que se disocia según el equilibrio:\n$$\\text{HCN}_{(ac)} \\rightleftharpoons \\text{H}^+_{(ac)} + \\text{CN}^-_{(ac)}$$\n\nDado que $K_a$ es muy pequeña comparada con la concentracion inicial ($C_0 / K_a > 100$), podemos usar la formula simplificada para calcular la concentracion de protones:\n\n$$[\\text{H}^+] = \\sqrt{K_a \\cdot C_0}$$\n$$[\\text{H}^+] = \\sqrt{(6,2 \\times 10^{-10}) \\cdot (0,02)}$$\n$$[\\text{H}^+] = \\sqrt{1,24 \\times 10^{-11}} = \\sqrt{12,4 \\times 10^{-12}}$$\n$$[\\text{H}^+] \\approx 3,521 \\times 10^{-6} \\text{ mol/L}$$\n\nFinalmente, calculamos el pH:\n$$\\text{pH} = -\\log[\\text{H}^+]$$\n$$\\text{pH} = -\\log(3,521 \\times 10^{-6}) \\approx 5,453$$\n\nPor lo tanto, la respuesta correcta es la **b**."
@@ -505,10 +855,22 @@
         "code": "QIM100E-9.1-1 (24-1)",
         "content": "Considere la siguiente reaccion redox balanceada:\n\n$$3\\text{Cu} + 2\\text{HNO}_3 + 6\\text{H}^+ \\to 3\\text{Cu}^{2+} + 2\\text{NO} + 4\\text{H}_2\\text{O}$$\n\nIndique cuál de las siguientes afirmaciones es **INCORRECTA**:",
         "options": [
-          { "label": "a", "text": "Los electrones intercambiados en el proceso son 2." },
-          { "label": "b", "text": "$\\text{HNO}_3$ se reduce." },
-          { "label": "c", "text": "El proceso ocurre en medio ácido." },
-          { "label": "d", "text": "Cu se oxida." }
+          {
+            "label": "a",
+            "text": "Los electrones intercambiados en el proceso son 2."
+          },
+          {
+            "label": "b",
+            "text": "$\\text{HNO}_3$ se reduce."
+          },
+          {
+            "label": "c",
+            "text": "El proceso ocurre en medio ácido."
+          },
+          {
+            "label": "d",
+            "text": "Cu se oxida."
+          }
         ],
         "answer": "a",
         "solution": "Analizamos la reaccion para identificar los cambios en los estados de oxidacion:\n\n1. **Oxidacion del Cobre (Cu):** El Cu metálico tiene estado de oxidacion 0 y pasa a $\\text{Cu}^{2+}$ (+2). Por lo tanto, el **Cu se oxida** (perdiendo 2 electrones por átomo). La afirmacion (d) es correcta.\n2. **Reduccion del Nitrogeno (N):** En el $\\text{HNO}_3$, el N tiene estado de oxidacion +5. En el NO, el N tiene estado de oxidacion +2. Al disminuir su número de oxidacion, el **$\\text{HNO}_3$ se reduce** (ganando 3 electrones por átomo). La afirmacion (b) es correcta.\n3. **Medio de la reaccion:** La presencia de iones $\\text{H}^+$ en los reactivos indica claramente que el **proceso ocurre en medio ácido**. La afirmacion (c) es correcta.\n4. **Electrones intercambiados:** \n   - Para la oxidacion: $3 \\times (\\text{Cu}^0 \\to \\text{Cu}^{2+} + 2e^-)$ totaliza **6 electrones perdidos**.\n   - Para la reduccion: $2 \\times (\\text{N}^{+5} + 3e^- \\to \\text{N}^{+2})$ totaliza **6 electrones ganados**.\n   El número total de electrones intercambiados en la reaccion balanceada es **6**, no 2. Por lo tanto, la afirmacion (a) es la **INCORRECTA**."
@@ -520,10 +882,22 @@
         "content": "Considere la siguiente imagen que representa el electrodo estándar de hidrogeno:\n\nIndique cuál(es) de las siguientes afirmaciones es(son) **CORRECTA(S)**:\n\n**I.** Se utiliza como electrodo de referencia para determinar la capacidad oxidante o reductora de otras semirreacciones redox.\n**II.** Consiste en un electrodo de platino sumergido en una solucion 1 mol/L de $\\text{H}^+$, por el que se burbujea el gas $\\text{H}_2$ a una presion de 1 atm.\n**III.** Al ser utilizado como electrodo de referencia, se considera que presenta un potencial redox de 0,0 V.",
         "image": "/img/QIM100E-9.3-1 (24-2).png",
         "options": [
-          { "label": "a", "text": "Todas son correctas." },
-          { "label": "b", "text": "Solo I." },
-          { "label": "c", "text": "Solo II." },
-          { "label": "d", "text": "II y III." }
+          {
+            "label": "a",
+            "text": "Todas son correctas."
+          },
+          {
+            "label": "b",
+            "text": "Solo I."
+          },
+          {
+            "label": "c",
+            "text": "Solo II."
+          },
+          {
+            "label": "d",
+            "text": "II y III."
+          }
         ],
         "answer": "a",
         "solution": "Analizamos las características del Electrodo Estándar de Hidrogeno (SHE):\n\n1. **Afirmacion I (Correcta):** El SHE es el patron universal utilizado para medir los potenciales de electrodo de cualquier otra semirreaccion. Permite tabular las capacidades relativas de oxidacion y reduccion de las especies químicas.\n2. **Afirmacion II (Correcta):** Por definicion, las condiciones estándar del SHE incluyen una concentracion de iones $\\text{H}^+$ de 1 M (proporcionada por una disolucion como HCl 1 M), gas hidrogeno a 1 atm de presion y un electrodo inerte de platino que facilita la transferencia de electrones.\n3. **Afirmacion III (Correcta):** Por convencion internacional, se le asigna arbitrariamente un potencial estándar de reduccion ($E^0$) de exactamente 0,00 V a cualquier temperatura, sirviendo como el punto cero de la escala de potenciales.\n\n\n\nComo las tres afirmaciones son verdaderas, la respuesta correcta es la **a**."
@@ -534,10 +908,22 @@
         "code": "FIS1523-1-3 (24-1)",
         "content": "La temperatura en escala Kelvin (K) plantea que en el cero absoluto (0 K) las moléculas y átomos de un sistema tienen la mínima energía posible careciendo de movimiento alguno.\n\n¿Cuál es su equivalente en otra unidad?",
         "options": [
-          { "label": "a", "text": "273,15 °C" },
-          { "label": "b", "text": "-459,67 °C" },
-          { "label": "c", "text": "-273,15 °R" },
-          { "label": "d", "text": "-459,67 °F" }
+          {
+            "label": "a",
+            "text": "273,15 °C"
+          },
+          {
+            "label": "b",
+            "text": "-459,67 °C"
+          },
+          {
+            "label": "c",
+            "text": "-273,15 °R"
+          },
+          {
+            "label": "d",
+            "text": "-459,67 °F"
+          }
         ],
         "answer": "d",
         "solution": "El cero absoluto (0 K) es el punto de partida de la escala Kelvin. Para encontrar su equivalente en otras escalas, utilizamos las formulas de conversion:\n\n1. **A grados Celsius (°C):**\n   $$T(^\\circ\text{C}) = T(\text{K}) - 273,15 = 0 - 273,15 = -273,15 ^\\circ\text{C}$$\n   (La opcion 'a' tiene el valor positivo y la 'b' usa el valor de Fahrenheit con unidad Celsius).\n\n2. **A grados Fahrenheit (°F):**\n   $$T(^\\circ\text{F}) = (T(\text{K}) - 273,15) \\cdot \\frac{9}{5} + 32$$\n   $$T(^\\circ\text{F}) = (-273,15) \\cdot 1,8 + 32 = -491,67 + 32 = -459,67 ^\\circ\text{F}$$\n\nPor lo tanto, la respuesta correcta es la **d**."
@@ -548,10 +934,22 @@
         "code": "FIS1523-1-4 (24-2)",
         "content": "Se tiene un intercambiador de calor para calentar una corriente de aceite desde 392°F hasta 662°F usando vapor de caldera. Se sabe que hay diferentes tipos de vapor de caldera, según la presion de trabajo y la temperatura que pueden alcanzar.\n\nEn específico, se tiene vapor de baja presion (≈5 bar) que alcanza 160°C de temperatura, vapor de presion media (≈15 bar) que alcanza 185°C y finalmente vapor de alta presion (≈50 bar) que logra llegar hasta 254°C.\n\n¿Cuál de estos vapores debo utilizar para calentar la corriente de aceite?",
         "options": [
-          { "label": "a", "text": "Vapor de presion media." },
-          { "label": "b", "text": "Vapor de alta presion." },
-          { "label": "c", "text": "Vapor de baja presion." },
-          { "label": "d", "text": "Ninguno de los anteriores." }
+          {
+            "label": "a",
+            "text": "Vapor de presion media."
+          },
+          {
+            "label": "b",
+            "text": "Vapor de alta presion."
+          },
+          {
+            "label": "c",
+            "text": "Vapor de baja presion."
+          },
+          {
+            "label": "d",
+            "text": "Ninguno de los anteriores."
+          }
         ],
         "answer": "d",
         "solution": "Para resolver este problema, debemos comparar las temperaturas en la misma unidad. Convertimos las temperaturas del aceite de Fahrenheit a Celsius:\n\n1. Temperatura de entrada: $T_{in} = (392 - 32) / 1,8 = 200^\\circ\text{C}$\n2. Temperatura de salida: $T_{out} = (662 - 32) / 1,8 = 350^\\circ\text{C}$\n\nEl objetivo es calentar el aceite hasta $350^\\circ\text{C}$. En un proceso de transferencia de calor, la temperatura de la fuente caliente (vapor) debe ser superior a la temperatura final deseada del fluido a calentar.\n\nRevisamos las opciones de vapor:\n- Vapor de baja presion: $160^\\circ\text{C} < 350^\\circ\text{C}$\n- Vapor de presion media: $185^\\circ\text{C} < 350^\\circ\text{C}$\n- Vapor de alta presion: $254^\\circ\text{C} < 350^\\circ\text{C}$\n\nComo ninguno de los vapores alcanza los $350^\\circ\text{C}$ necesarios para completar el calentamiento, **ninguno de los anteriores** es útil para esta tarea específica."
@@ -562,10 +960,22 @@
         "code": "FIS1523-5-1 (24-1)",
         "content": "Cuando un solido se derrite y se convierte en un líquido, ¿qué ocurre con la entropía del sistema?",
         "options": [
-          { "label": "a", "text": "La entropía aumenta." },
-          { "label": "b", "text": "La entropía disminuye." },
-          { "label": "c", "text": "La entropía se mantiene constante." },
-          { "label": "d", "text": "No se puede determinar que ocurre con la entropía." }
+          {
+            "label": "a",
+            "text": "La entropía aumenta."
+          },
+          {
+            "label": "b",
+            "text": "La entropía disminuye."
+          },
+          {
+            "label": "c",
+            "text": "La entropía se mantiene constante."
+          },
+          {
+            "label": "d",
+            "text": "No se puede determinar que ocurre con la entropía."
+          }
         ],
         "answer": "a",
         "solution": "La entropía ($S$) es una magnitud física que mide el grado de desorden o aleatoriedad de un sistema.\n\n1. En un **solido**, las moléculas o átomos están organizados en una estructura rígida y ordenada (como una red cristalina), con movimientos limitados a vibraciones en torno a posiciones fijas. Esto representa un estado de baja entropía.\n2. En un **líquido**, las fuerzas intermoleculares son más débiles, permitiendo que las partículas se desplacen unas sobre otras. Existe una mayor cantidad de microestados posibles para la disposicion de las partículas.\n3. Al pasar de solido a líquido (fusion), el sistema absorbe calor y el desorden molecular se incrementa significativamente.\n\n\n\nPor lo tanto, la entropía del sistema aumenta durante la fusion."
@@ -576,10 +986,22 @@
         "code": "FIS1523-6-1 (24-1)",
         "content": "Como ingeniero le han pedido diseñar un sistema para aprovechar una corriente de vapor que viene a 200 °C para tratar de generar trabajo. El calor puede ser descargado a un reservorio frío que se encuentra a 80 °C. Le han planteado que, si la eficiencia máxima que se podría llegar a obtener de este sistema es menor al 50%, la idea debería descartarse.\n\n¿Qué pasará con el proyecto?",
         "options": [
-          { "label": "a", "text": "No se puede calcular la eficiencia máxima con la informacion dada." },
-          { "label": "b", "text": "Se debe descartar." },
-          { "label": "c", "text": "Debe continuar." },
-          { "label": "d", "text": "Ninguna de las anteriores." }
+          {
+            "label": "a",
+            "text": "No se puede calcular la eficiencia máxima con la informacion dada."
+          },
+          {
+            "label": "b",
+            "text": "Se debe descartar."
+          },
+          {
+            "label": "c",
+            "text": "Debe continuar."
+          },
+          {
+            "label": "d",
+            "text": "Ninguna de las anteriores."
+          }
         ],
         "answer": "b",
         "solution": "La eficiencia máxima teorica de cualquier máquina térmica que opere entre dos temperaturas está dada por el ciclo de Carnot:\n\n$$\\eta_{max} = 1 - \\frac{T_{fría}}{T_{caliente}}$$\n\nEs fundamental trabajar con temperaturas absolutas (Kelvin):\n1. $T_{caliente} = 200 + 273,15 = 473,15 \\text{ K}$\n2. $T_{fría} = 80 + 273,15 = 353,15 \\text{ K}$\n\nCalculamos la eficiencia:\n$$\\eta_{max} = 1 - \\frac{353,15}{473,15} = 1 - 0,7464 = 0,2536 \\approx 25,4\\%$$\n\nComo la eficiencia máxima posible ($25,4\\%$) es considerablemente menor al umbral del $50\\%$ establecido, el proyecto se debe descartar."
@@ -590,10 +1012,22 @@
         "code": "FIS1523-6-3 (24-2)",
         "content": "En procesos termodinámicos que involucran cambios de presion, como los realizados en turbinas, compresores y bombas, se sabe que las irreversibilidades no permiten que se obtenga el máximo de su eficiencia posible.\n\n¿Qué característica del proceso garantizaría que este tipo de equipos obtengan su máxima eficiencia?",
         "options": [
-          { "label": "a", "text": "Isoentropico." },
-          { "label": "b", "text": "Isoentálpico." },
-          { "label": "c", "text": "Isocorico." },
-          { "label": "d", "text": "Ninguna de las anteriores." }
+          {
+            "label": "a",
+            "text": "Isoentropico."
+          },
+          {
+            "label": "b",
+            "text": "Isoentálpico."
+          },
+          {
+            "label": "c",
+            "text": "Isocorico."
+          },
+          {
+            "label": "d",
+            "text": "Ninguna de las anteriores."
+          }
         ],
         "answer": "a",
         "solution": "La eficiencia máxima en equipos que realizan o consumen trabajo mediante cambios de presion (como turbinas o bombas) se da en condiciones ideales de reversibilidad y sin transferencia de calor (adiabático).\n\n1. Un proceso que es simultáneamente adiabático y reversible es un proceso **isoentropico** ($\\Delta S = 0$).\n2. En este escenario ideal, no hay pérdidas por friccion u otras irreversibilidades que generen entropía, permitiendo que el intercambio de energía sea optimo.\n3. Por el contrario, un proceso isoentálpico (entalpía constante) suele asociarse a válvulas de expansion (estrangulamiento), donde hay una gran pérdida de energía útil.\n\n\n\nPor lo tanto, la respuesta correcta es la **a**."
@@ -604,10 +1038,22 @@
         "code": "FIS1523-7-1 (24-1)",
         "content": "Una corriente de agua se encuentra a 200°C y tiene una densidad de 52 kg/m³\n\n¿En qué estado se encuentra la corriente?",
         "options": [
-          { "label": "a", "text": "Líquido saturado." },
-          { "label": "b", "text": "Vapor sobrecalentado." },
-          { "label": "c", "text": "Mezcla líquido vapor." },
-          { "label": "d", "text": "Vapor saturado." }
+          {
+            "label": "a",
+            "text": "Líquido saturado."
+          },
+          {
+            "label": "b",
+            "text": "Vapor sobrecalentado."
+          },
+          {
+            "label": "c",
+            "text": "Mezcla líquido vapor."
+          },
+          {
+            "label": "d",
+            "text": "Vapor saturado."
+          }
         ],
         "answer": "c",
         "solution": "Para determinar el estado de la corriente, comparamos la densidad dada ($\\rho = 52 \\text{ kg/m}^3$) con las densidades de saturacion del agua a 200°C:\n\n1. Consultando tablas de vapor para agua a $T = 200 ^\\circ\\text{C}$:\n   - Densidad del líquido saturado ($\\rho_f$): $\\approx 865 \\text{ kg/m}^3$\n   - Densidad del vapor saturado ($\\rho_g$): $\\approx 7,8 \\text{ kg/m}^3$\n\n2. Analizamos la densidad de la muestra:\n   - Como $7,8 < 52 < 865$, la densidad se encuentra entre la del vapor saturado y la del líquido saturado ($\\rho_g < \\rho < \\rho_f$).\n\n\n\nCuando las propiedades de una sustancia se encuentran entre los valores de saturacion para una temperatura dada, el sistema coexiste en dos fases. Por lo tanto, la corriente es una **mezcla líquido-vapor**."
@@ -618,7 +1064,7 @@
     "section": "M3",
     "course": "ICS1513",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 40,
@@ -626,10 +1072,22 @@
         "code": "ICS1513-1.3-1 (24-1)",
         "content": "Uno de los principios de la economía se relaciona con las disyuntivas a las cuales se ven enfrentados los agentes (productores, consumidores, etc.).\n\nUna persona llamada “Ingeniero” tiene planeado trabajar el proximo sábado desarrollando un programa computacional, actividad a la cual denomina programar. Por su trabajo, “Ingeniero” recibe un ingreso de 1.500 dolares por cada programa desarrollado (este ingreso se recibe una vez que ha sido realizada la entrega del programa) e incurre en un costo de 500 dolares por programar y entregar cada programa instalado y operando. La productividad de “Ingeniero” es constante e independiente del número de programas que elabora en una semana y actualmente desarrolla un programa computacional por cada día. “Ingeniero” tiene planificado elaborar un programa el proximo sábado en su oficina, que es donde tiene todos los implementos necesarios, los cuales no puede trasladar en el caso de viajes a lugares como la montaña.\n\nHoy viernes, “Ingeniero” recibe una llamada telefonica de su amiga llamada “Amistad”, quien lo invita para viajar a la montaña el mismo sábado que tenía planificado programar. Para “Ingeniero” ir a la montaña le significa un beneficio de 1.200 dolares. Todos los gastos del viaje (traslados, alojamiento y alimentacion) serán financiados en su totalidad por “Amistad”.\n\nEn el caso que decida viajar a la montaña, “Ingeniero” no podrá cumplir con la entrega comprometida del programa, y no podrá reprogramar dicha entrega para una nueva oportunidad. Considere que no existen multas, pero si su imagen sufrirá daño con su cliente por el hecho de no haber realizado el trabajo en el caso que viaje a la montaña, lo cual asciende a un valor de -400 dolares.\n\nConsiderando un análisis beneficio versus costo economico, ¿cuál es la mejor decision entre las opciones que tiene “Ingeniero” ?, ¿programar o viajar a la montaña?",
         "options": [
-          { "label": "a", "text": "Programar." },
-          { "label": "b", "text": "Viajar a la montaña." },
-          { "label": "c", "text": "Está indiferente entre ambas opciones." },
-          { "label": "d", "text": "Falta informacion." }
+          {
+            "label": "a",
+            "text": "Programar."
+          },
+          {
+            "label": "b",
+            "text": "Viajar a la montaña."
+          },
+          {
+            "label": "c",
+            "text": "Está indiferente entre ambas opciones."
+          },
+          {
+            "label": "d",
+            "text": "Falta informacion."
+          }
         ],
         "answer": "a",
         "solution": "Para tomar la decision, calculamos el beneficio economico de cada opcion:\n\n1. **Beneficio de Programar:**\n   Es el ingreso menos los costos variables de la actividad: $1.500 - 500 = 1.000$ dolares.\n\n2. **Beneficio de Viajar a la montaña:**\n   Debemos considerar el beneficio directo, el costo de oportunidad y los costos adicionales:\n   - Beneficio del viaje: $+1.200$ dolares.\n   - Costo de oportunidad (lo que deja de percibir por no programar): $-1.000$ dolares.\n   - Costo por daño de imagen: $-400$ dolares.\n   - Beneficio Neto de viajar: $1.200 - 1.000 - 400 = -200$ dolares.\n\nAl comparar ambos resultados, el beneficio de **Programar** ($1.000$) es superior al beneficio de viajar ($-200$). Por lo tanto, la decision racional es quedarse a trabajar."
@@ -641,10 +1099,22 @@
         "content": "Uno de los principios en economía indica que los mercados son mecanismos que ayudan a organizar la actividad economica.\n\nDos personas, de nombre “Mercado” y “Gobierno”, tienen una conversacion acerca de los efectos que produce la intervencion del Estado en una economía. En particular, analizan el caso de un mercado competitivo. Considere que, sin intervencion estatal, producto de la interaccion entre oferta y demanda se obtiene un precio de equilibrio igual a $80/unidad (ver figura 1).\n\nSuponga que las curvas de oferta y demanda se mantienen inalteradas, independiente de si existe o no intervencion del Estado. Además, suponga que las curvas de oferta y demanda son elásticas.\n\n**Figura 1**\n\n[Gráfico de Oferta y Demanda con equilibrio en P = $80]",
         "image": "/img/ICS1513-2.1-3 (24-2).png",
         "options": [
-          { "label": "a", "text": "“Mercado” indica que: si el Estado interviene el mercado competitivo citado en el enunciado, estableciendo un precio máximo a cobrar por parte de los productores (50$/unidad), se reducirá la cantidad ofertada respecto de la situacion sin intervencion." },
-          { "label": "b", "text": "“Mercado” indica que: si el Estado interviene el mercado competitivo citado en el enunciado, estableciendo un precio máximo a cobrar por parte de los productores (90$/unidad), se mantendrá sin variacion la cantidad ofertada respecto de la situacion sin intervencion." },
-          { "label": "c", "text": "“Gobierno” indica que: si el Estado interviene el mercado competitivo citado en el enunciado, estableciendo un precio mínimo a cobrar por parte de los productores (20$/unidad), se mantendrá sin variacion la cantidad ofertada respecto de la situacion sin intervencion." },
-          { "label": "d", "text": "Todas las alternativas son correctas." }
+          {
+            "label": "a",
+            "text": "“Mercado” indica que: si el Estado interviene el mercado competitivo citado en el enunciado, estableciendo un precio máximo a cobrar por parte de los productores (50$/unidad), se reducirá la cantidad ofertada respecto de la situacion sin intervencion."
+          },
+          {
+            "label": "b",
+            "text": "“Mercado” indica que: si el Estado interviene el mercado competitivo citado en el enunciado, estableciendo un precio máximo a cobrar por parte de los productores (90$/unidad), se mantendrá sin variacion la cantidad ofertada respecto de la situacion sin intervencion."
+          },
+          {
+            "label": "c",
+            "text": "“Gobierno” indica que: si el Estado interviene el mercado competitivo citado en el enunciado, estableciendo un precio mínimo a cobrar por parte de los productores (20$/unidad), se mantendrá sin variacion la cantidad ofertada respecto de la situacion sin intervencion."
+          },
+          {
+            "label": "d",
+            "text": "Todas las alternativas son correctas."
+          }
         ],
         "answer": "d",
         "solution": "Analizamos el impacto de las políticas de precios en un mercado con equilibrio en \\$80:\n\n1. **Precio Máximo de \\$50 (Afirmacion a):** Como el precio máximo es inferior al precio de equilibrio, es una medida 'vinculante'. A ese precio menor, la ley de la oferta indica que los productores estarán dispuestos a ofrecer una cantidad menor que en el equilibrio original. Por tanto, la cantidad ofertada se reduce.\n\n2. **Precio Máximo de \\$90 (Afirmacion b):** Como el tope legal está por encima del equilibrio natural del mercado, la restriccion no tiene efecto práctico ('no vinculante'). El mercado seguirá operando en el equilibrio de \\$80, manteniendo la cantidad ofertada original.\n3. **Precio Mínimo de \\$20 (Afirmacion c):** Un piso legal por debajo del precio de equilibrio tampoco tiene efecto ('no vinculante'), ya que el mercado ya está cobrando un precio superior. La cantidad ofertada se mantiene en el nivel de equilibrio.\n\nComo todas las afirmaciones son correctas según la teoría de microeconomía básica, la alternativa correcta es la **d**."
@@ -655,10 +1125,22 @@
         "code": "ICS1513-2.2-2 (24-1)",
         "content": "Uno de los principios en economía indica que los mercados son mecanismos que ayudan a organizar la actividad economica.\n\nDos personas han creado una nueva empresa de nombre “Energy”. Desean ingresar al mercado de la energía, el cual cumple con los postulados de competencia perfecta. En particular, la empresa “Energy” ofrecerá el mismo producto que las demás empresas que participan en este mercado, y su tamaño relativo es tan pequeño respecto de la oferta, que no puede influir en el precio de mercado por sí sola.\n\nPara determinar cuánto le es optimo producir a “Energy” ($Q^{optimo}$), se dispone de la siguiente funcion de costos totales, que representa a la empresa operando de forma economicamente eficiente:\n\n$$CT(Q) = 1 + Q^2$$\n\nSi el precio de equilibrio del mercado es 10$/unidad, considerando esta situacion, es **CORRECTO** afirmar lo siguiente:",
         "options": [
-          { "label": "a", "text": "$Q^{optimo} = 5$" },
-          { "label": "b", "text": "$Q^{optimo} = 10$" },
-          { "label": "c", "text": "$Q^{optimo} = 15$" },
-          { "label": "d", "text": "Ninguna de las alternativas es correcta." }
+          {
+            "label": "a",
+            "text": "$Q^{optimo} = 5$"
+          },
+          {
+            "label": "b",
+            "text": "$Q^{optimo} = 10$"
+          },
+          {
+            "label": "c",
+            "text": "$Q^{optimo} = 15$"
+          },
+          {
+            "label": "d",
+            "text": "Ninguna de las alternativas es correcta."
+          }
         ],
         "answer": "a",
         "solution": "En competencia perfecta, una empresa maximiza sus beneficios produciendo en el nivel donde el precio de mercado ($P$) es igual al costo marginal ($CMg$):\n\n1. **Obtencion del Costo Marginal:** El costo marginal es la derivada de la funcion de costo total ($CT$) respecto a la cantidad ($Q$):\n   $$CMg = \\frac{d(CT)}{dQ} = \\frac{d(1 + Q^2)}{dQ} = 2Q$$\n\n2. **Aplicacion de la condicion de optimalidad ($P = CMg$):**\n   $$10 = 2Q$$\n   $$Q = \\frac{10}{2} = 5$$\n\n\n\nPor lo tanto, la cantidad optima de produccion para la empresa es 5 unidades, lo que corresponde a la opcion **a**."
@@ -670,10 +1152,22 @@
         "content": "En economía se utiliza el concepto disposicion a pagar como la máxima cantidad que estaría dispuesto a pagar un consumidor por adquirir un producto y/o servicio. A su vez, el concepto precio de adquisicion se define como el precio que efectivamente paga el consumidor por la adquisicion de dicho producto y/o servicio, y el excedente del consumidor corresponde a la diferencia entre la disposicion a pagar y el precio pagado.\n\nConsidere la siguiente informacion (ver Tabla 1), que representa la disposicion a pagar por las unidades de producto que el consumidor estaría dispuesto a consumir. Considere que el consumidor estará dispuesto a comprar unidades adicionales siempre que el precio de adquisicion sea menor o igual que la disposicion a pagar. Si el precio de adquisicion resultante del equilibrio de mercado para esta economía, sin impuestos y con una oferta elástica, es $8/unidad, podemos **AFIRMAR** lo siguiente respecto del excedente del consumidor (EC), correspondiente al total de unidades que el consumidor estará dispuesto a comprar en este mercado:",
         "image": "/img/ICS1513-2.5-1 (24-1).png",
         "options": [
-          { "label": "a", "text": "EC resulta ser $10." },
-          { "label": "b", "text": "EC resulta ser $12." },
-          { "label": "c", "text": "EC resulta ser $14." },
-          { "label": "d", "text": "Ninguna de las alternativas es correcta." }
+          {
+            "label": "a",
+            "text": "EC resulta ser $10."
+          },
+          {
+            "label": "b",
+            "text": "EC resulta ser $12."
+          },
+          {
+            "label": "c",
+            "text": "EC resulta ser $14."
+          },
+          {
+            "label": "d",
+            "text": "Ninguna de las alternativas es correcta."
+          }
         ],
         "answer": "b",
         "solution": "El excedente del consumidor (EC) se calcula sumando la diferencia entre la disposicion a pagar de cada unidad y el precio efectivamente pagado ($8), para todas aquellas unidades donde la disposicion sea mayor o igual al precio:\n\n1. **1° unidad:** $14 - 8 = 6$\n2. **2° unidad:** $12 - 8 = 4$\n3. **3° unidad:** $10 - 8 = 2$\n4. **4° unidad:** $8 - 8 = 0$\n\nSumamos los excedentes individuales: $6 + 4 + 2 + 0 = 12$.\n\n\n\nPor lo tanto, el excedente total del consumidor es $12, lo que corresponde a la opcion **b**."
@@ -684,10 +1178,22 @@
         "code": "ICS1513-3.2-3 (24-1)",
         "content": "Un monopolio se caracteriza porque existe una única empresa en el mercado ofreciendo un producto. El hecho de ser el único oferente en el mercado le permite al monopolio tener poder de mercado, lo que implica tener la capacidad de fijar el precio en el nivel que maximice su beneficio economico. Si el monopolio ejerce su poder de mercado (caso sin regulacion), el precio será mayor que en el caso de competencia perfecta, implicando una menor oferta de productos disponibles para el mercado.\n\nSuponga un mercado donde existe una única empresa (monopolio) que atiende una demanda de muchos consumidores. La demanda está representada por la funcion $P = 22 - 2 \\cdot Q$, por lo que su ingreso marginal queda expresado a través de la siguiente expresion: $IMg(Q) = 22 - 4 \\cdot Q$. Su funcion de costos totales está representada por la expresion: $CT(Q) = 15 + 2 \\cdot Q$. El Estado actualmente no regula sus precios, por lo cual el monopolio ejerce su poder de mercado, es decir, fija un precio ($P$) que le permite maximizar su beneficio economico.\n\nEn dicho contexto, ¿cuál de las siguientes afirmaciones es **CORRECTA**?",
         "options": [
-          { "label": "a", "text": "$P = $12/unidad, precio para el cual el monopolio maximiza su beneficio economico." },
-          { "label": "b", "text": "$P = $14/unidad, precio para el cual el monopolio maximiza su beneficio economico." },
-          { "label": "c", "text": "$P = $16/unidad, precio para el cual el monopolio maximiza su beneficio economico." },
-          { "label": "d", "text": "Todas las alternativas son incorrectas." }
+          {
+            "label": "a",
+            "text": "$P = $12/unidad, precio para el cual el monopolio maximiza su beneficio economico."
+          },
+          {
+            "label": "b",
+            "text": "$P = $14/unidad, precio para el cual el monopolio maximiza su beneficio economico."
+          },
+          {
+            "label": "c",
+            "text": "$P = $16/unidad, precio para el cual el monopolio maximiza su beneficio economico."
+          },
+          {
+            "label": "d",
+            "text": "Todas las alternativas son incorrectas."
+          }
         ],
         "answer": "a",
         "solution": "Para maximizar el beneficio, el monopolista produce donde el Ingreso Marginal ($IMg$) es igual al Costo Marginal ($CMg$):\n\n1. **Obtencion del CMg:** Derivamos la funcion de costo total $CT(Q) = 15 + 2Q$ respecto a $Q$:\n   $$CMg = \\frac{d(CT)}{dQ} = 2$$\n2. **Igualacion $IMg = CMg$:**\n   $$22 - 4Q = 2$$\n   $$20 = 4Q \\implies Q = 5$$\n3. **Cálculo del Precio:** Sustituimos $Q = 5$ en la funcion de demanda:\n   $$P = 22 - 2(5)$$\n   $$P = 22 - 10 = 12$$\n\n\n\nPor lo tanto, la respuesta correcta es la **a**."
@@ -699,10 +1205,22 @@
         "content": "Para determinar la rentabilidad de un proyecto se aplica el método de flujos de caja descontados, sumando los flujos actualizados al momento inicial (Valor Actual Neto o VAN). Considere un proyecto cuyos flujos de caja están representados en la Tabla 4, con una tasa de descuento del 10% y una depreciacion lineal en tres periodos. El VAN actual del proyecto es $421.\n\nTomando en consideracion esta informacion, se pide seleccionar la alternativa **CORRECTA**:",
         "image": "/img/ICS1513-6.2-1 (24-1).png",
         "options": [
-          { "label": "a", "text": "Si la tasa de impuesto aumenta de 27% a 28%, el VAN del proyecto aumenta." },
-          { "label": "b", "text": "Si la tasa de impuesto aumenta de 27% a 28%, el VAN del proyecto disminuye." },
-          { "label": "c", "text": "Si la tasa de impuesto aumenta de 27% a 28%, el VAN del proyecto no cambia." },
-          { "label": "d", "text": "Ninguna alternativa es correcta." }
+          {
+            "label": "a",
+            "text": "Si la tasa de impuesto aumenta de 27% a 28%, el VAN del proyecto aumenta."
+          },
+          {
+            "label": "b",
+            "text": "Si la tasa de impuesto aumenta de 27% a 28%, el VAN del proyecto disminuye."
+          },
+          {
+            "label": "c",
+            "text": "Si la tasa de impuesto aumenta de 27% a 28%, el VAN del proyecto no cambia."
+          },
+          {
+            "label": "d",
+            "text": "Ninguna alternativa es correcta."
+          }
         ],
         "answer": "b",
         "solution": "El VAN es la suma de los flujos de caja descontados. Analizamos el impacto del aumento de impuestos:\n\n1. **Relacion Impuesto-Utilidad:** El impuesto es un egreso de caja que se calcula como un porcentaje de la Utilidad Antes de Impuesto (EBIT). \n2. **Efecto en el Flujo de Caja (FC):** Si la tasa de impuesto sube (de 27% a 28%), el valor absoluto del impuesto (fila 7.2 de la Tabla 4) aumenta. Como el impuesto resta en el cálculo del flujo de caja neto, un mayor impuesto implica un flujo de caja menor en los periodos 1, 2 y 3.\n3. **Impacto en el VAN:** Al ser menores los flujos de caja futuros, su valor actualizado también será menor. Por lo tanto, la suma total (VAN) necesariamente disminuye.\n\n\n\nEn conclusion, un incremento en la carga impositiva reduce la rentabilidad neta del proyecto, haciendo que el VAN disminuya. La respuesta correcta es la **b**."
@@ -713,7 +1231,7 @@
     "section": "M3",
     "course": "IIC1103",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 46,
@@ -721,10 +1239,22 @@
         "code": "IIC1103-1-5 (24-2)",
         "content": "Considere la siguiente funcion, que busca determinar si todas las vocales se encuentran al menos una vez en el texto de letras minúsculas recibido como parámetro:\n\n1.  def funcion(texto):\n2.      for a in 'aeiou':\n3.          if a not in texto:\n4.              return False\n\n¿Cuál es el PROBLEMA de la implementacion presentada de la funcion?",
         "options": [
-          { "label": "a", "text": "Le falta un else que acompañe al if de la línea 3, cuyo interior debería ser un return True." },
-          { "label": "b", "text": "Está bien programada porque siempre retornará una respuesta bien generada." },
-          { "label": "c", "text": "La condicion del if debería ser al revés: if texto not in a:" },
-          { "label": "d", "text": "Le falta una quinta línea que se encuentre fuera del for, que debería decir return True." }
+          {
+            "label": "a",
+            "text": "Le falta un else que acompañe al if de la línea 3, cuyo interior debería ser un return True."
+          },
+          {
+            "label": "b",
+            "text": "Está bien programada porque siempre retornará una respuesta bien generada."
+          },
+          {
+            "label": "c",
+            "text": "La condicion del if debería ser al revés: if texto not in a:"
+          },
+          {
+            "label": "d",
+            "text": "Le falta una quinta línea que se encuentre fuera del for, que debería decir return True."
+          }
         ],
         "answer": "d",
         "solution": "Analicemos el flujo de ejecucion de la funcion:\n\n1. El ciclo `for` itera sobre cada una de las vocales ('a', 'e', 'i', 'o', 'u').\n2. Dentro del ciclo, se verifica si la vocal actual (`a`) NO está presente en el parámetro `texto`.\n3. Si una vocal falta, la funcion ejecuta `return False`, terminando correctamente su ejecucion.\n4. Si todas las vocales están presentes, el ciclo `for` terminará su ejecucion de forma natural tras pasar por las cinco vocales.\n5. En la implementacion actual, después de que el ciclo termina, no hay más instrucciones. En Python, si una funcion termina sin encontrar un `return`, devuelve `None` por defecto.\n\nPara que la funcion cumpla su objetivo, debe retornar `True` solo después de haber verificado exitosamente que ninguna vocal falta (es decir, fuera del ciclo). Por lo tanto, falta una quinta línea con `return True`. La opcion **a** es incorrecta porque poner un `return True` dentro de un `else` haría que la funcion terminara prematuramente en la primera vocal encontrada, sin revisar las demás."
@@ -736,10 +1266,22 @@
         "content": "Considere el siguiente programa: Si lista = [10, 4, 423, 1523, 55, 9999], ¿qué valor queda almacenado en la variable nueva_lista?",
         "image": "/img/IIC1103-2-1 (24-1).png",
         "options": [
-          { "label": "a", "text": "[9999, 55, 1523, 423, 4, 10]" },
-          { "label": "b", "text": "[4, 2, 4, 3, 1, 2]" },
-          { "label": "c", "text": "[0, 4, 3, 3, 5, 9]" },
-          { "label": "d", "text": "[2, 1, 3, 4, 2, 4]" }
+          {
+            "label": "a",
+            "text": "[9999, 55, 1523, 423, 4, 10]"
+          },
+          {
+            "label": "b",
+            "text": "[4, 2, 4, 3, 1, 2]"
+          },
+          {
+            "label": "c",
+            "text": "[0, 4, 3, 3, 5, 9]"
+          },
+          {
+            "label": "d",
+            "text": "[2, 1, 3, 4, 2, 4]"
+          }
         ],
         "answer": "b",
         "solution": "Realizamos el ruteo del algoritmo paso a paso:\n\n1. **Inicializacion:** `nueva_lista = []`, `i = 0`.\n2. **Iteracion 1 (i=0):** `lista[0]` es 10. `str(10)` tiene longitud 2 (`n=2`). `nueva_lista = [2] + []` → `[2]`.\n3. **Iteracion 2 (i=1):** `lista[1]` es 4. `str(4)` tiene longitud 1 (`n=1`). `nueva_lista = [1] + [2]` → `[1, 2]`.\n4. **Iteracion 3 (i=2):** `lista[2]` es 423. `str(423)` tiene longitud 3 (`n=3`). `nueva_lista = [3] + [1, 2]` → `[3, 1, 2]`.\n5. **Iteracion 4 (i=3):** `lista[3]` es 1523. `str(1523)` tiene longitud 4 (`n=4`). `nueva_lista = [4] + [3, 1, 2]` → `[4, 3, 1, 2]`.\n6. **Iteracion 5 (i=4):** `lista[4]` es 55. `str(55)` tiene longitud 2 (`n=2`). `nueva_lista = [2] + [4, 3, 1, 2]` → `[2, 4, 3, 1, 2]`.\n7. **Iteracion 6 (i=5):** `lista[5]` es 9999. `str(9999)` tiene longitud 4 (`n=4`). `nueva_lista = [4] + [2, 4, 3, 1, 2]` → `[4, 2, 4, 3, 1, 2]`.\n\n\n\nLa operacion `[n] + nueva_lista` inserta el nuevo valor al principio de la lista existente, lo que resulta en la secuencia de longitudes invertida. Por lo tanto, la respuesta correcta es la **b**."
@@ -751,10 +1293,22 @@
         "content": "Considere el siguiente programa en Python que involucra manipulacion de variables, estructuras condicionales y ciclos anidados:\n\n¿Qué valor queda almacenado en la variable `res` al finalizar el programa?",
         "image": "/img/IIC1103-2-7 (24-1).png",
         "options": [
-          { "label": "a", "text": "22" },
-          { "label": "b", "text": "25" },
-          { "label": "c", "text": "31" },
-          { "label": "d", "text": "18" }
+          {
+            "label": "a",
+            "text": "22"
+          },
+          {
+            "label": "b",
+            "text": "25"
+          },
+          {
+            "label": "c",
+            "text": "31"
+          },
+          {
+            "label": "d",
+            "text": "18"
+          }
         ],
         "answer": "a",
         "solution": "Realizamos el ruteo del programa paso a paso:\n\n1. **Asignacion inicial:**\n   - `var_1 = 3`\n   - `var_2 = 3 + 5 = 8`\n   - `var_3 = 3` → luego `var_3 += 2` resulta en `var_3 = 5`\n   - `var_4 = 8 - 3 = 5`\n   - `res = 40`\n\n2. **Estructura Condicional:**\n   - Línea 8: `var_4 >= var_2` ($5 >= 8$) es Falso. `var_3 == 1` es Falso. No entra.\n   - Línea 10: `var_1 < var_3` ($3 < 5$) es Verdadero Y `var_3 < var_2` ($5 < 8$) es Verdadero. Se ejecuta la línea 11: **`var_3 = 3`**.\n\n3. **Ciclos:** El ciclo `while` corre mientras `i < 3` ($i = 0, 1, 2$):\n   - **i = 0:** El `for` corre para `j` en `range(0, 1)` (1 vez). `res = 40 - 3 = 37`.\n   - **i = 1:** El `for` corre para `j` en `range(0, 2)` (2 veces). `res = 37 - 3 - 3 = 31`.\n   - **i = 2:** El `for` corre para `j` en `range(0, 3)` (3 veces). `res = 31 - 3 - 3 - 3 = 22`.\n\n\n\nAl terminar los ciclos, el valor de `res` es 22, correspondiente a la opcion **a**."
@@ -766,10 +1320,22 @@
         "content": "Considere el siguiente programa que utiliza la funcion `abs(x)`, la cual retorna el valor absoluto del número $x$:\n\n¿Qué se imprime en consola si es que comienza con `var_1 = 22` y `var_2 = 2`?",
         "image": "/img/IIC1103-3-6 (24-2).png",
         "options": [
-          { "label": "a", "text": "0" },
-          { "label": "b", "text": "1" },
-          { "label": "c", "text": "2" },
-          { "label": "d", "text": "3" }
+          {
+            "label": "a",
+            "text": "0"
+          },
+          {
+            "label": "b",
+            "text": "1"
+          },
+          {
+            "label": "c",
+            "text": "2"
+          },
+          {
+            "label": "d",
+            "text": "3"
+          }
         ],
         "answer": "d",
         "solution": "Realizamos el ruteo detallado de las variables:\n\n1. **Inicio:** `var_1 = 22`, `var_2 = 2`, `t = 0`.\n2. **Ciclo while:**\n   - **Iter 1:** $|22-2|=20 > 3$. `t=0` $\\implies$ `var_1 = 19`. `t` pasa a 1.\n   - **Iter 2:** $|19-2|=17 > 3$. `t=1` $\\implies$ `var_2 = 4`. `t` pasa a 0.\n   - **Iter 3:** $|19-4|=15 > 3$. `t=0` $\\implies$ `var_1 = 16`. `t` pasa a 1.\n   - **Iter 4:** $|16-4|=12 > 3$. `t=1` $\\implies$ `var_2 = 8`. `t` pasa a 0.\n   - **Iter 5:** $|16-8|=8 > 3$. `t=0` $\\implies$ `var_1 = 13`. `t` pasa a 1.\n   - **Iter 6:** $|13-8|=5 > 3$. `t=1` $\\implies$ `var_2 = 16`. `t` pasa a 0.\n   - **Iter 7:** $|13-16|=3$. Como $3 > 3$ es Falso, el ciclo termina.\n\n3. **Salida:** Fuera del ciclo, se evalúa `if var_1 - var_2 > 0` ($13 - 16 = -3$). Es Falso, por lo que se ejecuta el `else`: `print(var_2 - var_1)` $\\implies$ `16 - 13 = 3`.\n\nPor lo tanto, la consola imprime 3, correspondiente a la opcion **d**."
@@ -780,7 +1346,7 @@
     "section": "M3",
     "course": "Hojas de Cálculo: Nivel Básico",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 50,
@@ -789,10 +1355,22 @@
         "content": "Si se copia la celda D1 en la celda E2, ¿qué formula quedaría en la celda E2?",
         "image": "img/TRANS-6 (24-1).png",
         "options": [
-          { "label": "a", "text": "=$B$2+C$3*(D3+$D4)-$D$2" },
-          { "label": "b", "text": "=$A$1+C$2*(D3+$C4)-$C$1" },
-          { "label": "c", "text": "=$A$1+B$3*(D3+$D3)-$C$1" },
-          { "label": "d", "text": "=$A$1+B$2*(D3+$C3)-$C$1" }
+          {
+            "label": "a",
+            "text": "=$B$2+C$3*(D3+$D4)-$D$2"
+          },
+          {
+            "label": "b",
+            "text": "=$A$1+C$2*(D3+$C4)-$C$1"
+          },
+          {
+            "label": "c",
+            "text": "=$A$1+B$3*(D3+$D3)-$C$1"
+          },
+          {
+            "label": "d",
+            "text": "=$A$1+B$2*(D3+$C3)-$C$1"
+          }
         ],
         "answer": "b",
         "solution": "Las referencias con $ permanecen fijas. C2 es relativa en columna y fila, por lo que al mover una columna a la derecha y una fila abajo, se convierte en D3. $C3 tiene la columna fija, por lo que solo cambia la fila a 4."
@@ -804,10 +1382,22 @@
         "content": "Si se copia la celda D2 en la celda D4, y se ubica el valor 3 en la celda D3, ¿qué valores quedan en las celdas D2 y D4, respectivamente?",
         "image": "img/TRANS-10 (24-2).png",
         "options": [
-          { "label": "a", "text": "2 y 3." },
-          { "label": "b", "text": "3 y 1." },
-          { "label": "c", "text": "2 y 1." },
-          { "label": "d", "text": "1 y 3." }
+          {
+            "label": "a",
+            "text": "2 y 3."
+          },
+          {
+            "label": "b",
+            "text": "3 y 1."
+          },
+          {
+            "label": "c",
+            "text": "2 y 1."
+          },
+          {
+            "label": "d",
+            "text": "1 y 3."
+          }
         ],
         "answer": "a",
         "solution": "En D2, CONTAR.SI busca el valor 3 (de D3) en A1:C2, encontrando dos coincidencias. Al copiar a D4, el rango relativo cambia a A3:C2 y busca el valor de D5 (que es D2=2). En A2:C3 hay tres celdas con el valor 2."
@@ -818,7 +1408,7 @@
     "section": "M3",
     "course": "FIL188",
     "type": "Exercises",
-    "period": "24-2",
+    "period": "25-2",
     "questions": [
       {
         "id": 52,
@@ -826,10 +1416,22 @@
         "code": "FIL188-2-2 (24-1)",
         "content": "En un laboratorio que trabaja experimentando con animales se puede leer: 'La vida animal es valiosa en sí misma. No toleramos la crueldad'. ¿A qué corresponde lo expuesto?",
         "options": [
-          { "label": "a", "text": "Imperativo relativo." },
-          { "label": "b", "text": "Imperativo hipotético." },
-          { "label": "c", "text": "Imperativo categorico." },
-          { "label": "d", "text": "Imperativo impuesto." }
+          {
+            "label": "a",
+            "text": "Imperativo relativo."
+          },
+          {
+            "label": "b",
+            "text": "Imperativo hipotético."
+          },
+          {
+            "label": "c",
+            "text": "Imperativo categorico."
+          },
+          {
+            "label": "d",
+            "text": "Imperativo impuesto."
+          }
         ],
         "answer": "c",
         "solution": "Un imperativo categorico es un mandato moral interno e incondicional que no depende de ningún fin previo. La declaracion del laboratorio establece un valor intrínseco y una prohibicion absoluta, lo cual encaja con esta definicion filosofica."
@@ -840,10 +1442,22 @@
         "code": "FIL188-3-1 (24-1)",
         "content": "¿Qué se podría decir, respecto del ejercicio de la profesion, bajo una mirada de imperativos categoricos?",
         "options": [
-          { "label": "a", "text": "Como no están haciendo algo ilegal, no hay problema." },
-          { "label": "b", "text": "Como el laboratorio tiene el potencial de mejorar el bienestar, se debe tomar la oferta." },
-          { "label": "c", "text": "Como se utilizaría a la vida humana para tener réditos economicos, se debe rechazar la oferta." },
-          { "label": "d", "text": "Como la técnica podría ser accesible para toda la poblacion, se debe seguir con su desarrollo." }
+          {
+            "label": "a",
+            "text": "Como no están haciendo algo ilegal, no hay problema."
+          },
+          {
+            "label": "b",
+            "text": "Como el laboratorio tiene el potencial de mejorar el bienestar, se debe tomar la oferta."
+          },
+          {
+            "label": "c",
+            "text": "Como se utilizaría a la vida humana para tener réditos economicos, se debe rechazar la oferta."
+          },
+          {
+            "label": "d",
+            "text": "Como la técnica podría ser accesible para toda la poblacion, se debe seguir con su desarrollo."
+          }
         ],
         "answer": "c",
         "solution": "El imperativo categorico prohíbe tratar a los seres humanos como simples medios para obtener un beneficio (comercializacion de la vida). Por ende, el enfoque ético exige priorizar la dignidad humana sobre el lucro."
@@ -854,10 +1468,22 @@
         "code": "FIL188-3-2 (24-2)",
         "content": "La creacion de bioenergías a partir de organismos modificados genéticamente promete una solucion a la crisis energética. Dado que la liberacion de estos organismos al medio ambiente podría tener consecuencias ecologicas, una ingeniera decide proponer un proyecto bioenergético en un país ajeno a donde vive, ya que no le gustaría arriesgar el lugar donde reside.\n\nBajo la perspectiva de Kant, ¿a cuál imperativo estaría yendo directamente EN CONTRA la decision de la ingeniera?",
         "options": [
-          { "label": "a", "text": "A la universalidad de las acciones." },
-          { "label": "b", "text": "Al fin en sí mismo de las personas." },
-          { "label": "c", "text": "Al equilibrio de las acciones." },
-          { "label": "d", "text": "Al bienestar de las sociedad." }
+          {
+            "label": "a",
+            "text": "A la universalidad de las acciones."
+          },
+          {
+            "label": "b",
+            "text": "Al fin en sí mismo de las personas."
+          },
+          {
+            "label": "c",
+            "text": "Al equilibrio de las acciones."
+          },
+          {
+            "label": "d",
+            "text": "Al bienestar de las sociedad."
+          }
         ],
         "answer": "a",
         "solution": "La ética de Immanuel Kant se basa en el imperativo categorico, cuya primera formulacion es la ley de la universalidad: 'Actúa solo según una máxima tal que puedas querer al mismo tiempo que se torne ley universal'.\n\nEn este caso, la ingeniera está aplicando una logica que no podría ser universalizada (no podría querer que todos lanzaran proyectos peligrosos en países ajenos para proteger el propio), ya que esto destruiría la posibilidad de una convivencia ética global. Al priorizar su bienestar local sobre un principio que todos puedan seguir, está violando el requisito de universalidad de las acciones morales.\n\nPor lo tanto, la respuesta correcta es la **a**."
@@ -868,10 +1494,22 @@
         "code": "FIL188-4-1 (24-1)",
         "content": "Dado que la ingeniera no es transparente sobre como se gestionan los datos ni advierte riesgos, ¿cuál artículo del Codigo de Ética está siendo infringido?",
         "options": [
-          { "label": "a", "text": "A.3 Los ingenieros deben promover y cuidar el decoro y el prestigio del Colegio..." },
-          { "label": "b", "text": "B.5 Los Ingenieros no deben utilizar documentos sin la autorizacion de sus autores..." },
-          { "label": "c", "text": "B.10 Los ingenieros no aceptarán encargos profesionales por una remuneracion sujeta a resultados." },
-          { "label": "d", "text": "B.4 Los ingenieros deben informar a quien corresponda los riesgos a la seguridad, salud y bienestar de la comunidad..." }
+          {
+            "label": "a",
+            "text": "A.3 Los ingenieros deben promover y cuidar el decoro y el prestigio del Colegio..."
+          },
+          {
+            "label": "b",
+            "text": "B.5 Los Ingenieros no deben utilizar documentos sin la autorizacion de sus autores..."
+          },
+          {
+            "label": "c",
+            "text": "B.10 Los ingenieros no aceptarán encargos profesionales por una remuneracion sujeta a resultados."
+          },
+          {
+            "label": "d",
+            "text": "B.4 Los ingenieros deben informar a quien corresponda los riesgos a la seguridad, salud y bienestar de la comunidad..."
+          }
         ],
         "answer": "d",
         "solution": "La falta de transparencia y la omision de advertencias sobre riesgos en el manejo de informacion infringe el deber de informar sobre riesgos potenciales al bienestar de la comunidad."

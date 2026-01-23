@@ -16,6 +16,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from "@components/ui/sidebar"
 import { Badge } from "@components/ui/badge"
 import { Session } from "next-auth"
@@ -39,6 +40,7 @@ export function NavMain({
     }[]
   }[]
 }) {
+  const { isMobile, setOpenMobile } = useSidebar()
   const [isMounted, setIsMounted] = useState(false)
   const [openItems, setOpenItems] = useState<string[]>([])
 
@@ -70,6 +72,12 @@ export function NavMain({
     )
   }
 
+  const handleLinkClick = () => {
+    if (isMobile) {
+      setOpenMobile(false)
+    }
+  }
+
   return (
 
     <SidebarGroup>
@@ -94,7 +102,7 @@ export function NavMain({
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
                   <SidebarMenuButton tooltip={item.title} asChild>
-                    <Link href={item.url}>
+                    <Link href={item.url} onClick={handleLinkClick}>
                       {item.icon && <item.icon />}
                       <span>{item.title}</span>
                       {item.comingSoon && (
@@ -112,7 +120,7 @@ export function NavMain({
                     {item.items?.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.title}>
                         <SidebarMenuSubButton asChild>
-                          <Link href={subItem.url}>
+                          <Link href={subItem.url} onClick={handleLinkClick}>
                             <span>{subItem.title}</span>
                           </Link>
                         </SidebarMenuSubButton>

@@ -1,0 +1,114 @@
+---
+title: "Integral definida"
+description: "Cálculo de integrales definidas"
+section: "M1"
+course: "MAT1620"
+order: 1
+---
+
+# Integral definida (Áreas y momentos)
+
+## Definición
+
+El primer momento de area mide la distribución del área de una figura respecto a un eje determinado.
+
+Se define como la integral del producto de cada elemento diferencial de área ($dA$) por su distancia perpendicular al eje ($y$ o $x$):
+
+$$M_x = \int_a^b y(x) \, dx$$
+
+$$M_y = \int_a^b x(y) \, dy$$
+
+**Significado físico:** Si el primer momento de área respecto a un eje es cero, significa que ese eje pasa exactamente por el centroide de la figura.
+
+## Procedimiento para calculo de áreas
+
+1. Identificar la región del plano
+2. Identificar la función que describe la región
+3. Integrar la función
+4. Evaluar la integral
+
+### Stewart I, Repaso capítulo 6, Página 457
+
+| Número | Ejercicio | Solución |
+| :----- | :-------- | :------- |
+| 1 | $y = x^2, y = 4x - x^2$ | $\frac{8}{3}$ |
+| 2 | $y = 1/x, y = x^2, y = 0, x = e$ | $\frac{4}{3}$ |
+| 3 | $y = 1 - 2x^2, y = \lvert x \rvert $ | $\frac{7}{12}$ |
+| 4 | $x + y = 0, x = y^2 + 3y$ | $\frac{32}{3}$ |
+| 5 | $y = \text{sen}(\pi x/2), y = x^2 - 2x$ | $\frac{4}{\pi} + \frac{4}{3}$ |
+| 6 | $y = \sqrt{x}, y = x^2, x = 2$ | $\frac{4\sqrt{2}}{3} - \frac{17}{6}$ |
+
+Para hallar el área de una región comprendida entre dos funciones, calculamos la integral de la diferencia entre ambas en un intervalo cerrado $[a, b]$.
+
+### El Método Estándar
+
+Si conocemos qué función es mayor que la otra en todo el intervalo ($f(x) \geq g(x)$), la fórmula es:
+
+$$A = \int_{a}^{b} [f(x) - g(x)] \, dx$$
+
+Donde $f(x)$ es la curva superior y $g(x)$ la inferior.
+
+### El "Tip" del Valor Absoluto
+
+Si no queremos analizar cuál curva está por encima de la otra, o si las funciones se cruzan varias veces, la definición formal de área es:
+
+$$A = \int_{a}^{b} |f(x) - g(x)| \, dx$$
+
+¿Cómo aplicarlo en la práctica?
+
+1. Encuentra todos los puntos de corte igualando las funciones $f(x) = g(x)$.
+2. Divide la integración en sub-intervalos usando esos puntos de corte.
+3. Aplica valor absoluto al resultado de cada integral individual.
+4. Suma los valores absolutos obtenidos. Esto garantiza que las áreas no se "cancelen" entre sí si las curvas se cruzan.
+
+## Centroide
+
+El centroide de una región es el punto donde se encuentra el centro de masa de la región.
+
+Asumiendo que la región está acotada por una función superior $f(x)$ y una inferior $g(x)$ desde $x = a$ hasta $x = b$, las fórmulas son:
+
+### El Área ($A$)
+
+$$A = \int_{a}^{b} [f(x) - g(x)] \, dx$$
+
+### Coordenada $\bar{x}$ (Momento respecto al eje $y$)
+
+Coordenada que representa el promedio ponderado de la posición en $x$. La fórmula es:
+
+$$\bar{x} = \frac{1}{A} \int_{a}^{b} x [f(x) - g(x)] \, dx$$
+
+### Coordenada $\bar{y}$ (Momento respecto al eje $x$)
+
+Coordenada que representa el promedio ponderado de la posición en $y$. La fórmula es:
+
+$$\bar{y} = \frac{1}{A} \int_{a}^{b} \frac{1}{2} ([f(x)]^2 - [g(x)]^2) \, dx$$
+
+> Piensa en el centroide como el promedio de las funciones:
+>
+> - Para $\bar{x}$: Usas la distancia $x$.
+> - Para $\bar{y}$: Usas el punto medio entre las funciones, que es $\frac{f(x) + g(x)}{2}$. Al multiplicar esto por la "altura" $(f(x) - g(x))$, obtienes la diferencia de cuadrados: $\frac{1}{2}(f^2 - g^2)$.
+
+### Stewart I, Repaso capítulo 8, Página 575
+
+| Número | Ejercicio | Centroide $(\bar{x}, \bar{y})$ |
+| :--- | :--- | :--- |
+| **11** | $y = \frac{1}{2}x, \quad y = \sqrt{x}$ | $(\frac{8}{5}, 1)$ |
+| **12** | $y = \text{sen } x, \quad y = 0, \quad x \in [\frac{\pi}{4}, \frac{3\pi}{4}]$ | $(\frac{\pi}{2}, \frac{\pi + 2}{8\sqrt{2}})$ |
+
+### Comparación formulario HB
+
+| Concepto | HB (Curva y eje) | Entre dos curvas |
+| :--- | :--- | :--- |
+| Área ($A$) | $\int f(x) dx$ | $\int [f(x) - g(x)] dx$ |
+| Diferencial $dA$ | $f(x)dx$ | $[f(x) - g(x)]dx$ |
+| Centroide $\bar{x}$ o $x_c$ | $\frac{\int x f(x) dx}{A}$ | $\frac{\int x [f(x) - g(x)] dx}{A}$ |
+| Centroide $\bar{y}$ o $y_c$ | $\frac{\int \frac{1}{2} [f(x)]^2 dx}{A}$ | $\frac{\int \frac{1}{2} ([f(x)]^2 - [g(x)]^2) dx}{A}$ |
+
+## Preguntas relacionadas
+
+- (2018-1 P2) 28102 (Área)
+- (2019-2 P2) 19202 (Área)
+- (2023-2 P3) 23203 (Momento)
+- (2024-2 P2) 24202 (Momento)
+- (2025-2 P2) 25202 (Área)
+- (2026-1 P2) 26102 (Área)

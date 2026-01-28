@@ -91,7 +91,7 @@ export function getDocsNavigation() {
 
 export function getDocsByCourse(section: string, course: string): DocMeta[] {
   const docs: DocMeta[] = [];
-  const coursePath = path.join(CONTENT_PATH, section, course);
+  const coursePath = path.join(CONTENT_PATH, section, course, 'content');
   
   if (!fs.existsSync(coursePath)) {
     return docs;
@@ -100,7 +100,7 @@ export function getDocsByCourse(section: string, course: string): DocMeta[] {
   const files = fs.readdirSync(coursePath);
   
   for (const file of files) {
-    if (file.endsWith('.mdx') && file !== 'index.mdx') {
+    if (file.endsWith('.mdx')) {
       const filePath = path.join(coursePath, file);
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data } = matter(fileContents);
@@ -111,7 +111,7 @@ export function getDocsByCourse(section: string, course: string): DocMeta[] {
         section: data.section || section,
         course: data.course || course,
         order: data.order,
-        slug: [section, course, file.replace('.mdx', '')],
+        slug: [section, course, 'content', file.replace('.mdx', '')],
       });
     }
   }

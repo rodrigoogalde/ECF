@@ -98,52 +98,53 @@ export default async function DocPage({ params }: PageProps) {
                   <div className="ml-4 mt-1 space-y-0.5 border-l border-slate-200 dark:border-slate-700 pl-2">
                     {section.courses.map((course: { code: string; name: string; slug: string }) => {
                       const href = `/docs/${section.code}/${course.slug}`;
-                      const isActive = slug[0] === section.code && slug[1] === course.slug;
+                      const isCourseActive = slug[0] === section.code && slug[1] === course.slug;
+                      
+                      // Get topics for this specific course
+                      const courseTopics = isCourseActive ? currentTopics : [];
+                      
                       return (
-                        <Link
-                          key={course.code}
-                          href={href}
-                          className={`block px-2 py-1.5 text-sm rounded-md transition-colors ${
-                            isActive
-                              ? "bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-200 font-medium"
-                              : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
-                          }`}
-                        >
-                          {course.name}
-                        </Link>
+                        <div key={course.code}>
+                          <Link
+                            href={href}
+                            className={`block px-2 py-1.5 text-sm rounded-md transition-colors ${
+                              isCourseActive
+                                ? "bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-200 font-medium"
+                                : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
+                            }`}
+                          >
+                            {course.name}
+                          </Link>
+                          
+                          {/* Show topics under the active course */}
+                          {courseTopics.length > 0 && (
+                            <div className="ml-2 mt-1 space-y-0.5 border-l border-slate-200 dark:border-slate-700 pl-2">
+                              {courseTopics.map((topic) => {
+                                const topicHref = `/docs/${topic.slug.join('/')}`;
+                                const isTopicActive = slug.join('/') === topic.slug.join('/');
+                                return (
+                                  <Link
+                                    key={topicHref}
+                                    href={topicHref}
+                                    className={`flex items-center gap-1 px-2 py-1 text-xs rounded-md transition-colors ${
+                                      isTopicActive
+                                        ? "text-blue-700 dark:text-blue-300 font-medium"
+                                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                                    }`}
+                                  >
+                                    <ChevronRight className="h-3 w-3" />
+                                    {topic.title}
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
                       );
                     })}
                   </div>
                 </div>
               ))}
-
-              {currentTopics.length > 0 && (
-                <div className="pt-4 mt-4 border-t border-slate-200 dark:border-slate-700">
-                  <p className="px-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-2">
-                    En este curso
-                  </p>
-                  <div className="space-y-0.5">
-                    {currentTopics.map((topic) => {
-                      const href = `/docs/${topic.slug.join('/')}`;
-                      const isActive = slug.join('/') === topic.slug.join('/');
-                      return (
-                        <Link
-                          key={href}
-                          href={href}
-                          className={`flex items-center gap-1 px-2 py-1 text-sm rounded-md transition-colors ${
-                            isActive
-                              ? "text-blue-700 dark:text-blue-300 font-medium"
-                              : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                          }`}
-                        >
-                          <ChevronRight className="h-3 w-3" />
-                          {topic.title}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
             </nav>
           </aside>
 

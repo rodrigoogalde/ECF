@@ -38,54 +38,90 @@ $$\int k \cdot f(x) \, dx = k \int f(x) \, dx$$
 
 ## Técnicas de integración
 
-> Recordar técnica [ILATE](https://www.youtube.com/watch?v=P8gF8Lg47w4)
-
 ### Sustitución
+
+> Recordar técnica [ILATE](https://www.youtube.com/watch?v=P8gF8Lg47w4)
 
 Si $u = g(x)$, entonces:
 
 $$\int f(g(x)) \cdot g'(x) \, dx = \int f(u) \, du$$
 
 **Ejemplo:**
+
 $$\int 2x \cdot e^{x^2} \, dx$$
 
 Sea $u = x^2$, entonces $du = 2x \, dx$:
+
 $$\int e^u \, du = e^u + C = e^{x^2} + C$$
 
 ### Integración por partes
 
-
-$$\int u \, dv = uv - \int v \, du$$
+> $$\int u \, dv = uv - \int v \, du$$
 
 **Ejemplo:**
+
 $$\int x \cdot e^x \, dx$$
 
 Sea $u = x$ y $dv = e^x \, dx$, entonces $du = dx$ y $v = e^x$:
+
 $$\int x \cdot e^x \, dx = x \cdot e^x - \int e^x \, dx = x \cdot e^x - e^x + C = e^x(x - 1) + C$$
 
-## Ejemplos resueltos
+### Integración por fracciones
 
-### Ejemplo 1: Polinomio
+> Grado numerador $\geq$ grado denominador $\implies$ división polinómica.
 
-$$\int (3x^2 - 4x + 5) \, dx = x^3 - 2x^2 + 5x + C$$
+> Grado numerador $<$ grado denominador $\implies$ descomposición en fracciones simples.
 
-### Ejemplo 2: Función racional simple
+**Ejemplo:**
 
-$$\int \frac{2x + 3}{x^2 + 3x + 1} \, dx$$
+$$\int \frac{3x + 1}{x^2 - 1} \, dx$$
 
-Notamos que el numerador es la derivada del denominador:
-$$= \ln|x^2 + 3x + 1| + C$$
+Notamos que el grado del numerador es menor al del denominador, por lo que procedemos a descomponerlo en fracciones simples.
 
-### Ejemplo 3: Trigonométrica
 
-$$\int \sin^2(x) \, dx$$
 
-Usando la identidad $\sin^2(x) = \frac{1 - \cos(2x)}{2}$:
+### Integración trigonométrica
 
-$$= \int \frac{1 - \cos(2x)}{2} \, dx = \frac{x}{2} - \frac{\sin(2x)}{4} + C$$
 
-## Verificación
+### Integrales de funciones simétricas
 
-Siempre puedes verificar tu resultado derivando la primitiva:
+a) Si $f(x)$ es par $[f(-x) = f(x)]$, entonces $\int_{-a}^{a} f(x) \, dx = 2 \int_{0}^{a} f(x) \, dx$
 
-$$\frac{d}{dx}\left[\frac{x}{2} - \frac{\sin(2x)}{4}\right] = \frac{1}{2} - \frac{2\cos(2x)}{4} = \frac{1}{2} - \frac{\cos(2x)}{2} = \frac{1 - \cos(2x)}{2} = \sin^2(x)$$
+b) Si $f(x)$ es impar $[f(-x) = -f(x)]$, entonces $\int_{-a}^{a} f(x) \, dx = 0$
+
+## Ejemplos
+
+### Stewart I, Repaso capítulo 4, Página 353
+
+| Número | Ejercicio | Solución | Técnica |
+| :----- | :-------- | :------- | :------ |
+| 65 | | | |
+| 66 | | | |
+| 67 | | | |
+| 68 | | | |
+| 69 | | | |
+| 70 | | | |
+| 71 | | | |
+| 72 | | | |
+
+### Stewart I, Repaso capítulo 5, Página 417
+
+| Número | Ejercicio | Solución | Técnica |
+| :----- | :-------- | :------- | :------ |
+| 9 | $\int_{1}^{2} (8x^3 + 3x^2) \, dx$ | $37$ | Regla de la potencia directa |
+| 10 | $\int_{0}^{T} (x^4 - 8x + 7) \, dx$ | $\frac{T^5}{5} - 4T^2 + 7T$ | Regla de la potencia directa |
+| 11 | $\int_{0}^{1} (1 - x^9) \, dx$ | $\frac{9}{10}$ | Regla de la potencia directa |
+| 12 | $\int_{0}^{1} (1 - x)^9 \, dx$ | $\frac{1}{10}$ | Sustitución simple ($u = 1-x$) |
+| 13 | $\int_{1}^{9} \frac{\sqrt{u} - 2u^2}{u} \, du$ | $-76$ | División algebraica y potencias |
+| 14 | $\int_{0}^{1} (\sqrt[4]{u} + 1)^2 \, du$ | $\frac{49}{15}$ | Expansión de binomio al cuadrado |
+| 15 | $\int_{0}^{1} y(y^2 + 1)^5 \, dy$ | $\frac{21}{4}$ | Sustitución ($u = y^2 + 1$) |
+| 16 | $\int_{0}^{2} y^2 \sqrt{1 + y^3} \, dy$ | $\frac{52}{9}$ | Sustitución ($u = 1 + y^3$) |
+| 17 | $\int_{1}^{5} \frac{dt}{(t - 4)^2}$ | $\text{Diverge}$ | Integral impropia (asíntota en $t=4$) |
+| 18 | $\int_{0}^{1} \sin(3\pi t) \, dt$ | $\frac{2}{3\pi}$ | Sustitución trigonométrica simple |
+| 19 | $\int_{0}^{1} v^2 \cos(v^3) \, dv$ | $\frac{\sin(1)}{3}$ | Sustitución ($u = v^3$) |
+| 20 | $\int_{-1}^{1} \frac{\sin x}{1 + x^2} \, dx$ | $0$ | Propiedad de funciones impares |
+
+## Preguntas relacionadas
+
+- (2018-1 P1) 18101
+- (2024-2 P1) 24101
